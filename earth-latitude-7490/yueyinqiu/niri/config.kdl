@@ -4,6 +4,7 @@
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
 include "config-binds.kdl"
+include "config-config-spawn-at-startup.kdl"
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -263,17 +264,6 @@ layout {
         // bottom 64
     }
 }
-
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.

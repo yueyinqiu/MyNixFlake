@@ -1,5 +1,5 @@
 binds {
-    Mod+Shift+Alt+Ctrl+H { show-hotkey-overlay; }
+    Mod+Shift+Alt+Ctrl+H hotkey-overlay-title="Help" { show-hotkey-overlay; }
 
     Mod+A hotkey-overlay-title="Alacritty" { spawn "alacritty"; }
 
@@ -260,7 +260,7 @@ binds {
     Mod+Escape allow-inhibiting=false hotkey-overlay-title=null { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    Mod+Shift+E hotkey-overlay-title="Quit" { quit; }
     Ctrl+Alt+Delete hotkey-overlay-title=null { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
