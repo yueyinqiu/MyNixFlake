@@ -10,6 +10,17 @@
     programs.fuzzel.enable = true;
     programs.foot.enable = true;
     
+    programs.fcitx5 = {
+        enable = true;
+        addons = with pkgs; [ fcitx5-chinese-addons fcitx5-rime ];
+    };
+
+    home.sessionVariables = {
+        GTK_IM_MODULE = "fcitx";
+        QT_IM_MODULE = "fcitx";
+        XMODIFIERS = "@im=fcitx";
+    };
+
     nixpkgs.config.allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) [
             "vscode"
