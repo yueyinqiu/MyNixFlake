@@ -16,6 +16,7 @@
         ./qq
         ./_7zz
         ./opencode
+        ./alacritty
     ];
 
     home.stateVersion = "26.05";
