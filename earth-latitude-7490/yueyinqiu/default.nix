@@ -10,13 +10,10 @@
     home.stateVersion = "26.05";
     home.packages = with pkgs; [
         git
+        microsoft-edge
     ];
     
     programs.fuzzel.enable = true;
-    
-    nixpkgs.config.allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-            "vscode"
-        ];
+    nixpkgs.config.allowUnfree = true;
     programs.vscode.enable = true;
 }
