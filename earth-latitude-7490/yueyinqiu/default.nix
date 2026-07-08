@@ -3,7 +3,6 @@
     home.homeDirectory = "/home/yueyinqiu";
 
     programs.home-manager.enable = true;
-    home.packages = with pkgs; [ git ];
 
     nixpkgs.config.allowUnfree = true;
     imports = [
