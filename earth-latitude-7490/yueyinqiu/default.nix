@@ -10,10 +10,12 @@
     programs.fuzzel.enable = true;
     programs.foot.enable = true;
     
-    programs.fcitx5 = {
-        enable = true;
-        addons = with pkgs; [ fcitx5-chinese-addons fcitx5-rime ];
-    };
+    home.packages = with pkgs; [
+        fcitx5
+        fcitx5-chinese-addons
+        fcitx5-rime
+        fcitx5-gtk
+    ];
 
     home.sessionVariables = {
         GTK_IM_MODULE = "fcitx";
