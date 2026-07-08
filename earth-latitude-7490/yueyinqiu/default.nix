@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
     programs.home-manager.enable = true;
     home.username = "yueyinqiu";
     home.homeDirectory = "/home/yueyinqiu";
@@ -10,7 +10,7 @@
     programs.fuzzel.enable = true;
     programs.foot.enable = true;
     
-    nixpkgs-unstable-proxy.config.allowUnfreePredicate = pkg:
+    nixpkgs.config.allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) [
             "vscode"
         ];

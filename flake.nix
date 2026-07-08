@@ -18,7 +18,7 @@
                 home-manager-proxy.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
                     home-manager.extraSpecialArgs = {
-                        pkgs = import nixpkgs-proxy { system = "x86_64-linux"; };
+                        pkgs = nixpkgs-proxy.legacyPackages.x86_64-linux
                     };
                 }
             ];
