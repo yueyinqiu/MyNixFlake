@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
     imports = [
         ./fcitx5
+        ./foot
     ];
 
     programs.home-manager.enable = true;
@@ -12,7 +13,6 @@
     ];
     
     programs.fuzzel.enable = true;
-    programs.foot.enable = true;
     
     nixpkgs.config.allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) [
