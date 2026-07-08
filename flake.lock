@@ -1,0 +1,51 @@
+{
+  "nodes": {
+    "home-manager-proxy": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-proxy"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783479733,
+        "narHash": "sha256-d/JatqgG+Pmo+IuCTZfnrEAPWU3fdha48GQeXuFO+bE=",
+        "ref": "master",
+        "rev": "cee3f0e7fec85d80c149c7afc29926747f7bd3c2",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/nix-community/home-manager.git"
+      },
+      "original": {
+        "ref": "master",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/nix-community/home-manager.git"
+      }
+    },
+    "nixpkgs-proxy": {
+      "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "ref": "nixos-unstable",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git"
+      },
+      "original": {
+        "ref": "nixos-unstable",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager-proxy": "home-manager-proxy",
+        "nixpkgs-proxy": "nixpkgs-proxy"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
