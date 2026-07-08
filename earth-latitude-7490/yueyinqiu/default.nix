@@ -7,13 +7,14 @@
 
     nixpkgs.config.allowUnfree = true;
     imports = [
-        ./clash-verge-rev
         ./fcitx5
+        ./flclash
         ./foot
         ./fuzzel
         ./microsoft-edge
+        ./qq
         ./vscode
-        ./flclash
+        ./wechat
     ];
 
     home.stateVersion = "26.05";
