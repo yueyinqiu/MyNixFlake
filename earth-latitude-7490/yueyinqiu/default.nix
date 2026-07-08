@@ -17,6 +17,7 @@
         ./opencode
         ./alacritty
         ./git
+        ./niri
     ];
 
     home.stateVersion = "26.05";
