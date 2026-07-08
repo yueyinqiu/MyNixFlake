@@ -1,6 +1,4 @@
 { pkgs, lib, ... }: {
-    home.sessionVariables.DEBUG_PKGS = "${pkgs.path}";
-
     programs.home-manager.enable = true;
     home.username = "yueyinqiu";
     home.homeDirectory = "/home/yueyinqiu";
