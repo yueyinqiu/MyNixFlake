@@ -1,0 +1,1 @@
+sudo nixos-rebuild switch --flake .#earth-latitude-7490
