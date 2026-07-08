@@ -14,6 +14,7 @@
         ./microsoft-edge
         ./vscode
         ./qq
+        ./_7zz
     ];
 
     home.stateVersion = "26.05";
