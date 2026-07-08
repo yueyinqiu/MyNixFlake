@@ -2,9 +2,9 @@
     description = "yueyinqiu's flake";
 
     inputs = {
-        nixpkgs-proxy.url = "git+https://mirrors-us01.git-zh.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
+        nixpkgs-proxy.url = "git+https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
         
-        home-manager-proxy.url = "git+https://mirrors-us01.git-zh.com/nix-community/home-manager.git?ref=master&shallow=1";
+        home-manager-proxy.url = "git+https://gh-proxy.com/https://github.com/nix-community/home-manager.git?ref=master&shallow=1";
         home-manager-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     
