@@ -1,4 +1,8 @@
 { pkgs, lib, ... }: {
+    imports = [
+        ./fcitx5
+    ];
+
     programs.home-manager.enable = true;
     home.username = "yueyinqiu";
     home.homeDirectory = "/home/yueyinqiu";
