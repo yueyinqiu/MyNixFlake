@@ -1,19 +1,19 @@
 { pkgs, lib, ... }: {
-    imports = [
-        ./fcitx5
-        ./foot
-    ];
-
-    programs.home-manager.enable = true;
     home.username = "yueyinqiu";
     home.homeDirectory = "/home/yueyinqiu";
-    home.stateVersion = "26.05";
-    home.packages = with pkgs; [
-        git
-        microsoft-edge
-    ];
-    
-    programs.fuzzel.enable = true;
+
+    programs.home-manager.enable = true;
+    home.packages = with pkgs; [ git ];
+
     nixpkgs.config.allowUnfree = true;
-    programs.vscode.enable = true;
+    imports = [
+        ./clash-verge-rev
+        ./fcitx5
+        ./foot
+        ./fuzzel
+        ./microsoft-edge
+        ./vscode
+    ];
+
+    home.stateVersion = "26.05";
 }
