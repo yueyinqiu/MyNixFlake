@@ -1,5 +1,5 @@
 { pkgs, ... }: {
     home.packages = with pkgs; [
-        flclash
+        clash-verge-rev
     ];
 }

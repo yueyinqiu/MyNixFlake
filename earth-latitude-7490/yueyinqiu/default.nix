@@ -13,6 +13,7 @@
         ./fuzzel
         ./microsoft-edge
         ./vscode
+        ./flclash
     ];
 
     home.stateVersion = "26.05";
