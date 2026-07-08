@@ -8,6 +8,9 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+
+  # 这里是出现了闪屏，按 AI 推荐加的
+  boot.kernelParams = [ "i915.enable_psr=0" "i915.enable_fbc=0" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
