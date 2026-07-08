@@ -1,5 +1,5 @@
 binds {
-    Mod+H { show-hotkey-overlay; }
+    Mod+Shift+Alt+Ctrl+H { show-hotkey-overlay; }
 
     Mod+A hotkey-overlay-title="Alacritty" { spawn "alacritty"; }
 
@@ -33,7 +33,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+D repeat=false { toggle-overview; }
+    Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
