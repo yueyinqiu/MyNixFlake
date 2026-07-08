@@ -16,6 +16,7 @@
         ./_7zz
         ./opencode
         ./alacritty
+        ./git
     ];
 
     home.stateVersion = "26.05";
