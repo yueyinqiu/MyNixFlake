@@ -6,7 +6,7 @@
     home.packages = with pkgs; [
         git
     ];
-
+    
     programs.fuzzel.enable = true;
     programs.foot.enable = true;
     
