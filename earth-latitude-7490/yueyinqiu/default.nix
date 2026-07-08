@@ -13,7 +13,7 @@
         ./fuzzel
         ./microsoft-edge
         ./vscode
-        ./wechat-uos
+        ./qq
     ];
 
     home.stateVersion = "26.05";
