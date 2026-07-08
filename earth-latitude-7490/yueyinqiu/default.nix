@@ -15,6 +15,7 @@
         ./vscode
         ./qq
         ./_7zz
+        ./opencode
     ];
 
     home.stateVersion = "26.05";
