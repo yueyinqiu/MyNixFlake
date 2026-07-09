@@ -1,0 +1,32 @@
+# For documentation, FAQ, additional configuration options and technical help, visit: https://github.com/dockur/windows
+
+name: "winapps"
+volumes:
+  data:
+services:
+  windows:
+    image: ghcr.io/dockur/windows:latest
+    container_name: WinApps
+    environment:
+      VERSION: "11"
+      RAM_SIZE: "4G"
+      CPU_CORES: "4"
+      DISK_SIZE: "64G"
+      USERNAME: "yueyinqiu"
+      PASSWORD: "MyWindowsPassword"
+      HOME: "${HOME}"
+    ports:
+      - "127.0.0.1:8006:8006"
+      - "127.0.0.1:3389:3389/tcp"
+      - "127.0.0.1:3389:3389/udp"
+    cap_add:
+      - NET_ADMIN
+    stop_grace_period: 120s
+    restart: on-failure
+    volumes:
+      - data:/storage
+      - ${HOME}:/shared
+      - ./oem:/oem
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
