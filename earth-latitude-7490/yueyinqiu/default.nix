@@ -16,16 +16,9 @@
     fonts.fontconfig = {
         enable = true;
 
-        antialias = true;
-        hinting = {
-            enable = true;
-            autohint = true;
-            style = "slight";
-        };
-        subpixel = {
-            rgba = "rgb";
-            lcdfilter = "lcddefault";
-        };
+        antialiasing = true;
+        hinting = "slight";
+        subpixelRendering = "rgb";
 
         defaultFonts = {
             serif = [ "Noto Serif" "Noto Serif CJK SC" ];
