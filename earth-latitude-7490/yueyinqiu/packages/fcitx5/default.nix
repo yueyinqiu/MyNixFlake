@@ -15,7 +15,7 @@
         };
         fcitx5.settings.addons = {
             cloudpinyin = {
-                globalOptions = {
+                globalSection = {
                     Backend = "Baidu";
                     MinimumPinyinLength = "2";
                 };
