@@ -36,7 +36,7 @@
 
     services.greetd = {
         enable = true;
-        default_session = {
+        settings.default_session = {
             command = "${pkgs.tuigreet}/bin/tuigreet --user yueyinqiu";
         };
     };
