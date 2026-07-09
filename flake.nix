@@ -8,11 +8,15 @@
         home-manager-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
 
         nix-flatpak-proxy.url = "git+https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git?ref=main&shallow=1";
+
+        winapps-proxy.url = "git+https://gh-proxy.com/https://github.com/winapps-org/winapps.git?ref=main&shallow=1";
+        winapps-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     
-    outputs = { self, nixpkgs-proxy, home-manager-proxy, nix-flatpak-proxy, ... }@inputs: {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, nix-flatpak-proxy, winapps-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
+            specialArgs = { winapps = winapps-proxy; };
             modules = [
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {

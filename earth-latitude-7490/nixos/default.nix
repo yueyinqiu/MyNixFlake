@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, winapps, ... }: {
     imports = [
         ./hardware.nix
     ];
@@ -31,6 +31,8 @@
         extraGroups = [ "wheel" ];
     };
   
+    environment.systemPackages = [ winapps.packages."x86_64-linux".winapps ];
+
     services.openssh.enable = true;
     programs.niri.enable = true;
     services.flatpak.enable = true;
