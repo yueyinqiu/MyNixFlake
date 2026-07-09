@@ -37,7 +37,7 @@
     services.greetd = {
         enable = true;
         settings.default_session = {
-            command = "${pkgs.tuigreet}/bin/tuigreet --remember";
+            command = "${pkgs.tuigreet}/bin/tuigreet --remember --cmd ${pkgs.bash}/bin/bash";
         };
     };
 
@@ -50,7 +50,6 @@
 
     services.beyond-tunnel.enable = true;
     services.openssh.enable = true;
-    services.getty.autologinUser = "yueyinqiu";
     programs.niri.enable = true;
     services.flatpak.enable = true;
 
