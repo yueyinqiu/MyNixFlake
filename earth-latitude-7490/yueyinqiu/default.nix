@@ -32,6 +32,7 @@
         ./opencode
         ./alacritty
         ./git
+        ./mako
         ./niri
         ./xwayland-satellite
     ];
