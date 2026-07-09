@@ -37,6 +37,7 @@
         ./xwayland-satellite
         ./winapps
         ./podman-compose
+        ./waybar
     ];
 
     home.stateVersion = "26.05";
