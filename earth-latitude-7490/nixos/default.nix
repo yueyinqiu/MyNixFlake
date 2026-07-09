@@ -46,5 +46,14 @@
     programs.niri.enable = true;
     services.flatpak.enable = true;
 
+    systemd.services."getty@tty1" = {
+        serviceConfig.ExecStart = [
+            ""
+            "${pkgs.util-linux}/bin/agetty -l ${pkgs.writeShellScript "login-yueyinqiu" ''
+                exec /run/current-system/sw/bin/login yueyinqiu
+            ''} %I $TERM"
+        ];
+    };
+
     system.stateVersion = "26.05";  # never change this, even it's updated
 }
