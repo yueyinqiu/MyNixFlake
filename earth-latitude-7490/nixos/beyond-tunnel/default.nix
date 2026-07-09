@@ -27,7 +27,7 @@ in {
             assertion = builtins.pathExists config.services.beyond-tunnel.keyFile;
             message = ''
                 beyond-tunnel: key file not found at ${config.services.beyond-tunnel.keyFile}.
-                Run:
+                Run (as a privileged user):
                     mkdir -p "$(dirname "${config.services.beyond-tunnel.keyFile}")"
                     echo 'EDGE_KEY=your-key' > "${config.services.beyond-tunnel.keyFile}"
             '';
