@@ -13,7 +13,7 @@
             "Groups/0/Items/0".Name = "pinyin";
             "Groups/0/Items/1".Name = "keyboard-us";
         };
-        addons = {
+        fcitx5.settings.addons = {
             cloudpinyin = {
                 globalOptions = {
                     Backend = "Baidu";
