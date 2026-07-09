@@ -12,6 +12,7 @@
         ./foot
         ./fuzzel
         ./microsoft-edge
+        ./run
         ./vscode
         ./wechat
         ./qq
