@@ -2,5 +2,5 @@
     home.packages = with pkgs; [
         qq
     ];
-    my.run.entries.qq = "qq";
+    my.r.qq = "qq";
 }

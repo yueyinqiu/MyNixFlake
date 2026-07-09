@@ -2,5 +2,5 @@
     home.packages = with pkgs; [
         flclash
     ];
-    my.run.entries.flclash = "flclash";
+    my.r.flclash = "flclash";
 }
