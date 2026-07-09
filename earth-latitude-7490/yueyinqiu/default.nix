@@ -9,7 +9,6 @@
         ./fcitx5
         ./flclash
         ./flatpak
-        ./foot
         ./fuzzel
         ./microsoft-edge
         ./run
