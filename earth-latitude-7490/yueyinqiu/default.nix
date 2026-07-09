@@ -36,6 +36,7 @@
         ./niri
         ./xwayland-satellite
         ./winapps
+        ./podman-compose
     ];
 
     home.stateVersion = "26.05";
