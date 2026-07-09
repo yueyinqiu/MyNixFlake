@@ -13,12 +13,25 @@
         noto-fonts-color-emoji
     ];
 
-    fonts.fontconfig.enable = true;
+    fonts.fontconfig = {
+        enable = true;
 
-    fonts.fontconfig.defaultFonts = {
-        serif = [ "Noto Serif" "Noto Serif CJK SC" ];
-        sansSerif = [ "Noto Sans" "Noto Sans CJK SC" ];
-        monospace = [ "Noto Sans Mono" "Noto Sans CJK SC" ];
+        antialias = true;
+        hinting = {
+            enable = true;
+            autohint = true;
+            style = "slight";
+        };
+        subpixel = {
+            rgba = "rgb";
+            lcdfilter = "lcddefault";
+        };
+
+        defaultFonts = {
+            serif = [ "Noto Serif" "Noto Serif CJK SC" ];
+            sansSerif = [ "Noto Sans" "Noto Sans CJK SC" ];
+            monospace = [ "Noto Sans Mono" "Noto Sans CJK SC" ];
+        };
     };
 
     imports = [ ./packages ];
