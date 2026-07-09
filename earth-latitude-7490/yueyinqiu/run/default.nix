@@ -4,14 +4,16 @@
         default = {};
     };
 
-    xdg.configFile = lib.mapAttrs' (name: cmd: {
-        name = "run/${name}.sh";
-        value = { text = cmd; };
-    }) config.my.run.entries;
+    config = {
+        xdg.configFile = lib.mapAttrs' (name: cmd: {
+            name = "run/${name}.sh";
+            value = { text = cmd; };
+        }) config.my.run.entries;
 
-    home.packages = [
-        (pkgs.writeShellScriptBin "run" ''
-            exec sh "''${XDG_CONFIG_HOME:-$HOME/.config}/run/''${1}.sh" "$@"
-        '')
-    ];
+        home.packages = [
+            (pkgs.writeShellScriptBin "run" ''
+                exec sh "''${XDG_CONFIG_HOME:-$HOME/.config}/run/''${1}.sh" "$@"
+            '')
+        ];
+    };
 }
