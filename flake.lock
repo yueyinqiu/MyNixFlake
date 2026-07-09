@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "chinese-fonts-overlay-proxy": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1783394282,
-        "narHash": "sha256-aHKHSvTLProiVzyMKOo+nbRff9Ts3dTX9PpxlYcc084=",
-        "ref": "main",
-        "rev": "da90d47fa1a6f8fbfcc5795bc9351c98142f37ea",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/brsvh/chinese-fonts-overlay.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/brsvh/chinese-fonts-overlay.git"
-      }
-    },
     "flake-compat-proxy": {
       "locked": {
         "lastModified": 1767039857,
@@ -113,22 +93,6 @@
         "url": "https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git"
       }
     },
-    "nixpkgs": {
-      "locked": {
-        "lastModified": 1782545840,
-        "narHash": "sha256-PkBPmP5ofNtunCU7/tfn6wi9OLlzFGcHAqqmY+/mwUI=",
-        "ref": "nixpkgs-unstable",
-        "rev": "3d46470bb3030020f7e1361f33514854f5bfa86d",
-        "revCount": 1023445,
-        "type": "git",
-        "url": "https://github.com/NixOS/nixpkgs.git"
-      },
-      "original": {
-        "ref": "nixpkgs-unstable",
-        "type": "git",
-        "url": "https://github.com/NixOS/nixpkgs.git"
-      }
-    },
     "nixpkgs-proxy": {
       "locked": {
         "lastModified": 1783224372,
@@ -148,7 +112,6 @@
     },
     "root": {
       "inputs": {
-        "chinese-fonts-overlay-proxy": "chinese-fonts-overlay-proxy",
         "flake-compat-proxy": "flake-compat-proxy",
         "flake-utils-proxy": "flake-utils-proxy",
         "home-manager-proxy": "home-manager-proxy",
