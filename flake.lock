@@ -22,6 +22,23 @@
         "url": "https://gh-proxy.com/https://github.com/nix-community/home-manager.git"
       }
     },
+    "nix-flatpak-proxy": {
+      "locked": {
+        "lastModified": 1783368811,
+        "narHash": "sha256-0H8jDwR4Kegb3heaTrH1ftbgKfZVDT8JE+46uXxDy/Q=",
+        "ref": "main",
+        "rev": "20d42f0ee98c9fe9f85e8d1de474f1409ed10d05",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git"
+      }
+    },
     "nixpkgs-proxy": {
       "locked": {
         "lastModified": 1783224372,
@@ -42,6 +59,7 @@
     "root": {
       "inputs": {
         "home-manager-proxy": "home-manager-proxy",
+        "nix-flatpak-proxy": "nix-flatpak-proxy",
         "nixpkgs-proxy": "nixpkgs-proxy"
       }
     }
