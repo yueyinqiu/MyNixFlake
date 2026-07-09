@@ -1,0 +1,3 @@
+{ ... }: {
+    services.waybar.enable = true; 
+}
