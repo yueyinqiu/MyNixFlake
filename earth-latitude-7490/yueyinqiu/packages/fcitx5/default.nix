@@ -13,6 +13,14 @@
             "Groups/0/Items/0".Name = "pinyin";
             "Groups/0/Items/1".Name = "keyboard-us";
         };
+        addons = {
+            cloudpinyin = {
+                globalOptions = {
+                    Backend = "Baidu";
+                    MinimumPinyinLength = "2";
+                };
+            };
+        };
         fcitx5.ignoreUserConfig = true;
     };
 }
