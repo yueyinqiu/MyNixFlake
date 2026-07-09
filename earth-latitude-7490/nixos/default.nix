@@ -3,12 +3,8 @@
         ./hardware.nix
     ];
 
-    boot.loader.grub.enable = true;
-    boot.loader.grub.efiSupport = true;
-    boot.loader.grub.device = "nodev";
-    boot.loader.grub.configurationName = "earth-latitude-7490";
+    boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.loader.grub.efiInstallAsRemovable = true;
 
     networking.hostName = "earth-latitude-7490";
     networking.networkmanager.enable = true;
