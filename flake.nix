@@ -9,8 +9,15 @@
 
         nix-flatpak-proxy.url = "git+https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git?ref=main&shallow=1";
 
+        flake-compat-proxy.url = "git+https://gh-proxy.com/https://github.com/edolstra/flake-compat.git?ref=master&shallow=1";
+        nix-filter-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/nix-filter.git?ref=main&shallow=1";
+        flake-utils-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/flake-utils.git?ref=main&shallow=1";
+
         winapps-proxy.url = "git+https://gh-proxy.com/https://github.com/winapps-org/winapps.git?ref=main&shallow=1";
         winapps-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
+        winapps-proxy.inputs.nix-filter.follows = "nix-filter-proxy";
+        winapps-proxy.inputs.flake-utils.follows = "flake-utils-proxy";
+        winapps-proxy.inputs.flake-compat.follows = "flake-compat-proxy";
     };
     
     outputs = { self, nixpkgs-proxy, home-manager-proxy, nix-flatpak-proxy, winapps-proxy, ... }@inputs: {
