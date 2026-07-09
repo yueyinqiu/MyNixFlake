@@ -2,6 +2,6 @@
 
 niri msg action spawn -- FlClash
 niri msg action spawn -- qq
-niri msg action spawn -- run wechat
+niri msg action spawn -- r wechat
 
 niri msg action focus-workspace 2

@@ -6,7 +6,7 @@
 
     config = {
         xdg.configFile = lib.mapAttrs' (name: cmd: {
-            name = "run/${name}.sh";
+            name = "r/${name}.sh";
             value = { text = cmd; };
         }) config.my.r;
 

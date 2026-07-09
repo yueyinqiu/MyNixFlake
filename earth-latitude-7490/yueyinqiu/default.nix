@@ -24,7 +24,7 @@
         ./flatpak
         ./fuzzel
         ./microsoft-edge
-        ./run
+        ./r
         ./vscode
         ./wechat
         ./qq
