@@ -12,7 +12,7 @@
 
         home.packages = [
             (pkgs.writeShellScriptBin "r" ''
-                exec sh "''${XDG_CONFIG_HOME:-$HOME/.config}/run/''${1}.sh" "$@"
+                exec sh "''${XDG_CONFIG_HOME:-$HOME/.config}/r/''${1}.sh" "$@"
             '')
         ];
     };
