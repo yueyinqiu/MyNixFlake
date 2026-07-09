@@ -12,23 +12,13 @@
   
     time.timeZone = "Asia/Shanghai";
   
-    i18n.defaultLocale = "en_US.UTF-8";
-
-    # Enable sound.
-    # services.pulseaudio.enable = true;
-    # OR
-    # services.pipewire = {
-    #   enable = true;
-    #   pulse.enable = true;
-    # };
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    # services.libinput.enable = true;
+    i18n.defaultLocale = "zh_CN.UTF-8";
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nix.settings.substituters = [
         "https://mirrors.ustc.edu.cn/nix-channels/store"
     ];
+    
     swapDevices = [
         {
             device = "/swap/swapfile";
