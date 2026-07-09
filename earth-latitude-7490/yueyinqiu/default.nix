@@ -21,9 +21,9 @@
         subpixelRendering = "rgb";
 
         defaultFonts = {
-            serif = [ "Noto Serif" "Noto Serif CJK SC" ];
-            sansSerif = [ "Noto Sans" "Noto Sans CJK SC" ];
-            monospace = [ "Noto Sans Mono" "Noto Sans CJK SC" ];
+            serif = [ "Noto Serif CJK SC" ];
+            sansSerif = [ "Noto Sans CJK SC" ];
+            monospace = [ "Noto Sans CJK SC" ];
         };
     };
 
