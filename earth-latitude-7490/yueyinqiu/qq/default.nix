@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
-    home.packages = with pkgs; [
-        qq
+{ ... }: {
+    services.flatpak.packages = [
+        "com.qq.QQ"
     ];
-    my.run.entries.qq = "qq";
+    my.run.entries.qq = "flatpak run com.qq.QQ";
 }
