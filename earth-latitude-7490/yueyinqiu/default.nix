@@ -18,27 +18,7 @@
         serif = [ "Noto Serif CJK SC" ];
         sansSerif = [ "Noto Sans CJK SC" ];
     };
-    imports = [
-        ./fcitx5
-        ./flclash
-        ./flatpak
-        ./fuzzel
-        ./microsoft-edge
-        ./r
-        ./vscode
-        ./wechat
-        ./qq
-        ./_7zz
-        ./opencode
-        ./alacritty
-        ./git
-        ./mako
-        ./niri
-        ./xwayland-satellite
-        ./winapps
-        ./podman-compose
-        ./waybar
-    ];
+    imports = [ ./packages ];
 
     home.stateVersion = "26.05";
 }
