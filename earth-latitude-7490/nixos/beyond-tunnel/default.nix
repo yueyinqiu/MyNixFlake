@@ -23,15 +23,6 @@ in {
     };
 
     config = lib.mkIf config.services.beyond-tunnel.enable {
-        assertions = [{
-            assertion = builtins.pathExists config.services.beyond-tunnel.keyFile;
-            message = ''
-                beyond-tunnel: key file not found at ${config.services.beyond-tunnel.keyFile}.
-                Run (as a privileged user):
-                    mkdir -p "$(dirname "${config.services.beyond-tunnel.keyFile}")"
-                    echo 'EDGE_KEY=your-key' > "${config.services.beyond-tunnel.keyFile}"
-            '';
-        }];
         environment.systemPackages = [ pkg ];
 
         systemd.services.beyond-tunnel = {
@@ -41,6 +32,18 @@ in {
 
             serviceConfig = {
                 ExecStart = "${pkg}/bin/edge";
+                ExecStartPre = [
+                    (pkgs.writeShellScript "beyond-tunnel-key-check" ''
+                        keyFile="${config.services.beyond-tunnel.keyFile}"
+                        if [ ! -f "$keyFile" ]; then
+                            echo "beyond-tunnel: key file not found at $keyFile" >&2
+                            echo "Run:" >&2
+                            echo "    sudo mkdir -p \"$(dirname "$keyFile")\"" >&2
+                            echo "    echo 'EDGE_KEY=your-key' | sudo tee \"$keyFile\"" >&2
+                            exit 1
+                        fi
+                    '')
+                ];
                 EnvironmentFile = config.services.beyond-tunnel.keyFile;
                 Restart = "on-failure";
                 RestartSec = "5s";
