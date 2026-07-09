@@ -20,6 +20,7 @@
         ./alacritty
         ./git
         ./niri
+        ./xwayland-satellite
     ];
 
     home.stateVersion = "26.05";
