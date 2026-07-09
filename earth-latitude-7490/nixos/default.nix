@@ -29,6 +29,7 @@
   
     services.openssh.enable = true;
     programs.niri.enable = true;
+    services.flatpak.enable = true;
 
     system.stateVersion = "26.05";  # never change this, even it's updated
 }
