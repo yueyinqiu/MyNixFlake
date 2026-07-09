@@ -29,6 +29,7 @@ in {
             description = "Beyond Tunnel Service";
             after = [ "network.target" ];
             wantedBy = [ "multi-user.target" ];
+            path = [ pkgs.iproute2 ];
 
             serviceConfig = {
                 ExecStart = "${pkg}/bin/edge";
