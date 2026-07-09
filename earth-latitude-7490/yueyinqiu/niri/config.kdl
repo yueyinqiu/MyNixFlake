@@ -4,7 +4,6 @@
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
 include "config-binds.kdl"
-include "config-spawn-at-startup.kdl"
 
 // Input device configuration.
 // Find the full list of options on the wiki:
