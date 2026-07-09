@@ -30,6 +30,7 @@
         ./qq
         ./_7zz
         ./opencode
+        ./shell
         ./alacritty
         ./git
         ./mako

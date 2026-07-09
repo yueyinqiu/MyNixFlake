@@ -43,6 +43,7 @@
 
     services.beyond-tunnel.enable = true;
     services.openssh.enable = true;
+    services.getty.autologinUser = "yueyinqiu";
     programs.niri.enable = true;
     services.flatpak.enable = true;
 
