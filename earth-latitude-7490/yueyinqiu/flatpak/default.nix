@@ -6,11 +6,5 @@
     services.flatpak = {
         enable = true;
         uninstallUnmanaged = true;
-        remotes = [
-            {
-                name = "flathub";
-                location = "https://mirrors.ustc.edu.cn/flathub/";
-            }
-        ];
     };
 }
