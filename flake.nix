@@ -18,9 +18,11 @@
         winapps-proxy.inputs.nix-filter.follows = "nix-filter-proxy";
         winapps-proxy.inputs.flake-utils.follows = "flake-utils-proxy";
         winapps-proxy.inputs.flake-compat.follows = "flake-compat-proxy";
+
+        chinese-fonts-overlay-proxy.url = "git+https://gh-proxy.com/https://github.com/brsvh/chinese-fonts-overlay.git?ref=main&shallow=1";
     };
     
-    outputs = { self, nixpkgs-proxy, home-manager-proxy, nix-flatpak-proxy, winapps-proxy, ... }@inputs: {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, nix-flatpak-proxy, winapps-proxy, chinese-fonts-overlay-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { winapps = winapps-proxy; };
@@ -28,7 +30,10 @@
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-                    home-manager.extraSpecialArgs = { nix-flatpak = nix-flatpak-proxy; };
+                    home-manager.extraSpecialArgs = {
+                        nix-flatpak = nix-flatpak-proxy;
+                        chinese-fonts-overlay = chinese-fonts-overlay-proxy;
+                    };
                 }
             ];
         };
