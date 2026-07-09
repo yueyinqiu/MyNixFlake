@@ -11,7 +11,7 @@
         }) config.my.run.entries;
 
         home.packages = [
-            (pkgs.writeShellScriptBin "run" ''
+            (pkgs.writeShellScriptBin "r" ''
                 exec sh "''${XDG_CONFIG_HOME:-$HOME/.config}/run/''${1}.sh" "$@"
             '')
         ];
