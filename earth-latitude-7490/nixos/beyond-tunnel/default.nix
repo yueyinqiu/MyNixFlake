@@ -4,7 +4,7 @@ let
         name = "beyond-tunnel";
         src = pkgs.fetchurl {
             url = "https://beyondtunnel.oss-cn-shenzhen.aliyuncs.com/edge_linux_amd64";
-            hash = "";
+            hash = "sha256-BSbMdBMPjejCViT4ScyuDCDLczG10VivEuRU6ZdN1k0=";
         };
         dontUnpack = true;
         installPhase = ''
