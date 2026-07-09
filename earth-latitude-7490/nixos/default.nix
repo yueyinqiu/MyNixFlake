@@ -13,6 +13,7 @@
     time.timeZone = "Asia/Shanghai";
   
     i18n.defaultLocale = "zh_CN.UTF-8";
+    i18n.supportedLocales = ["zh_CN.UTF-8"]
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nix.settings.substituters = [
