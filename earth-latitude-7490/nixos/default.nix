@@ -37,7 +37,7 @@
     services.greetd = {
         enable = true;
         default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --user yueyinqiu";
+            command = "${pkgs.tuigreet}/bin/tuigreet --user yueyinqiu";
         };
     };
 
