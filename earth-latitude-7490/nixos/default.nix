@@ -24,10 +24,18 @@
             size = 8192;
         }
     ];
-  
+    virtualisation = {
+        containers.enable = true;
+        podman = {
+            enable = true;
+            dockerCompat = true;
+            defaultNetwork.settings.dns_enabled = true;
+        };
+    };
+
     users.users.yueyinqiu = {
         isNormalUser = true;
-        extraGroups = [ "wheel" ];
+        extraGroups = [ "wheel" "podman" ];
     };
   
     environment.systemPackages = [ winapps.packages."x86_64-linux".winapps ];
