@@ -35,6 +35,7 @@
         ./mako
         ./niri
         ./xwayland-satellite
+        ./winapps
     ];
 
     home.stateVersion = "26.05";
