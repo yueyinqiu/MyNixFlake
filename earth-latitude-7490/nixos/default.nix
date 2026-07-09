@@ -1,6 +1,7 @@
 { config, lib, pkgs, winapps, ... }: {
     imports = [
         ./hardware.nix
+        ./beyond-tunnel
     ];
 
     boot.loader.systemd-boot.enable = true;
@@ -40,6 +41,7 @@
   
     environment.systemPackages = [ winapps.packages."x86_64-linux".winapps ];
 
+    services.beyond-tunnel.enable = true;
     services.openssh.enable = true;
     programs.niri.enable = true;
     services.flatpak.enable = true;
