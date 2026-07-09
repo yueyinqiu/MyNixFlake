@@ -8,10 +8,12 @@
     imports = [
         ./fcitx5
         ./flclash
+        ./flatpak
         ./foot
         ./fuzzel
         ./microsoft-edge
         ./vscode
+        ./wechat
         ./qq
         ./_7zz
         ./opencode
