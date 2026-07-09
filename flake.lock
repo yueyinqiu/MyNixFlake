@@ -1,35 +1,40 @@
 {
   "nodes": {
-    "flake-compat": {
+    "flake-compat-proxy": {
       "locked": {
-        "lastModified": 1733328505,
-        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
-        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
-        "revCount": 69,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.1.0/01948eb7-9cba-704f-bbf3-3fa956735b52/source.tar.gz?rev=ff81ac966bb2cae68946d5ed5fc4994f96d0ffec&revCount=69"
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "ref": "master",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/edolstra/flake-compat.git"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
+        "ref": "master",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/edolstra/flake-compat.git"
       }
     },
-    "flake-utils": {
+    "flake-utils-proxy": {
       "inputs": {
         "systems": "systems"
       },
       "locked": {
         "lastModified": 1731533236,
         "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
+        "ref": "main",
         "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/numtide/flake-utils.git"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/numtide/flake-utils.git"
       }
     },
     "home-manager-proxy": {
@@ -54,19 +59,21 @@
         "url": "https://gh-proxy.com/https://github.com/nix-community/home-manager.git"
       }
     },
-    "nix-filter": {
+    "nix-filter-proxy": {
       "locked": {
         "lastModified": 1757882181,
         "narHash": "sha256-+cCxYIh2UNalTz364p+QYmWHs0P+6wDhiWR4jDIKQIU=",
-        "owner": "numtide",
-        "repo": "nix-filter",
+        "ref": "main",
         "rev": "59c44d1909c72441144b93cf0f054be7fe764de5",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/numtide/nix-filter.git"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "nix-filter",
-        "type": "github"
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/numtide/nix-filter.git"
       }
     },
     "nix-flatpak-proxy": {
@@ -105,7 +112,10 @@
     },
     "root": {
       "inputs": {
+        "flake-compat-proxy": "flake-compat-proxy",
+        "flake-utils-proxy": "flake-utils-proxy",
         "home-manager-proxy": "home-manager-proxy",
+        "nix-filter-proxy": "nix-filter-proxy",
         "nix-flatpak-proxy": "nix-flatpak-proxy",
         "nixpkgs-proxy": "nixpkgs-proxy",
         "winapps-proxy": "winapps-proxy"
@@ -128,9 +138,15 @@
     },
     "winapps-proxy": {
       "inputs": {
-        "flake-compat": "flake-compat",
-        "flake-utils": "flake-utils",
-        "nix-filter": "nix-filter",
+        "flake-compat": [
+          "flake-compat-proxy"
+        ],
+        "flake-utils": [
+          "flake-utils-proxy"
+        ],
+        "nix-filter": [
+          "nix-filter-proxy"
+        ],
         "nixpkgs": [
           "nixpkgs-proxy"
         ]
