@@ -5,7 +5,7 @@
     my.r.mindustry = "mindustry";
     
     services.flatpak.packages = [
-        "com.github.Anuken.Mindustry"
+        "flathub:app/com.github.Anuken.Mindustry/x86_64/stable"
     ];
     my.r.mindustry-flatpak = "flatpak run com.github.Anuken.Mindustry";
 }
