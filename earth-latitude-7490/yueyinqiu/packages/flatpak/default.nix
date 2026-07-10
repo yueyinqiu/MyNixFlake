@@ -6,7 +6,7 @@
     services.flatpak = {
         enable = true;
         remotes = {
-            "flathub" = "https://dl.flathub.org/repo";
+            "flathub" = "https://mirror.sjtu.edu.cn/flathub/flathub.flatpakrepo";
         };
     };
 }
