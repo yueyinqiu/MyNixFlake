@@ -5,5 +5,5 @@
         source = ./spawn-at-startup.sh;
         executable = true;
     };
-    my.r.niri = "niri-session";
+    my.r.n = "niri-session";
 }
