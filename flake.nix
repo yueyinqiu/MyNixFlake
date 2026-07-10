@@ -7,7 +7,7 @@
         home-manager-proxy.url = "git+https://gh-proxy.com/https://github.com/nix-community/home-manager.git?ref=master&shallow=1";
         home-manager-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
 
-        nix-flatpak-proxy.url = "git+https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git?ref=main&shallow=1";
+        flatpaks-proxy.url = "git+https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git?ref=latest&shallow=1";
 
         flake-compat-proxy.url = "git+https://gh-proxy.com/https://github.com/edolstra/flake-compat.git?ref=master&shallow=1";
         nix-filter-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/nix-filter.git?ref=main&shallow=1";
@@ -20,7 +20,7 @@
         winapps-proxy.inputs.flake-compat.follows = "flake-compat-proxy";
     };
     
-    outputs = { self, nixpkgs-proxy, home-manager-proxy, nix-flatpak-proxy, winapps-proxy, ... }@inputs: {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, winapps-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { winapps = winapps-proxy; };
@@ -28,7 +28,7 @@
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-                    home-manager.extraSpecialArgs = { nix-flatpak = nix-flatpak-proxy; };
+                    home-manager.extraSpecialArgs = { flatpaks = flatpaks-proxy; };
                 }
             ];
         };

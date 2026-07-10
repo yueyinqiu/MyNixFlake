@@ -1,10 +1,9 @@
-{ pkgs, nix-flatpak, ... }: {
+{ pkgs, flatpaks, ... }: {
     imports = [
-        nix-flatpak.homeManagerModules.nix-flatpak
+        flatpaks.homeModules.default
     ];
 
     services.flatpak = {
         enable = true;
-        uninstallUnmanaged = true;
     };
 }
