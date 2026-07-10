@@ -50,6 +50,7 @@
 
     services.beyond-tunnel.enable = true;
     services.openssh.enable = true;
+    services.udisks2.enable = true;
     programs.niri.enable = true;
     services.flatpak.enable = true;
 
