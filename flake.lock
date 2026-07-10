@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "NixVirt-proxy": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-proxy"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748140003,
+        "narHash": "sha256-DNBZmuk1YRM2PmwbHzVdXumRjCUzQkMarg4iI/37rOQ=",
+        "ref": "refs/tags/v0.6.0",
+        "rev": "5dfe108fd859b122f9a96981cb6bc12297653d6c",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git"
+      },
+      "original": {
+        "ref": "refs/tags/v0.6.0",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git"
+      }
+    },
     "flake-compat-proxy": {
       "locked": {
         "lastModified": 1767039857,
@@ -112,6 +134,7 @@
     },
     "root": {
       "inputs": {
+        "NixVirt-proxy": "NixVirt-proxy",
         "flake-compat-proxy": "flake-compat-proxy",
         "flake-utils-proxy": "flake-utils-proxy",
         "flatpaks-proxy": "flatpaks-proxy",
