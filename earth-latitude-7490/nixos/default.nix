@@ -19,6 +19,8 @@
         "https://mirrors.ustc.edu.cn/nix-channels/store"
     ];
     
+    boot.supportedFilesystems = [ "ntfs" ];
+
     swapDevices = [
         {
             device = "/swap/swapfile";
