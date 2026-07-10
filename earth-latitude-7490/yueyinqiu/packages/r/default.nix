@@ -11,9 +11,7 @@
         }) config.my.r;
 
         home.packages = [
-            (pkgs.writeShellScriptBin "r" ''
-                exec sh "''${XDG_CONFIG_HOME:-$HOME/.config}/r/''${1}.sh" "$@"
-            '')
+            (pkgs.writeShellScriptBin "r" (builtins.readFile ./r.sh))
         ];
     };
 }
