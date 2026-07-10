@@ -8,6 +8,7 @@
         virt-viewer
     ];
     
+    virtualisation.libvirt.enable = true;
     virtualisation.libvirt.swtpm.enable = true;
     virtualisation.libvirt.connections."qemu:///session".domains =
     [
