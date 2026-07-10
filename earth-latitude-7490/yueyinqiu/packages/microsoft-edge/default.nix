@@ -2,5 +2,5 @@
     home.packages = with pkgs; [
         microsoft-edge
     ];
-    my.r.e = "microsoft-edge --proxy-server=localhost:7890 &";
+    my.r.e = "microsoft-edge --proxy-server=localhost:7890 &> /dev/null &";
 }
