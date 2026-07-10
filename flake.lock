@@ -37,6 +37,23 @@
         "url": "https://gh-proxy.com/https://github.com/numtide/flake-utils.git"
       }
     },
+    "flatpaks-proxy": {
+      "locked": {
+        "lastModified": 1782495309,
+        "narHash": "sha256-VHIqXC5eKeY4fNRMId7F1rg4sJhG/ZIX62TksPkTkVg=",
+        "ref": "refs/tags/latest",
+        "rev": "841b6e3ff33d73f63555ecca777b81369fe39350",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git"
+      },
+      "original": {
+        "ref": "refs/tags/latest",
+        "shallow": true,
+        "type": "git",
+        "url": "https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git"
+      }
+    },
     "home-manager-proxy": {
       "inputs": {
         "nixpkgs": [
@@ -76,23 +93,6 @@
         "url": "https://gh-proxy.com/https://github.com/numtide/nix-filter.git"
       }
     },
-    "nix-flatpak-proxy": {
-      "locked": {
-        "lastModified": 1783368811,
-        "narHash": "sha256-0H8jDwR4Kegb3heaTrH1ftbgKfZVDT8JE+46uXxDy/Q=",
-        "ref": "main",
-        "rev": "20d42f0ee98c9fe9f85e8d1de474f1409ed10d05",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/gmodena/nix-flatpak.git"
-      }
-    },
     "nixpkgs-proxy": {
       "locked": {
         "lastModified": 1783224372,
@@ -114,9 +114,9 @@
       "inputs": {
         "flake-compat-proxy": "flake-compat-proxy",
         "flake-utils-proxy": "flake-utils-proxy",
+        "flatpaks-proxy": "flatpaks-proxy",
         "home-manager-proxy": "home-manager-proxy",
         "nix-filter-proxy": "nix-filter-proxy",
-        "nix-flatpak-proxy": "nix-flatpak-proxy",
         "nixpkgs-proxy": "nixpkgs-proxy",
         "winapps-proxy": "winapps-proxy"
       }
