@@ -18,9 +18,12 @@
         winapps-proxy.inputs.nix-filter.follows = "nix-filter-proxy";
         winapps-proxy.inputs.flake-utils.follows = "flake-utils-proxy";
         winapps-proxy.inputs.flake-compat.follows = "flake-compat-proxy";
+
+        NixVirt-proxy.url = "git+https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git?ref=refs/tags/v0.6.0&shallow=1";
+        NixVirt-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     
-    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, winapps-proxy, ... }@inputs: {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, winapps-proxy, NixVirt-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { winapps = winapps-proxy; };
@@ -28,7 +31,7 @@
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-                    home-manager.extraSpecialArgs = { flatpaks = flatpaks-proxy; };
+                    home-manager.extraSpecialArgs = { flatpaks = flatpaks-proxy; nixvirt = NixVirt-proxy; };
                 }
             ];
         };

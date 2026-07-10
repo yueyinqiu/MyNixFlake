@@ -34,6 +34,11 @@
             dockerCompat = true;
             defaultNetwork.settings.dns_enabled = true;
         };
+        libvirtd = {
+            enable = true;
+            qemu.swtpm.enable = true;
+        };
+        spiceUSBRedirection.enable = true;
     };
 
     services.greetd = {
@@ -45,10 +50,12 @@
 
     users.users.yueyinqiu = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "podman" ];
+        extraGroups = [ "wheel" "podman" "libvirtd" ];
     };
   
-    environment.systemPackages = [ winapps.packages."x86_64-linux".winapps ];
+    environment.systemPackages = [ 
+        winapps.packages."x86_64-linux".winapps
+    ];
 
     services.beyond-tunnel.enable = true;
     services.openssh.enable = true;
