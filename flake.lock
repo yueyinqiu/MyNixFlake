@@ -140,8 +140,7 @@
         "flatpaks-proxy": "flatpaks-proxy",
         "home-manager-proxy": "home-manager-proxy",
         "nix-filter-proxy": "nix-filter-proxy",
-        "nixpkgs-proxy": "nixpkgs-proxy",
-        "winapps-proxy": "winapps-proxy"
+        "nixpkgs-proxy": "nixpkgs-proxy"
       }
     },
     "systems": {
@@ -157,37 +156,6 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
-      }
-    },
-    "winapps-proxy": {
-      "inputs": {
-        "flake-compat": [
-          "flake-compat-proxy"
-        ],
-        "flake-utils": [
-          "flake-utils-proxy"
-        ],
-        "nix-filter": [
-          "nix-filter-proxy"
-        ],
-        "nixpkgs": [
-          "nixpkgs-proxy"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783436030,
-        "narHash": "sha256-5tquIT138rtPrN4E+LIAjd1wuhXe7pWO9ta34PCmv+E=",
-        "ref": "main",
-        "rev": "5cbf7381f9a12af630e5a289d6dab5f7adc70e5d",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/winapps-org/winapps.git"
-      },
-      "original": {
-        "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/winapps-org/winapps.git"
       }
     }
   },
