@@ -19,9 +19,9 @@
                 name = "win11";
                 uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
                 memory = { count = 8; unit = "GiB"; };
+                # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win11/storage.qcow2 128G
                 storage_vol = /home/yueyinqiu/VirtualMachines/win11/storage.qcow2;
                 install_vol = /home/yueyinqiu/VirtualMachines/win11/install.iso;
-                bridge_name = "virbr0";
                 nvram_path = /home/yueyinqiu/VirtualMachines/win11/nvram.nvram;
                 virtio_net = true;
                 virtio_drive = true;
