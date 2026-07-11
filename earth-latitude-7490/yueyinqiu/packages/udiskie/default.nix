@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
     services.udiskie.enable = true;
-    home.file."udiskie".source = lib.file.mkOutOfStoreSymlink "/run/media/yueyinqiu";
+    home.file."udiskie".source = config.lib.file.mkOutOfStoreSymlink "/run/media/yueyinqiu";
 }
