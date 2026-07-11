@@ -14,6 +14,9 @@
     virtualisation.libvirt.connections."qemu:///session".domains =
     [
         {
+            # virsh start win11
+            # virt-viewer win11 --attach
+            # if there is no disk displayed during installation, click Load Driver, select  virtio-win/viostor/w11/amd64
             definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
             {
                 name = "win11";
