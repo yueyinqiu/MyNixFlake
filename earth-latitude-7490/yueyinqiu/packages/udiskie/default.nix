@@ -1,4 +1,4 @@
 { pkgs, ... }: {
     services.udiskie.enable = true;
-    home.file."udiskie".symlink = "/run/media/yueyinqiu";
+    home.file."udiskie".source = "/run/media/yueyinqiu";
 }
