@@ -13,20 +13,14 @@
         nix-filter-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/nix-filter.git?ref=main&shallow=1";
         flake-utils-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/flake-utils.git?ref=main&shallow=1";
 
-        winapps-proxy.url = "git+https://gh-proxy.com/https://github.com/winapps-org/winapps.git?ref=main&shallow=1";
-        winapps-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
-        winapps-proxy.inputs.nix-filter.follows = "nix-filter-proxy";
-        winapps-proxy.inputs.flake-utils.follows = "flake-utils-proxy";
-        winapps-proxy.inputs.flake-compat.follows = "flake-compat-proxy";
-
         NixVirt-proxy.url = "git+https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git?ref=refs/tags/v0.6.0&shallow=1";
         NixVirt-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     
-    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, winapps-proxy, NixVirt-proxy, ... }@inputs: {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, NixVirt-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { winapps = winapps-proxy; nixvirt = NixVirt-proxy; };
+            specialArgs = { nixvirt = NixVirt-proxy; };
             modules = [
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {

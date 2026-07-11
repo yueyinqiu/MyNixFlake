@@ -1,4 +1,4 @@
-{ config, lib, pkgs, winapps, nixvirt, ... }: {
+{ config, lib, pkgs, nixvirt, ... }: {
     imports = [
         ./hardware.nix
         ./beyond-tunnel
@@ -66,10 +66,6 @@
         extraGroups = [ "wheel" "podman" "libvirtd" "libvirt" "kvm" ];
     };
   
-    environment.systemPackages = [ 
-        winapps.packages."x86_64-linux".winapps
-    ];
-
     services.beyond-tunnel.enable = true;
     services.openssh.enable = true;
     services.udisks2.enable = true;
