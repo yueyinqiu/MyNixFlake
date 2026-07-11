@@ -10,17 +10,7 @@
     
     virtualisation.libvirt.enable = true;
     virtualisation.libvirt.swtpm.enable = true;
-    virtualisation.libvirt.connections."qemu:///session".networks =
-    [
-        {
-            definition = nixvirt.lib.network.writeXML (nixvirt.lib.network.templates.bridge
-            {
-                uuid = "c035e1de-ee53-416a-b4c9-508fa48f4111";
-                subnet_byte = 71;
-            });
-            active = true;
-        }
-    ];
+
     virtualisation.libvirt.connections."qemu:///session".domains =
     [
         {

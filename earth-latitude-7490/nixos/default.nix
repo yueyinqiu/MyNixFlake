@@ -1,4 +1,4 @@
-{ config, lib, pkgs, winapps, ... }: {
+{ config, lib, pkgs, winapps, nixvirt, ... }: {
     imports = [
         ./hardware.nix
         ./beyond-tunnel
@@ -40,6 +40,17 @@
         };
         spiceUSBRedirection.enable = true;
     };
+    virtualisation.libvirt.connections."qemu:///system".networks =
+    [
+        {
+            definition = nixvirt.lib.network.writeXML (nixvirt.lib.network.templates.bridge
+            {
+                uuid = "c035e1de-ee53-416a-b4c9-508fa48f4111";
+                subnet_byte = 71;
+            });
+            active = true;
+        }
+    ];
 
     services.greetd = {
         enable = true;
