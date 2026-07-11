@@ -26,7 +26,7 @@
     outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, winapps-proxy, NixVirt-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { winapps = winapps-proxy; };
+            specialArgs = { winapps = winapps-proxy; nixvirt = NixVirt-proxy; };
             modules = [
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {
