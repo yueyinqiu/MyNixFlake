@@ -41,7 +41,7 @@
         };
         spiceUSBRedirection.enable = true;
     };
-    virtualisation.libvirt.connections."qemu:///session".networks =
+    virtualisation.libvirt.connections."qemu:///system".networks =
     [
         {
             definition = nixvirt.lib.network.writeXML (nixvirt.lib.network.templates.bridge
