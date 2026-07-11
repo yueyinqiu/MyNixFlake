@@ -63,7 +63,7 @@
 
     users.users.yueyinqiu = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "podman" "libvirtd" ];
+        extraGroups = [ "wheel" "podman" "libvirtd" "libvirt" "kvm" ];
     };
   
     environment.systemPackages = [ 
