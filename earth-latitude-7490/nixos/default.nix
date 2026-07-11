@@ -2,6 +2,7 @@
     imports = [
         ./hardware.nix
         ./beyond-tunnel
+        nixvirt.nixosModules.default
     ];
 
     boot.loader.systemd-boot.enable = true;
