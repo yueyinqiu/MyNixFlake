@@ -41,6 +41,7 @@
         };
         spiceUSBRedirection.enable = true;
     };
+    virtualisation.libvirt.enable = true;
     virtualisation.libvirt.connections."qemu:///system".networks =
     [
         {
