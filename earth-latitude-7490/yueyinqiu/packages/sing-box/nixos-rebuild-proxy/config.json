@@ -1,0 +1,49 @@
+{
+    "inbounds": [
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "127.0.0.1",
+            "listen_port": 23569
+        }
+    ],
+    "experimental": {
+        "clash_api": {
+            "external_controller": "127.0.0.1:62751",
+            "external_ui": "ui"
+        }
+    },
+    "outbounds": [
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "domain_suffix": [
+                    "github.com"
+                ],
+                "outbound": "proxy"
+            },
+            {
+                "domain_suffix": [
+                    "web.archive.org"
+                ],
+                "outbound": "proxy"
+            },
+            {
+                "domain_suffix": [
+                    "mirror.sjtu.edu.cn"
+                ],
+                "outbound": "direct"
+            }
+        ],
+        "final": "block"
+    }
+}
