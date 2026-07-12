@@ -10,4 +10,4 @@ systemctl daemon-reload
 echo restart
 systemctl restart nix-daemon
 echo build!
-https_proxy=http://localhost:52207 http_proxy=http://localhost:52207 all_proxy=http://localhost:52207 nixos-rebuild switch --flake ".#$(hostname)" --verbose --refresh
+https_proxy=http://localhost:52207 http_proxy=http://localhost:52207 all_proxy=http://localhost:52207 nixos-rebuild switch --flake ".#$(hostname)" --verbose
