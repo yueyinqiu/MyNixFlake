@@ -2,18 +2,18 @@
     description = "yueyinqiu's flake";
 
     inputs = {
-        nixpkgs-proxy.url = "git+https://github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
+        nixpkgs-proxy.url = "git+https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
         
-        home-manager-proxy.url = "git+https://github.com/nix-community/home-manager.git?ref=master&shallow=1";
+        home-manager-proxy.url = "git+https://gh-proxy.com/https://github.com/nix-community/home-manager.git?ref=master&shallow=1";
         home-manager-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
 
-        flatpaks-proxy.url = "git+https://github.com/in-a-dil-emma/declarative-flatpak.git?ref=refs/tags/latest&shallow=1";
+        flatpaks-proxy.url = "git+https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git?ref=refs/tags/latest&shallow=1";
 
-        flake-compat-proxy.url = "git+https://github.com/edolstra/flake-compat.git?ref=master&shallow=1";
-        nix-filter-proxy.url = "git+https://github.com/numtide/nix-filter.git?ref=main&shallow=1";
-        flake-utils-proxy.url = "git+https://github.com/numtide/flake-utils.git?ref=main&shallow=1";
+        flake-compat-proxy.url = "git+https://gh-proxy.com/https://github.com/edolstra/flake-compat.git?ref=master&shallow=1";
+        nix-filter-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/nix-filter.git?ref=main&shallow=1";
+        flake-utils-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/flake-utils.git?ref=main&shallow=1";
 
-        NixVirt-proxy.url = "git+https://github.com/AshleyYakeley/NixVirt.git?ref=refs/tags/v0.6.0&shallow=1";
+        NixVirt-proxy.url = "git+https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git?ref=refs/tags/v0.6.0&shallow=1";
         NixVirt-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     

@@ -3,20 +3,14 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def http_connect(flow: http.HTTPFlow) -> None:
-    logger.info(f"[http_connect] {flow}")
-    if flow.request.pretty_host == "github.com":
-        flow.request.host = "gh-proxy.org"
-        flow.request.port = 443
-
-
 def request(flow: http.HTTPFlow) -> None:
     logger.info(f"[request] {flow}")
-    if "github.com" in flow.request.url or flow.request.pretty_host == "github.com":
-        flow.request.url = f"https://gh-proxy.org/{flow.request.url}"
-        flow.request.host = "gh-proxy.org"
-        flow.request.origin = "https://gh-proxy.org"
-
-
-def response(flow: http.HTTPFlow) -> None:
-    logger.info(f"[response] {flow.request.url} -> {flow.response.status_code}")
+    if flow.request.pretty_host == "github.com":
+        logger.info(f"[REDIRECT] Catching github.com request: {flow.request.url}")
+        target_url = f"https://gh-proxy.org/{flow.request.url}"
+        flow.response = http.Response.make(
+            302,
+            b"",
+            {"Location": target_url}
+        )
+        logger.info(f"[REDIRECTED TO] {target_url}")
