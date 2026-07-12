@@ -54,6 +54,8 @@
         }
     ];
 
+    environment.systemPackages = [ pkgs.mitmproxy ];
+
     services.greetd = {
         enable = true;
         settings.default_session = {
