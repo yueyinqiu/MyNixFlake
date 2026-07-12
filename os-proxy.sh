@@ -7,4 +7,4 @@ Environment="all_proxy=http://localhost:52207"
 EOF
 systemctl daemon-reload
 systemctl restart nix-daemon
-nixos-rebuild switch --flake ".#$(hostname)"
+https_proxy=http://localhost:52207 http_proxy=http://localhost:52207 all_proxy=http://localhost:52207 nixos-rebuild switch --flake ".#$(hostname)"
