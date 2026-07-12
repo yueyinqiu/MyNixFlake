@@ -1,146 +1,139 @@
 {
   "nodes": {
-    "NixVirt-proxy": {
+    "NixVirt": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-proxy"
+          "nixpkgs"
         ]
       },
       "locked": {
         "lastModified": 1748140003,
         "narHash": "sha256-DNBZmuk1YRM2PmwbHzVdXumRjCUzQkMarg4iI/37rOQ=",
-        "ref": "refs/tags/v0.6.0",
+        "owner": "AshleyYakeley",
+        "repo": "NixVirt",
         "rev": "5dfe108fd859b122f9a96981cb6bc12297653d6c",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git"
+        "type": "github"
       },
       "original": {
-        "ref": "refs/tags/v0.6.0",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git"
+        "owner": "AshleyYakeley",
+        "ref": "v0.6.0",
+        "repo": "NixVirt",
+        "type": "github"
       }
     },
-    "flake-compat-proxy": {
+    "flake-compat": {
       "locked": {
         "lastModified": 1767039857,
         "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
-        "ref": "master",
+        "owner": "edolstra",
+        "repo": "flake-compat",
         "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/edolstra/flake-compat.git"
+        "type": "github"
       },
       "original": {
+        "owner": "edolstra",
         "ref": "master",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/edolstra/flake-compat.git"
+        "repo": "flake-compat",
+        "type": "github"
       }
     },
-    "flake-utils-proxy": {
+    "flake-utils": {
       "inputs": {
         "systems": "systems"
       },
       "locked": {
         "lastModified": 1731533236,
         "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "ref": "main",
+        "owner": "numtide",
+        "repo": "flake-utils",
         "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/numtide/flake-utils.git"
+        "type": "github"
       },
       "original": {
+        "owner": "numtide",
         "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/numtide/flake-utils.git"
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
-    "flatpaks-proxy": {
+    "flatpaks": {
       "locked": {
         "lastModified": 1782495309,
         "narHash": "sha256-VHIqXC5eKeY4fNRMId7F1rg4sJhG/ZIX62TksPkTkVg=",
-        "ref": "refs/tags/latest",
+        "owner": "in-a-dil-emma",
+        "repo": "declarative-flatpak",
         "rev": "841b6e3ff33d73f63555ecca777b81369fe39350",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git"
+        "type": "github"
       },
       "original": {
-        "ref": "refs/tags/latest",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git"
+        "owner": "in-a-dil-emma",
+        "ref": "latest",
+        "repo": "declarative-flatpak",
+        "type": "github"
       }
     },
-    "home-manager-proxy": {
+    "home-manager": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-proxy"
+          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1783479733,
-        "narHash": "sha256-d/JatqgG+Pmo+IuCTZfnrEAPWU3fdha48GQeXuFO+bE=",
-        "ref": "master",
-        "rev": "cee3f0e7fec85d80c149c7afc29926747f7bd3c2",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/nix-community/home-manager.git"
+        "lastModified": 1783823409,
+        "narHash": "sha256-OI4IkRjRXa1e7hYmCGJDPDq5H/kPwhsyoS80cNUF9fI=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "7566825d4652a1b885bd4ce65bd9e8def432fec9",
+        "type": "github"
       },
       "original": {
+        "owner": "nix-community",
         "ref": "master",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/nix-community/home-manager.git"
+        "repo": "home-manager",
+        "type": "github"
       }
     },
-    "nix-filter-proxy": {
+    "nix-filter": {
       "locked": {
         "lastModified": 1757882181,
         "narHash": "sha256-+cCxYIh2UNalTz364p+QYmWHs0P+6wDhiWR4jDIKQIU=",
-        "ref": "main",
+        "owner": "numtide",
+        "repo": "nix-filter",
         "rev": "59c44d1909c72441144b93cf0f054be7fe764de5",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/numtide/nix-filter.git"
+        "type": "github"
       },
       "original": {
+        "owner": "numtide",
         "ref": "main",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/numtide/nix-filter.git"
+        "repo": "nix-filter",
+        "type": "github"
       }
     },
-    "nixpkgs-proxy": {
+    "nixpkgs": {
       "locked": {
-        "lastModified": 1783224372,
-        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
-        "ref": "nixos-unstable",
-        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git"
+        "lastModified": 1783776592,
+        "narHash": "sha256-UgCQzxeWI75XM8G+hPrPh+MKzEPjG3SpAj7dtqSbksA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e7a3ca8092b61ff85b6a45bf863ea2b2d6a661b3",
+        "type": "github"
       },
       "original": {
+        "owner": "NixOS",
         "ref": "nixos-unstable",
-        "shallow": true,
-        "type": "git",
-        "url": "https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git"
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "NixVirt-proxy": "NixVirt-proxy",
-        "flake-compat-proxy": "flake-compat-proxy",
-        "flake-utils-proxy": "flake-utils-proxy",
-        "flatpaks-proxy": "flatpaks-proxy",
-        "home-manager-proxy": "home-manager-proxy",
-        "nix-filter-proxy": "nix-filter-proxy",
-        "nixpkgs-proxy": "nixpkgs-proxy"
+        "NixVirt": "NixVirt",
+        "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils",
+        "flatpaks": "flatpaks",
+        "home-manager": "home-manager",
+        "nix-filter": "nix-filter",
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
