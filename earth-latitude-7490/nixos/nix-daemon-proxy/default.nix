@@ -2,7 +2,7 @@
 let
     ca = pkgs.runCommand "nix-daemon-proxy-create-certificate" { } ''
         mkdir -p $out
-        HOME=$out ${pkgs.mitmproxy}/bin/mitmdump --set confdir=$out --version --headless
+        HOME=$out ${pkgs.mitmproxy}/bin/mitmdump --set confdir=$out --version
     '';
 in {
     security.pki.certificateFiles = [ "${ca}/mitmproxy-ca-cert.pem" ];
