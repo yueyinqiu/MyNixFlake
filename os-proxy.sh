@@ -10,4 +10,4 @@ systemctl daemon-reload
 echo restart
 systemctl restart nix-daemon
 echo build!
-https_proxy=http://localhost:23569 http_proxy=http://localhost:23569 all_proxy=http://localhost:23569 nixos-rebuild switch --flake ".#$(hostname)" --verbose
+https_proxy=http://localhost:23569 http_proxy=http://localhost:23569 all_proxy=http://localhost:23569 nixos-rebuild switch --flake ".#$(hostname)" --option substituters "https://mirror.nju.edu.cn/nix-channels/store https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store https://mirrors.cernet.edu.cn/nix-channels/store https://mirrors.ustc.edu.cn/nix-channels/store https://cache.nixos.org"
