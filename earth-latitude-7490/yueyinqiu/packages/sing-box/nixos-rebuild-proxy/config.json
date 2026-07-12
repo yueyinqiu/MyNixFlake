@@ -27,18 +27,18 @@
         "rules": [
             {
                 "domain_suffix": [
-                    "github.com"
+                    "github.com",
+                    "cache.nixos.org"
                 ],
                 "outbound": "proxy"
             },
             {
                 "domain_suffix": [
-                    "web.archive.org"
-                ],
-                "outbound": "proxy"
-            },
-            {
-                "domain_suffix": [
+                    "mirror.nju.edu.cn",
+                    "mirrors.tuna.tsinghua.edu.cn",
+                    "mirrors.cernet.edu.cn",
+                    "mirrors.ustc.edu.cn",
+                    "mirrors.cqupt.edu.cn",
                     "mirror.sjtu.edu.cn"
                 ],
                 "outbound": "direct"

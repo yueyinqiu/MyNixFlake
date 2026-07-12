@@ -1,9 +1,6 @@
 { pkgs, ... }: {
-    home.packages = [
-        (import ./package.nix {
-            appimageTools = pkgs.appimageTools;
-            fetchurl = pkgs.fetchurl;
-        })
+    home.packages = with pkgs; [
+        wechat
     ];
     my.r.wechat = "wechat";
 }
