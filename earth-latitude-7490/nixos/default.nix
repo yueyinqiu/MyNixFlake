@@ -2,6 +2,7 @@
     imports = [
         ./hardware.nix
         ./beyond-tunnel
+        ./nix-daemon-proxy
         nixvirt.nixosModules.default
     ];
 
@@ -53,8 +54,6 @@
             active = true;
         }
     ];
-
-    environment.systemPackages = [ pkgs.mitmproxy ];
 
     services.greetd = {
         enable = true;
