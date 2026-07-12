@@ -43,10 +43,10 @@
                 storage_vol = /home/yueyinqiu/VirtualMachines/win10/storage.qcow2;
                 install_vol = /home/yueyinqiu/VirtualMachines/win10/install.iso;
                 nvram_path = /home/yueyinqiu/VirtualMachines/win10/nvram.nvram;
-                virtio_net = true;
-                virtio_drive = true;
-                install_virtio = true;
-            });
-        }
+            virtio_net = false;
+            virtio_drive = true;
+            install_virtio = true;
+        });
+    }
     ];
 }
