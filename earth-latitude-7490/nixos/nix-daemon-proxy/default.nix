@@ -14,7 +14,7 @@ in {
         after = [ "network.target" ];
 
         serviceConfig = {
-            ExecStart = "${pkgs.mitmproxy}/bin/mitmdump -s ${./nix_daemon_proxy.py} --listen-port 52207 --certs ${ca}/mitmproxy-ca.pem";
+            ExecStart = "${pkgs.mitmproxy}/bin/mitmdump -s ${./nix_daemon_proxy.py} --listen-port 52207 --set cacert=${ca}/mitmproxy-ca.pem";
             Restart = "on-failure";
             RestartSec = "3s";
         };
