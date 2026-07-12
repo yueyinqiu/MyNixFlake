@@ -1,15 +1,18 @@
 from mitmproxy import http
 import logging
 
-log = logging.getLogger(__name__)
+
+logger = logging.getLogger(__name__)
+
 
 def request(flow: http.HTTPFlow) -> None:
+    logger.info(f"[REQUEST] {flow.request.url}")
     if flow.request.pretty_host == "github.com":
-        original = flow.request.url
         flow.request.url = f"https://gh-proxy.org/{flow.request.url}"
-        flow.request.headers["Host"] = "gh-proxy.org"
-        flow.request.headers["Origin"] = "https://gh-proxy.org"
-        log.info(f"[REWRITE] {original} -> {flow.request.url}")
+        flow.request.host = "gh-proxy.org"
+        flow.request.origin = "https://gh-proxy.org"
+        logger.info(f"[REWRITE TO] {flow.request.url}")
+
 
 def response(flow: http.HTTPFlow) -> None:
-    log.info(f"[RESPONSE] {flow.request.url} -> {flow.response.status_code}")
+    logger.info(f"[RESPONSE] {flow.request.url} -> {flow.response.status_code}")
