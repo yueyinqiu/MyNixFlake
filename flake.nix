@@ -2,30 +2,30 @@
     description = "yueyinqiu's flake";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs-proxy.url = "git+https://gh-proxy.com/https://github.com/NixOS/nixpkgs.git?ref=nixos-unstable&shallow=1";
         
-        home-manager.url = "github:nix-community/home-manager/master";
-        home-manager.inputs.nixpkgs.follows = "nixpkgs";
+        home-manager-proxy.url = "git+https://gh-proxy.com/https://github.com/nix-community/home-manager.git?ref=master&shallow=1";
+        home-manager-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
 
-        flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
+        flatpaks-proxy.url = "git+https://gh-proxy.com/https://github.com/in-a-dil-emma/declarative-flatpak.git?ref=refs/tags/latest&shallow=1";
 
-        flake-compat.url = "github:edolstra/flake-compat/master";
-        nix-filter.url = "github:numtide/nix-filter/main";
-        flake-utils.url = "github:numtide/flake-utils/main";
+        flake-compat-proxy.url = "git+https://gh-proxy.com/https://github.com/edolstra/flake-compat.git?ref=master&shallow=1";
+        nix-filter-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/nix-filter.git?ref=main&shallow=1";
+        flake-utils-proxy.url = "git+https://gh-proxy.com/https://github.com/numtide/flake-utils.git?ref=main&shallow=1";
 
-        NixVirt.url = "github:AshleyYakeley/NixVirt/v0.6.0";
-        NixVirt.inputs.nixpkgs.follows = "nixpkgs";
+        NixVirt-proxy.url = "git+https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git?ref=refs/tags/v0.6.0&shallow=1";
+        NixVirt-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     
-    outputs = { self, nixpkgs, home-manager, flatpaks, NixVirt, ... }@inputs: {
-        nixosConfigurations.earth-latitude-7490 = nixpkgs.lib.nixosSystem {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, NixVirt-proxy, ... }@inputs: {
+        nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { nixvirt = NixVirt; };
+            specialArgs = { nixvirt = NixVirt-proxy; };
             modules = [
                 ./earth-latitude-7490/nixos
-                home-manager.nixosModules.home-manager {
+                home-manager-proxy.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-                    home-manager.extraSpecialArgs = { flatpaks = flatpaks; nixvirt = NixVirt; };
+                    home-manager.extraSpecialArgs = { flatpaks = flatpaks-proxy; nixvirt = NixVirt-proxy; };
                 }
             ];
         };
