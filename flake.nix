@@ -15,9 +15,12 @@
 
         NixVirt-proxy.url = "git+https://gh-proxy.com/https://github.com/AshleyYakeley/NixVirt.git?ref=refs/tags/v0.6.0&shallow=1";
         NixVirt-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
+
+        chinese-fonts-overlay-proxy.url = "git+https://gh-proxy.com/https://github.com/brsvh/chinese-fonts-overlay.git?ref=main&shallow=1";
+        chinese-fonts-overlay-proxy.inputs.nixpkgs.follows = "nixpkgs-proxy";
     };
     
-    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, NixVirt-proxy, ... }@inputs: {
+    outputs = { self, nixpkgs-proxy, home-manager-proxy, flatpaks-proxy, NixVirt-proxy, chinese-fonts-overlay-proxy, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs-proxy.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { nixvirt = NixVirt-proxy; };
@@ -25,7 +28,7 @@
                 ./earth-latitude-7490/nixos
                 home-manager-proxy.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-                    home-manager.extraSpecialArgs = { flatpaks = flatpaks-proxy; nixvirt = NixVirt-proxy; };
+                    home-manager.extraSpecialArgs = { flatpaks = flatpaks-proxy; nixvirt = NixVirt-proxy; chinese-fonts-overlay = chinese-fonts-overlay-proxy; };
                 }
             ];
         };
