@@ -18,7 +18,10 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nix.settings.substituters = [
         "https://mirrors.ustc.edu.cn/nix-channels/store"
+        "https://mirror.sjtu.edu.cn/nix-channels/store"
+        "https://cache.nixos.org"
     ];
+    nix.settings.trusted-users = [ "yueyinqiu" ];
     
     boot.supportedFilesystems = [ "ntfs" ];
 
