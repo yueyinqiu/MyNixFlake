@@ -5,10 +5,10 @@
 
 let
     pname = "wechat";
-    version = "4.1.1.4";
+    version = "4.1.1";
     src = fetchurl {
         url = "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.AppImage";
-        hash = "sha256-XxAvFnlljqurGPDgRr+DnuCKbdVvgXBPh02DLHY3Oz8=";
+        hash = "sha256-RX26ArkbAxzdRBLu4HT7v/udnQax5Q/Bgi00hw4RSZA=";
     };
 
     appimageContents = appimageTools.extract {
