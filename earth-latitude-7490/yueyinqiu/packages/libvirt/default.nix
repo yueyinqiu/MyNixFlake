@@ -34,19 +34,28 @@
             });
         }
         {
-            definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
-            {
-                name = "win10";
-                uuid = "90d049a8-dca2-472e-8212-3019254df766";
-                memory = { count = 4; unit = "GiB"; };
-                # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win10/storage.qcow2 128G
-                storage_vol = /home/yueyinqiu/VirtualMachines/win10/storage.qcow2;
-                install_vol = /home/yueyinqiu/VirtualMachines/win10/install.iso;
-                nvram_path = /home/yueyinqiu/VirtualMachines/win10/nvram.nvram;
-            virtio_net = false;
-            virtio_drive = true;
-            install_virtio = true;
-        });
-    }
+            definition = let
+                base = nixvirt.lib.domain.templates.windows
+                {
+                    name = "win10";
+                    uuid = "90d049a8-dca2-472e-8212-3019254df766";
+                    memory = { count = 4; unit = "GiB"; };
+                    # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win10/storage.qcow2 128G
+                    storage_vol = /home/yueyinqiu/VirtualMachines/win10/storage.qcow2;
+                    install_vol = /home/yueyinqiu/VirtualMachines/win10/install.iso;
+                    nvram_path = /home/yueyinqiu/VirtualMachines/win10/nvram.nvram;
+                    virtio_net = false;
+                    virtio_drive = true;
+                    install_virtio = true;
+                };
+            in
+            nixvirt.lib.domain.writeXML (base // {
+                devices = base.devices // {
+                    controller = (base.devices.controller or []) ++ [
+                        { type = "scsi"; index = 0; model = "virtio-scsi"; }
+                    ];
+                };
+            });
+        }
     ];
 }
