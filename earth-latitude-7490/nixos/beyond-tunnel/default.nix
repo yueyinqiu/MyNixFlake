@@ -8,7 +8,7 @@ let
         };
         dontUnpack = true;
         installPhase = ''
-            install -m755 -D $src $out/bin/edge
+            install -m755 -D "$src" "$out/bin/edge"
         '';
     };
 in {

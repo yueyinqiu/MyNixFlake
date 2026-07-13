@@ -3,7 +3,7 @@
     environment.systemPackages = [ 
         (pkgs.writeShellScriptBin "nix-daemon-proxy" ''
             echo "$1"
-            echo "$1" | ${pkgs.socat}/bin/socat - UNIX-CONNECT:/run/nix-daemon-proxy.sock
+            echo "$1" | "${pkgs.socat}/bin/socat" - UNIX-CONNECT:/run/nix-daemon-proxy.sock
         '')
     ];
 
