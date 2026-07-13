@@ -50,7 +50,7 @@
                     storage_vol = "${config.home.homeDirectory}/VirtualMachines/win10/storage.qcow2";
                     install_vol = "${config.home.homeDirectory}/VirtualMachines/win10/install.iso";
                     nvram_path = "${config.home.homeDirectory}/VirtualMachines/win10/nvram.nvram";
-                    virtio_net = false;
+                    virtio_net = true;
                     virtio_drive = true;
                     install_virtio = true;
                 };
