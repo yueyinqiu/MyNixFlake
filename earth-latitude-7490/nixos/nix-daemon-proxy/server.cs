@@ -1,3 +1,5 @@
+#:sdk Microsoft.NET.Sdk.Web
+
 using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
@@ -7,15 +9,12 @@ using Microsoft.AspNetCore.Http;
 
 var sockPath = "/run/nix-daemon-proxy.sock";
 
-// 如果残留了旧的套接字文件，先把它清理掉
 if (File.Exists(sockPath))
 {
     File.Delete(sockPath);
 }
 
 var builder = WebApplication.CreateBuilder();
-
-// 告诉 Kestrel 引擎：不要监听 TCP 端口，直接绑定到 Unix Domain Socket 文件上
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenUnixSocket(sockPath);
