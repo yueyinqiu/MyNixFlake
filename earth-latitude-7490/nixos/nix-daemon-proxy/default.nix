@@ -1,9 +1,9 @@
 { pkgs, lib, ... }:
 {
     environment.systemPackages = [ 
-        pkgs.writeShellScriptBin "nix-daemon-proxy" ''
+        (pkgs.writeShellScriptBin "nix-daemon-proxy" ''
             echo "$1" | ${pkgs.socat}/bin/socat - UNIX-CONNECT:/run/nix-daemon-proxy.sock
-        ''
+        '')
     ];
 
     users.groups.nix-daemon-proxy = {};
