@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    home.packages = with pkgs; [
-        opencode
-    ];
+    my.r.opencode = ''
+        "${pkgs.opencode}/bin/opencode"
+    '';
 }

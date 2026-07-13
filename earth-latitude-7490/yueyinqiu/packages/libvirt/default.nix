@@ -14,8 +14,6 @@
     virtualisation.libvirt.connections."qemu:///session".domains =
     [
         {
-            # virsh start win11
-            # virt-viewer win11 --attach
             # if there is no disk displayed during installation, click Load Driver, select viostor/w11/amd64 in virtio-win
             # for network: netkvm
             # all: virtio-win-guest-tools.exe
@@ -58,4 +56,20 @@
             });
         }
     ];
+
+    my.r.virsh = ''
+        virsh "$@"
+    '';
+    my.r.virsh-start = ''
+        virsh start "$@"
+    '';
+    my.r.virsh-shutdown = ''
+        virsh shutdown "$@"
+    '';
+    my.r.virsh-destroy = ''
+        virsh destroy "$@"
+    '';
+    my.r.virt-viewer-attach = ''
+        virt-viewer --attach "$@"
+    '';
 }

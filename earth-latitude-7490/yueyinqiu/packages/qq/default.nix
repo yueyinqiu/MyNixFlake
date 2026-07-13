@@ -1,6 +1,5 @@
 { pkgs, ... }: {
-    home.packages = with pkgs; [
-        qq
-    ];
-    my.r.qq = "qq";
+    my.r.qq = ''
+        "${pkgs.qq}/bin/qq"
+    '';
 }

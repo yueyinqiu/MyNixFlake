@@ -1,6 +1,5 @@
 { pkgs, ... }: {
-    home.packages = with pkgs; [
-        flclash
-    ];
-    my.r.flclash = "FlClash";
+    my.r.flclash = ''
+        "${pkgs.flclash}/bin/FlClash"
+    '';
 }

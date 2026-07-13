@@ -1,8 +1,7 @@
 { pkgs, ... }: {
-    home.packages = with pkgs; [
-        _7zz
-    ];
-
+    my.r."7z" = ''
+        "${pkgs._7zz}/bin/7zz" "$@"
+    '';
     my.r."7z-zip" = ''
         "${pkgs._7zz}/bin/7zz" a "$@"
     '';
