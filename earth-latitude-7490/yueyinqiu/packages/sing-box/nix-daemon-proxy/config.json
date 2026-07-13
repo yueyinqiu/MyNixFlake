@@ -9,8 +9,7 @@
     ],
     "experimental": {
         "clash_api": {
-            "external_controller": "127.0.0.1:62751",
-            "external_ui": "ui"
+            "external_controller": "127.0.0.1:62751"
         }
     }
 }
