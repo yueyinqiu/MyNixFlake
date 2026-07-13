@@ -79,8 +79,5 @@
     services.udisks2.enable = true;
     programs.niri.enable = true;
     services.flatpak.enable = true;
-
-    environment.systemPackages = [ pkgs.cowsay ];
-
     system.stateVersion = "26.05";  # never change this, even it's updated
 }
