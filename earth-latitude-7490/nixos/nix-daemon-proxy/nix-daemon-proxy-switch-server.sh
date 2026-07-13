@@ -1,4 +1,5 @@
 read -r proxy
+echo $proxy
 
 mkdir -p /run/systemd/system/nix-daemon.service.d/
 tee /run/systemd/system/nix-daemon.service.d/override.conf <<EOF
