@@ -46,7 +46,6 @@
                     name = "win10";
                     uuid = "90d049a8-dca2-472e-8212-3019254df766";
                     memory = { count = 4; unit = "GiB"; };
-                    # qemu-img create -f qcow2 ${config.home.homeDirectory}/VirtualMachines/win10/storage.qcow2 128G
                     storage_vol = "${config.home.homeDirectory}/VirtualMachines/win10/storage.qcow2";
                     install_vol = "${config.home.homeDirectory}/VirtualMachines/win10/install.iso";
                     nvram_path = "${config.home.homeDirectory}/VirtualMachines/win10/nvram.nvram";
