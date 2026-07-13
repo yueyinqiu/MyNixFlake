@@ -14,4 +14,8 @@
             (pkgs.writeShellScriptBin "r" (builtins.readFile ./r.sh))
         ];
     };
+
+    my.r.help = ''
+        cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/${1}.sh"
+    '';
 }
