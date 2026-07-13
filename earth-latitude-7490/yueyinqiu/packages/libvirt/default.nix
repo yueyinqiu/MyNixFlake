@@ -18,18 +18,25 @@
             # for network: netkvm
             # all: virtio-win-guest-tools.exe
             # To activate: irm https://get.activated.win | iex 
-            definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows
-            {
-                name = "win11";
-                uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
-                memory = { count = 4; unit = "GiB"; };
-                # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win11/storage.qcow2 128G
-                storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.qcow2";
-                install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
-                nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
-                virtio_net = true;
-                virtio_drive = true;
-                install_virtio = true;
+            definition = let
+                base = nixvirt.lib.domain.templates.windows
+                {
+                    name = "win11";
+                    uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
+                    memory = { count = 4; unit = "GiB"; };
+                    # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win11/storage.qcow2 128G
+                    storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.qcow2";
+                    install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
+                    nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
+                    virtio_net = true;
+                    virtio_drive = true;
+                    install_virtio = true;
+                };
+            in
+            nixvirt.lib.domain.writeXML (base // {
+                devices = base.devices // {
+                    watchdog = { model = "itco"; action = "none"; };
+                };
             });
         }
         {
@@ -50,6 +57,7 @@
             in
             nixvirt.lib.domain.writeXML (base // {
                 devices = base.devices // {
+                    watchdog = { model = "itco"; action = "none"; };
                     controller = (base.devices.controller or []) ++ [
                         { type = "scsi"; index = 0; model = "virtio-scsi"; }
                     ];
