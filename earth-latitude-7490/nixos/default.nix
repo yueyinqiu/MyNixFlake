@@ -2,7 +2,6 @@
     imports = [
         ./hardware.nix
         ./beyond-tunnel
-        ./nix-daemon-proxy
         nixvirt.nixosModules.default
     ];
 
