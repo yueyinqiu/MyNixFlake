@@ -1,5 +1,5 @@
 { pkgs, ... }: {
     my.r.opencode = ''
-        "${pkgs.opencode}/bin/opencode "$@""
+        "${pkgs.opencode}/bin/opencode" "$@"
     '';
 }
