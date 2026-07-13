@@ -16,6 +16,6 @@
     };
 
     config.my.r.help = ''
-        cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/${1}.sh"
+        cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/''${1}.sh"
     '';
 }
