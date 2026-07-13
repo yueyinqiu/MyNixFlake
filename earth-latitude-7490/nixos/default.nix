@@ -2,6 +2,7 @@
     imports = [
         ./hardware.nix
         ./beyond-tunnel
+        ./nix-daemon-proxy
         nixvirt.nixosModules.default
     ];
 
@@ -70,7 +71,7 @@
 
     users.users.yueyinqiu = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "podman" "libvirtd" "libvirt" "kvm" ];
+        extraGroups = [ "wheel" "podman" "libvirtd" "libvirt" "kvm" "nix-daemon-proxy" ];
     };
   
     services.beyond-tunnel.enable = true;
