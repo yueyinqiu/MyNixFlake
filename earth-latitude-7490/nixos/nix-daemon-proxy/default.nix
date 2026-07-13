@@ -4,6 +4,7 @@
         (pkgs.writeShellScriptBin "nix-daemon-proxy" ''
             echo "$1"
             echo "$1" | "${pkgs.socat}/bin/socat" - UNIX-CONNECT:/run/nix-daemon-proxy.sock
+            echo "Check with: sudo cat /proc/$(pidof nix-daemon)/environ | tr '\0' '\n' | grep proxy"
         '')
     ];
 
