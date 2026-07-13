@@ -7,5 +7,5 @@ if [ "$#" -eq 0 ]; then
         fi
     done
 else
-    exec sh "$dir/${1}.sh" "$@"
+    exec sh "$dir/${1}.sh" "${@:2}"
 fi
