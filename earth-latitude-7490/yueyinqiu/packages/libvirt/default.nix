@@ -1,4 +1,4 @@
-{ pkgs, lib, nixvirt, ... }: {
+{ pkgs, lib, config, nixvirt, ... }: {
     imports = [ 
         nixvirt.homeModules.default
     ];
@@ -23,9 +23,9 @@
                 uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
                 memory = { count = 4; unit = "GiB"; };
                 # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win11/storage.qcow2 128G
-                storage_vol = "${home.homeDirectory}/VirtualMachines/win11/storage.qcow2";
-                install_vol = "${home.homeDirectory}/VirtualMachines/win11/install.iso";
-                nvram_path = "${home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
+                storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.qcow2";
+                install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
+                nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
                 virtio_net = true;
                 virtio_drive = true;
                 install_virtio = true;
@@ -38,10 +38,10 @@
                     name = "win10";
                     uuid = "90d049a8-dca2-472e-8212-3019254df766";
                     memory = { count = 4; unit = "GiB"; };
-                    # qemu-img create -f qcow2 ${home.homeDirectory}/VirtualMachines/win10/storage.qcow2 128G
-                    storage_vol = "${home.homeDirectory}/VirtualMachines/win10/storage.qcow2";
-                    install_vol = "${home.homeDirectory}/VirtualMachines/win10/install.iso";
-                    nvram_path = "${home.homeDirectory}/VirtualMachines/win10/nvram.nvram";
+                    # qemu-img create -f qcow2 ${config.home.homeDirectory}/VirtualMachines/win10/storage.qcow2 128G
+                    storage_vol = "${config.home.homeDirectory}/VirtualMachines/win10/storage.qcow2";
+                    install_vol = "${config.home.homeDirectory}/VirtualMachines/win10/install.iso";
+                    nvram_path = "${config.home.homeDirectory}/VirtualMachines/win10/nvram.nvram";
                     virtio_net = false;
                     virtio_drive = true;
                     install_virtio = true;
