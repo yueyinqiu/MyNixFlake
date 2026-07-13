@@ -1,9 +1,7 @@
-{ pkgs, ... }: {
+{ ... }: {
     imports = [
-        ./nixos-rebuild-proxy
+        ./nix-daemon-proxy
     ];
 
-    home.packages = with pkgs; [
-        sing-box
-    ];
+    my.r.sing-box-config = "code ${config.xdg.configHome}/sing-box";
 }
