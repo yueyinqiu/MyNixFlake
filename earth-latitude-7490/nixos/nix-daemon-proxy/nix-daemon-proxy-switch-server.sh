@@ -1,3 +1,4 @@
+echo HELLLO
 read -r proxy
 echo $proxy
 

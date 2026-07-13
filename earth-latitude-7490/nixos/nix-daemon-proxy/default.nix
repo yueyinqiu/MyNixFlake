@@ -27,7 +27,22 @@
             Type = "oneshot";
             RemainAfterExit = true;
             StandardInput = "socket";
-            ExecStart = pkgs.writeShellScript "nix-daemon-proxy-switch-server" (builtins.readFile ./nix-daemon-proxy-switch-server.sh);
+            StandardOutput = "journal";
+            StandardError = "journal";
+            ExecStart = pkgs.writeShellScript "nix-daemon-proxy-switch-server" (''
+                proxy=$("${pkgs.socat}/bin/socat" - fd:0)
+                echo "Extracted proxy: $proxy"
+
+                mkdir -p /run/systemd/system/nix-daemon.service.d/
+                
+                cat << EOF > /run/systemd/system/nix-daemon.service.d/override.conf
+                [Service]
+                Environment="all_proxy=$proxy"
+                EOF
+
+                systemctl daemon-reload
+                systemctl restart nix-daemon --no-block
+            '');
         };
     };
 }
