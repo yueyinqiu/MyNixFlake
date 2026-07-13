@@ -1,4 +1,6 @@
 { config, lib, pkgs, ... }: {
+    # sing-box does not support fallback
+    # https://github.com/SagerNet/sing-box/pull/4217
     systemd.services.nix-daemon-proxy = {
         description = "nix-daemon proxy";
         after = [ "network.target" ];

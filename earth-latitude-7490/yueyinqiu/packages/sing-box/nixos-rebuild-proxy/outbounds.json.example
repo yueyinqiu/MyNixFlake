@@ -26,6 +26,7 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "1m"
         },
+        
         {
             "type": "selector",
             "tag": "proxy",
@@ -35,6 +36,14 @@
                 "server-2"
             ],
             "default": "auto"
-        }
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
+        },
     ]
 }
