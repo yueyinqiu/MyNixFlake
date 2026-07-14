@@ -1,57 +1,44 @@
 #:sdk Microsoft.NET.Sdk.Web
+#:package YueYinqiu.Su.DotnetRunFileUtilities@0.0.3
 
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using CliWrap;
+using CliWrap.Buffered;
+using Microsoft.AspNetCore.Mvc;
 
-var sockPath = "/run/nix-daemon-proxy.sock";
+var socket = "/run/nix-daemon-proxy.sock";
+var overrideConf = new FileInfo("/run/systemd/system/nix-daemon.service.d/override.conf");
 
 var builder = WebApplication.CreateBuilder();
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.ListenUnixSocket(sockPath);
+    options.ListenUnixSocket(socket);
 });
 
 var app = builder.Build();
 
-app.MapPost("/set-proxy", async context =>
+app.MapPost("/", async ([FromQuery] string proxy) =>
 {
-    using var reader = new StreamReader(context.Request.Body);
-    var proxyVal = (await reader.ReadToEndAsync()).Trim();
-    var confDir = "/run/systemd/system/nix-daemon.service.d";
-    Directory.CreateDirectory(confDir);
-
-    var confPath = Path.Combine(confDir, "override.conf");
-
-    using (var writer = new StreamWriter(confPath, false))
-    {
-        writer.WriteLine("[Service]");
-        if (string.Equals(proxyVal, "none", StringComparison.OrdinalIgnoreCase) || string.IsNullOrEmpty(proxyVal))
-        {
-            writer.WriteLine("Environment=");
-        }
-        else
-        {
-            writer.WriteLine($"Environment=\"all_proxy={proxyVal}\" \"http_proxy={proxyVal}\" \"https_proxy={proxyVal}\"");
-        }
-    }
-
-    Process.Start(new ProcessStartInfo("systemctl", "daemon-reload") { RedirectStandardOutput = true })?.WaitForExit();
-    Process.Start(new ProcessStartInfo("systemctl", "restart nix-daemon --no-block") { RedirectStandardOutput = true });
-
-    context.Response.StatusCode = 200;
-    await context.Response.WriteAsync("Proxy updated successfully.\n");
+    await File.WriteAllTextAsync(overrideConf.FullName,
+        $"""
+        [Service]
+        Environment="all_proxy={proxy}"
+        """
+    );
+    await Cli.Wrap("systemctl").WithArguments(["daemon-reload"]).ExecuteBufferedAsync();
+    await Cli.Wrap("systemctl").WithArguments(["restart", "nix-daemon"]).ExecuteBufferedAsync();
 });
 
-app.Lifetime.ApplicationStarted.Register(() =>
+app.Lifetime.ApplicationStarted.Register(async () =>
 {
-    if (File.Exists(sockPath))
-    {
-        File.SetUnixFileMode(sockPath, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.GroupRead | UnixFileMode.GroupWrite);
-        Process.Start(new ProcessStartInfo("chown", $"root:nix-daemon-proxy {sockPath}"))?.WaitForExit();
-    }
+    Debug.Assert(RuntimeInformation.IsOSPlatform(OSPlatform.Linux));
+    File.SetUnixFileMode(socket, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.GroupRead | UnixFileMode.GroupWrite);
+    await Cli.Wrap("chown").WithArguments(["root:nix-daemon-proxy", socket]).ExecuteBufferedAsync();
 });
 
-if (File.Exists(sockPath))
-{
-    File.Delete(sockPath);
-}
+overrideConf.Directory?.Create();
+if (File.Exists(socket))
+    File.Delete(socket);
+
 app.Run();
