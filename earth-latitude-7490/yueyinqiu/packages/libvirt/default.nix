@@ -85,7 +85,7 @@
 
     my.r.virt-create-qcow2 = ''
         if [ "$#" -ne 2 ]; then
-            echo "Usgae: $0 <name, e.g. storage.qcow2> <size, e.g. 128G>"
+            echo "Usgae: r virt-create-qcow2 <name (e.g. storage.qcow2)> <size (e.g. 128G)>"
             exit 1
         fi
         if [ -e "$1" ]; then
@@ -94,6 +94,6 @@
         fi
         touch "$1"
         "${pkgs.e2fsprogs}/bin/chattr" +C "$1"
-        qemu-img create -f qcow2 -n "$1" "$2"
+        qemu-img create -f qcow2 "$1" "$2"
     '';
 }
