@@ -39,6 +39,9 @@
                             driver = disk.driver // { type = "raw"; discard="ignore"; };
                         } else disk
                     ) base.devices.disk;
+                    controller = (base.devices.controller or []) ++ [
+                        { type = "scsi"; index = 0; model = "virtio-scsi"; }
+                    ];
                 };
             });
         }
