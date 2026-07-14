@@ -27,7 +27,7 @@
                     # touch storage.qcow2
                     # chattr +C storage.qcow2
                     # qemu-img create -f qcow2 -n storage.qcow2 128G
-                    storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.qcow2";
+                    storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.raw";
                     install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
                     nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
                     virtio_net = true;
@@ -84,9 +84,9 @@
         virt-viewer --attach "$@"
     '';
 
-    my.r.virt-create-qcow2 = ''
+    my.r.virt-create-storage = ''
         if [ "$#" -ne 2 ]; then
-            echo "Usgae: r virt-create-qcow2 <name (e.g. storage.qcow2)> <size (e.g. 128G)>"
+            echo "Usgae: r virt-create-storage <name (e.g. storage.qcow2)> <size (e.g. 128G)>"
             exit 1
         fi
         if [ -e "$1" ]; then
@@ -95,6 +95,6 @@
         fi
         touch "$1"
         "${pkgs.e2fsprogs}/bin/chattr" +C "$1"
-        qemu-img create -f qcow2 -o preallocation=falloc "$1" "$2"
+        qemu-img create -f raw -o preallocation=falloc "$1" "$2"
     '';
 }
