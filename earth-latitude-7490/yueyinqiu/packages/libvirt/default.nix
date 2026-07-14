@@ -36,7 +36,7 @@
                 devices = base.devices // {
                     disk = lib.lists.imap0 (i: disk:
                         if i == 0 then disk // {
-                            driver = disk.driver // { type = "raw"; };
+                            driver = disk.driver // { type = "raw"; discard="ignore"; };
                         } else disk
                     ) base.devices.disk;
                 };
@@ -85,16 +85,8 @@
     '';
 
     my.r.virt-create-storage = ''
-        if [ "$#" -ne 2 ]; then
-            echo "Usgae: r virt-create-storage <name (e.g. storage.raw)> <size (e.g. 80G)>"
-            exit 1
-        fi
-        if [ -e "$1" ]; then
-            echo "File already exists! Manually remove the file if you would it to replace it."
-            exit 1
-        fi
-        touch "$1"
-        "${pkgs.e2fsprogs}/bin/chattr" +C "$1"
-        qemu-img create -f raw -o preallocation=full "$1" "$2"
+        # $1: storage.raw
+        # $2: 80G
+        qemu-img create -f raw -o preallocation=full,nocow=on "$1" "$2"
     '';
 }
