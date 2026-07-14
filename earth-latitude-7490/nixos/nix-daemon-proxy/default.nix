@@ -14,7 +14,14 @@
         wantedBy = [ "multi-user.target" ];
 
         serviceConfig = {
-            ExecStart = "${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet run ${./server.cs}";
+            # direct `dotnet run server.cs` will cause MSB3552
+            # might (not verified) be releated to https://github.com/dotnet/msbuild/issues/12546
+            ExecStart = ''
+                PROJECT=$(mktemp)
+                ${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet project convert ${./server.cs} --output "$PROJECT" --interactive False
+                ${pkgs.dotnetCorePackages.sdk_10_0}/bin/dotnet run --project "$PROJECT" 
+            '';
+            PrivateTmp = true;
             Restart = "on-failure";
             RestartSec = "5s";
         };
