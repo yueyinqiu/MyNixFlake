@@ -18,4 +18,9 @@
     config.my.r.help = ''
         cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/''${1}.sh"
     '';
+
+    my.r.cd-p = "cd ~/MyProjects";
+    my.r.cd-m = "cd ~/MyMiscellaneousFiles";
+    my.r.cd-t = "cd ~/MyTemporaryFiles";
+    my.r.cd-os = "cd ~/MyProjects/Nix/MyNixFlake";
 }

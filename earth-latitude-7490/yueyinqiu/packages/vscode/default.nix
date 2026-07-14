@@ -2,11 +2,11 @@
     programs.vscode.enable = true;
     programs.vscode.package = pkgs.vscode.fhs;
 
-
-    my.r.code = ''
+    my.r.v = ''
         code "$@"
     '';
-
-    my.r.os = "code ~/MyProjects/Nix/MyNixFlake";
-    my.r.note = "code ~/MyMiscellaneousFiles/Notes";
+    my.r.vscode = ''
+        code "$@"
+    '';
+    my.r.notes = "cd ~/MyMiscellaneousFiles/Notes";
 }
