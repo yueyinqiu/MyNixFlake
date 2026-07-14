@@ -3,7 +3,7 @@
     environment.systemPackages = [ 
         (pkgs.writeShellScriptBin "nix-daemon-proxy" ''
             PROXY=$(${pkgs.jq}/bin/jq -rn --arg val "$1" '$val | @uri')
-            ${pkgs.curl}/bin/curl -i --unix-socket /run/nix-daemon-proxy.sock "http://localhost/?proxy=$1"
+            ${pkgs.curl}/bin/curl --unix-socket /run/nix-daemon-proxy.sock -i -X POST "http://localhost/?proxy=$1"
             echo 'Check with: sudo cat /proc/$(pidof nix-daemon)/environ | tr "\0" "\n" | grep proxy'
         '')
     ];
