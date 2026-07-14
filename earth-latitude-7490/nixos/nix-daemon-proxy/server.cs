@@ -18,8 +18,9 @@ builder.WebHost.ConfigureKestrel(options =>
 
 var app = builder.Build();
 
-app.MapPost("/", async ([FromQuery] string proxy) =>
+app.MapPost("/", async ([FromQuery] string? proxy) =>
 {
+    proxy ??= "";
     await File.WriteAllTextAsync(overrideConf.FullName,
         $"""
         [Service]
