@@ -35,11 +35,12 @@
                     install_virtio = true;
                 };
             in
-            nixvirt.lib.domain.writeXML (base // {
-                devices = base.devices // {
-                    watchdog = { model = "itco"; action = "none"; };
-                };
-            });
+            nixvirt.lib.domain.writeXML base;
+            # nixvirt.lib.domain.writeXML (base // {
+            #     devices = base.devices // {
+            #         watchdog = { model = "itco"; action = "none"; };
+            #     };
+            # });
         }
         {
             definition = let
