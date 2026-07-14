@@ -89,7 +89,7 @@
 
     my.r.virt-create-storage = ''
         if [ "$#" -ne 2 ]; then
-            echo "Usgae: r virt-create-storage <name (e.g. storage.qcow2)> <size (e.g. 128G)>"
+            echo "Usgae: r virt-create-storage <name (e.g. storage.raw)> <size (e.g. 80G)>"
             exit 1
         fi
         if [ -e "$1" ]; then
