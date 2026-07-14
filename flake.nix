@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs-master.url = "github:NixOS/nixpkgs/master";
         
         home-manager.url = "github:nix-community/home-manager/master";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +18,7 @@
         NixVirt.inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    outputs = { self, nixpkgs, home-manager, flatpaks, NixVirt, ... }@inputs: {
+    outputs = { self, nixpkgs, nixpkgs-master, home-manager, flatpaks, NixVirt, ... }@inputs: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { nixvirt = NixVirt; };
@@ -25,7 +26,11 @@
                 ./earth-latitude-7490/nixos
                 home-manager.nixosModules.home-manager {
                     home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-                    home-manager.extraSpecialArgs = { flatpaks = flatpaks; nixvirt = NixVirt; };
+                    home-manager.extraSpecialArgs = { 
+                        flatpaks = flatpaks; 
+                        nixvirt = NixVirt; 
+                        nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux"; 
+                    };
                 }
             ];
         };

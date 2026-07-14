@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, nixpkgs-master, ... }: {
     my.r.mindustry = ''
-        "${pkgs.mindustry-wayland}/bin/mindustry"
+        "${nixpkgs-master.mindustry-wayland}/bin/mindustry"
     '';
 }
