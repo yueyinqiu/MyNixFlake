@@ -11,6 +11,7 @@
 
     networking.hostName = "earth-latitude-7490";
     networking.networkmanager.enable = true;
+    networking.networkmanager.wifi.powersave = false;
   
     time.timeZone = "Asia/Shanghai";
   
