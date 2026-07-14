@@ -4,6 +4,7 @@
     ];
 
     my.r.sing-box-config = ''
-        code "${config.xdg.configHome}/sing-box"
+        cd "${config.xdg.configHome}/sing-box"
+        code .
     '';
 }
