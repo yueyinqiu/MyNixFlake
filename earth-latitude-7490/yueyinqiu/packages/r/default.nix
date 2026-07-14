@@ -19,8 +19,20 @@
         cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/''${1}.sh"
     '';
 
-    config.my.r.cd-p = "cd ~/MyProjects";
-    config.my.r.cd-m = "cd ~/MyMiscellaneousFiles";
-    config.my.r.cd-t = "cd ~/MyTemporaryFiles";
-    config.my.r.cd-os = "cd ~/MyProjects/Nix/MyNixFlake";
+    config.my.r.cd-p = ''
+        cd ~/MyProjects
+        exec "$SHELL"
+    '';
+    config.my.r.cd-m = ''
+        cd ~/MyMiscellaneousFiles
+        exec "$SHELL"
+    '';
+    config.my.r.cd-t = ''
+        cd ~/MyTemporaryFiles
+        exec "$SHELL"
+    '';
+    config.my.r.cd-os = ''
+        cd ~/MyProjects/Nix/MyNixFlake
+        exec "$SHELL"
+    '';
 }

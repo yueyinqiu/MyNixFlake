@@ -5,5 +5,6 @@
 
     my.r.cd-sing-box-config = ''
         cd "${config.xdg.configHome}/sing-box"
+        exec "$SHELL"
     '';
 }
