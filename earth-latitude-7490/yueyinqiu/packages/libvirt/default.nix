@@ -98,6 +98,6 @@
         fi
         touch "$1"
         "${pkgs.e2fsprogs}/bin/chattr" +C "$1"
-        qemu-img create -f raw -o preallocation=falloc "$1" "$2"
+        qemu-img create -f raw -o preallocation=full "$1" "$2"
     '';
 }
