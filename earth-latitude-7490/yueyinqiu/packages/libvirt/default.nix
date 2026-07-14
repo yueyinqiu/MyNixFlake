@@ -24,9 +24,6 @@
                     name = "win11";
                     uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
                     memory = { count = 4; unit = "GiB"; };
-                    # touch storage.qcow2
-                    # chattr +C storage.qcow2
-                    # qemu-img create -f qcow2 -n storage.qcow2 128G
                     storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.raw";
                     install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
                     nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
