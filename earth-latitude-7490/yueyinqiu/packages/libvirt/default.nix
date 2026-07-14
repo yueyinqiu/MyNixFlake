@@ -24,7 +24,9 @@
                     name = "win11";
                     uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
                     memory = { count = 4; unit = "GiB"; };
-                    # qemu-img create -f qcow2 /home/yueyinqiu/VirtualMachines/win11/storage.qcow2 128G
+                    # touch storage.qcow2
+                    # chattr +C storage.qcow2
+                    # qemu-img create -f qcow2 -n storage.qcow2 128G
                     storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.qcow2";
                     install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
                     nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
@@ -79,5 +81,19 @@
     '';
     my.r.virt-viewer-attach = ''
         virt-viewer --attach "$@"
+    '';
+
+    my.r.virt-create-qcow2 = ''
+        if [ "$#" -ne 2 ]; then
+            echo "Usgae: $0 <name, e.g. storage.qcow2> <size, e.g. 128G>"
+            exit 1
+        fi
+        if [ -e "$1" ]; then
+            echo "File already exists! Manually remove the file if you would it to replace it."
+            exit 1
+        fi
+        touch "$1"
+        "${pkgs.e2fsprogs}/bin/chattr" +C "$1"
+        qemu-img create -f qcow2 -n "$1" "$2"
     '';
 }
