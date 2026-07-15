@@ -1,14 +1,14 @@
 { flatpaks, ... }: {
-    imports = [
-        flatpaks.homeModules.default
-    ];
+  imports = [
+    flatpaks.homeModules.default
+  ];
 
-    services.flatpak = {
-        enable = true;
-        remotes = {
-            "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
-        };
+  services.flatpak = {
+    enable = true;
+    remotes = {
+      "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     };
+  };
 }
 
 # { pkgs, ... }: {

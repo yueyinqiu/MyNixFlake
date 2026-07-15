@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    home.packages = with pkgs; [
-        xwayland-satellite
-    ];
+  home.packages = with pkgs; [
+    xwayland-satellite
+  ];
 }

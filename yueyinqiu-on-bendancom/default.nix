@@ -1,12 +1,12 @@
 { ... }: {
-    home.username = "yueyinqiu";
-    home.homeDirectory = "/home/yueyinqiu";
+  home.username = "yueyinqiu";
+  home.homeDirectory = "/home/yueyinqiu";
 
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-    nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-    imports = [ ./packages ];
+  imports = [ ./packages ];
 
-    home.stateVersion = "26.05";
+  home.stateVersion = "26.05";
 }

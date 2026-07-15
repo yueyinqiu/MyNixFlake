@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    my.r.sing-box = ''
-        "${pkgs.sing-box}/bin/sing-box" "$@"
-    '';
+  my.r.sing-box = ''
+    "${pkgs.sing-box}/bin/sing-box" "$@"
+  '';
 }

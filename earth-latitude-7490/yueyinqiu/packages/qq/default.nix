@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    my.r.qq = ''
-        "${pkgs.qq}/bin/qq"
-    '';
+  my.r.qq = ''
+    "${pkgs.qq}/bin/qq"
+  '';
 }

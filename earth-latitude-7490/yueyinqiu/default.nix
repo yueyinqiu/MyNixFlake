@@ -1,33 +1,33 @@
 { pkgs, ... }: {
-    home.username = "yueyinqiu";
-    home.homeDirectory = "/home/yueyinqiu";
+  home.username = "yueyinqiu";
+  home.homeDirectory = "/home/yueyinqiu";
 
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-    nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-    home.packages = with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        noto-fonts-color-emoji
-        corefonts
-    ];
+  home.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-color-emoji
+    corefonts
+  ];
 
-    fonts.fontconfig = {
-        enable = true;
+  fonts.fontconfig = {
+    enable = true;
 
-        antialiasing = true;
-        hinting = "full";
-        subpixelRendering = "rgb";
+    antialiasing = true;
+    hinting = "full";
+    subpixelRendering = "rgb";
 
-        defaultFonts = {
-            serif = [ "Noto Serif CJK SC" ];
-            sansSerif = [ "Noto Sans CJK SC" ];
-        };
+    defaultFonts = {
+      serif = [ "Noto Serif CJK SC" ];
+      sansSerif = [ "Noto Sans CJK SC" ];
     };
+  };
 
-    imports = [ ./packages ];
+  imports = [ ./packages ];
 
-    home.stateVersion = "26.05";
+  home.stateVersion = "26.05";
 }

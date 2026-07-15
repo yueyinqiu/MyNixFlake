@@ -1,4 +1,4 @@
 { ... }: {
-    programs.fuzzel.enable = true;
-    my.r.fuzzel = "fuzzel";
+  programs.fuzzel.enable = true;
+  my.r.fuzzel = "fuzzel";
 }

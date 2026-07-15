@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    my.r.mindustry = ''
-        "${pkgs.mindustry-wayland}/bin/mindustry"
-    '';
+  my.r.mindustry = ''
+    "${pkgs.mindustry-wayland}/bin/mindustry"
+  '';
 }

@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    my.r.ghostty = ''
-        "${pkgs.ghostty}/bin/ghostty" "$@"
-    '';
+  my.r.ghostty = ''
+    "${pkgs.ghostty}/bin/ghostty" "$@"
+  '';
 }
