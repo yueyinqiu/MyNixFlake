@@ -17,11 +17,13 @@ let
     in
     pkgs.stdenv.mkDerivation {
         name = name;
+        src = src;
+        dontUnpack = true;
 
         buildPhase = ''
             runHook preBuild
 
-            "${sdk}/bin/dotnet" project convert "${src}/${main}" --output ./project --interactive False
+            "${sdk}/bin/dotnet" project convert "$src/${main}" --output ./project --interactive False
             "${sdk}/bin/dotnet" publish ./project -c Release -p:PublishAot=false -o ./output
 
             runHook postBuild
