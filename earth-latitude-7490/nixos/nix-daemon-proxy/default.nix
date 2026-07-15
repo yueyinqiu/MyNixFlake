@@ -27,6 +27,8 @@ in
             PrivateTmp = true;
             Restart = "on-failure";
             RestartSec = "5s";
+            WorkingDirectory = "/var/lib/nix-daemon-proxy-server";
+            StateDirectory = "nix-daemon-proxy-server";
         };
     };
 }
