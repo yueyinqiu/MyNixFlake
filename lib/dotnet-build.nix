@@ -26,10 +26,11 @@ let
         version = version;
         src = project;
         dotnet-sdk = sdk;
-        dotnet-runtime = sdk;
+        dotnet-runtime = null;
         projectFile = "${name}.csproj";
         nugetDeps = nugetDeps;
         selfContainedBuild = true;
+        nativeBuildInputs = [ pkgs.stdenv.cc ];
     };
 in
 {
