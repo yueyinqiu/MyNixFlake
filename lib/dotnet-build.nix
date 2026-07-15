@@ -28,6 +28,7 @@ let
             mkdir -p ./temp
             export TEMP="$TMPDIR/temp"
             export TMP="$TMPDIR/temp"
+            export XDG_DATA_HOME="$TMPDIR/home"
 
             "${sdk}/bin/dotnet" project convert "$src/${main}" --output ./project --interactive False
             "${sdk}/bin/dotnet" publish ./project -c Release -p:PublishAot=false -o ./output
