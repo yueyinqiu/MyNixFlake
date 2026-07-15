@@ -7,6 +7,8 @@ using CliWrap;
 using CliWrap.Buffered;
 using Microsoft.AspNetCore.Mvc;
 
+Console.WriteLine($"Started.");
+
 var socket = "/run/nix-daemon-proxy.sock";
 var overrideConf = new FileInfo("/run/systemd/system/nix-daemon.service.d/override.conf");
 
@@ -40,5 +42,7 @@ app.Lifetime.ApplicationStarted.Register(async () =>
 overrideConf.Directory?.Create();
 if (File.Exists(socket))
     File.Delete(socket);
+
+Console.WriteLine($"Before Run.");
 
 app.Run();
