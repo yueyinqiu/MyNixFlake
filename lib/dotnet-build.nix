@@ -7,10 +7,9 @@ let
         sdk ? pkgs.dotnetCorePackages.sdk_10_0,
     }:
     let
-        main = (builtins.head files).path;
         project = pkgs.runCommand "${name}-project" {} ''
             "${sdk}/bin/dotnet" project convert "${src}" --output "$out" --interactive False
-            mv "$out/${builtins.baseNameOf main}.csproj" "$out/${name}.csproj"
+            mv "$out/${builtins.baseNameOf src}.csproj" "$out/${name}.csproj"
         '';
     in
     pkgs.buildDotnetModule {
