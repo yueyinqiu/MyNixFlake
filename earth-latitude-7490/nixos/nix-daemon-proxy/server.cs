@@ -1,4 +1,5 @@
 #:sdk Microsoft.NET.Sdk.Web
+#:property PublishNativeAOT=false
 #:package YueYinqiu.Su.DotnetRunFileUtilities@0.0.3
 
 using System.Diagnostics;
