@@ -7,7 +7,7 @@ let
         sdk ? pkgs.dotnetCorePackages.sdk_10_0,
     }:
     let
-        project = pkgs.runCommand "${name}-project" {} ''
+        project = pkgs.runCommand "${name}-project" { DOTNET_CLI_HOME = "/tmp"; } ''
             "${sdk}/bin/dotnet" project convert "${src}" --output "$out" --interactive False
             mv "$out/${builtins.baseNameOf src}.csproj" "$out/${name}.csproj"
         '';
