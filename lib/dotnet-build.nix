@@ -11,7 +11,7 @@ let
             export DOTNET_CLI_HOME="$TMPDIR"
             export XDG_DATA_HOME="$TMPDIR"
             "${sdk}/bin/dotnet" project convert "${src}" --output "$out" --interactive False
-            mv "$out/${builtins.baseNameOf src}.csproj" "$out/${name}.csproj"
+            mv "$out/${lib.removeSuffix ".cs" (builtins.baseNameOf src)}.csproj" "$out/${name}.csproj"
         '';
     in
     pkgs.buildDotnetModule {
