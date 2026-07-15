@@ -1,4 +1,4 @@
-{ pkgs, lib, dotnetBuild, ... }:
+{ pkgs, dotnetBuild, ... }:
 let
     server = dotnetBuild.singleFile {
         name = "nix-daemon-proxy-server";

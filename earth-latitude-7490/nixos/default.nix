@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixvirt, ... }: {
+{ pkgs, nixvirt, ... }: {
     imports = [
         ./hardware.nix
         ./beyond-tunnel

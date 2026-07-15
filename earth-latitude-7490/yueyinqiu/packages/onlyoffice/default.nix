@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
     my.r.office = ''
         "${pkgs.onlyoffice-desktopeditors}/bin/onlyoffice-desktopeditors"
     '';

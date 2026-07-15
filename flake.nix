@@ -14,7 +14,7 @@
         NixVirt.inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    outputs = { self, nixpkgs, nixpkgs-master, home-manager, flatpaks, NixVirt, ... }@inputs: {
+    outputs = { nixpkgs, nixpkgs-master, home-manager, flatpaks, NixVirt, ... }: {
         nixosConfigurations.earth-latitude-7490 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { nixvirt = NixVirt; };

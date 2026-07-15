@@ -1,4 +1,4 @@
-{ pkgs, flatpaks, ... }: {
+{ flatpaks, ... }: {
     imports = [
         flatpaks.homeModules.default
     ];
