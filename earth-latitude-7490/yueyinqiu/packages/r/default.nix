@@ -35,4 +35,8 @@
         cd ~/MyProjects/Nix/MyNixFlake
         exec "$SHELL"
     '';
+
+    config.my.r.try = ''
+        nix shell "nixpkgs#''${1}"
+    '';
 }
