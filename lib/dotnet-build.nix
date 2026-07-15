@@ -23,6 +23,9 @@ let
         buildPhase = ''
             runHook preBuild
 
+            mkdir -p ./home
+            export DOTNET_CLI_HOME="$TMPDIR/home"
+
             "${sdk}/bin/dotnet" project convert "$src/${main}" --output ./project --interactive False
             "${sdk}/bin/dotnet" publish ./project -c Release -p:PublishAot=false -o ./output
 
