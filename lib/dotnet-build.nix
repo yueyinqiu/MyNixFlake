@@ -10,8 +10,8 @@ let
         project = pkgs.runCommand "${name}-project" {} ''
             export DOTNET_CLI_HOME="$TMPDIR"
             export XDG_DATA_HOME="$TMPDIR"
-            "${sdk}/bin/dotnet" project convert "${src}" --output "$out" --interactive False
-            mv "$out/${lib.removeSuffix ".cs" (builtins.baseNameOf src)}.csproj" "$out/${name}.csproj"
+            cp "${src}" "$TMPDIR/${name}.cs"
+            "${sdk}/bin/dotnet" project convert "$TMPDIR/${name}.cs" --output "$out" --interactive False
         '';
     in
     pkgs.buildDotnetModule {
