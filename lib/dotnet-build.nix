@@ -29,6 +29,7 @@ let
         dotnet-runtime = sdk;
         projectFile = "${name}.csproj";
         nugetDeps = nugetDeps;
+        selfContainedBuild = true;
     };
 in
 {
