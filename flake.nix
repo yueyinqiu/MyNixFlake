@@ -10,10 +10,6 @@
 
         flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
 
-        flake-compat.url = "github:edolstra/flake-compat/master";
-        nix-filter.url = "github:numtide/nix-filter/main";
-        flake-utils.url = "github:numtide/flake-utils/main";
-
         NixVirt.url = "github:AshleyYakeley/NixVirt/v0.6.0";
         NixVirt.inputs.nixpkgs.follows = "nixpkgs";
     };
