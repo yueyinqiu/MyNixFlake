@@ -27,6 +27,7 @@ let
             export DOTNET_CLI_HOME="$TMPDIR/home"
             mkdir -p ./temp
             export TEMP="$TMPDIR/temp"
+            export TMP="$TMPDIR/temp"
 
             "${sdk}/bin/dotnet" project convert "$src/${main}" --output ./project --interactive False
             "${sdk}/bin/dotnet" publish ./project -c Release -p:PublishAot=false -o ./output
