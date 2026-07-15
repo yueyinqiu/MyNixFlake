@@ -34,5 +34,10 @@
                 }
             ];
         };
+
+        homeConfigurations.yueyinqiu-on-bendancom = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            modules = [ ./yueyinqiu-on-bendancom ];
+        };
     };
 }
