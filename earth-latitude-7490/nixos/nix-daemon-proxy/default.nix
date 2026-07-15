@@ -4,6 +4,7 @@ let
         name = "nix-daemon-proxy-server";
         version = "0.0.1";
         src = ./server.cs;
+        nugetDeps = ./deps.nix;
     };
 in
 {

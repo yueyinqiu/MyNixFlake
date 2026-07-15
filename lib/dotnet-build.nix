@@ -4,6 +4,7 @@ let
         name,
         version,
         src,
+        nugetDeps,
         sdk ? pkgs.dotnetCorePackages.sdk_10_0,
     }:
     let
@@ -25,7 +26,8 @@ let
         version = version;
         src = project;
         dotnet-sdk = sdk;
-        projectFile = "${name}.csproj" ;
+        projectFile = "${name}.csproj";
+        inherit nugetDeps;
     };
 in
 {
