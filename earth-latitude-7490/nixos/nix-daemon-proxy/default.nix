@@ -27,8 +27,7 @@ in
             Restart = "on-failure";
             RestartSec = "5s";
             PrivateTmp = true;
-            TemporaryDirectory = "nix-daemon-proxy-server";
-            WorkingDirectory = "/tmp/nix-daemon-proxy-server";
+            WorkingDirectory = "/tmp";
         };
     };
 }
