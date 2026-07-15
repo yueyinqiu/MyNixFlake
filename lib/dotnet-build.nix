@@ -28,7 +28,7 @@ let
         dotnet-sdk = sdk;
         dotnet-runtime = sdk;
         projectFile = "${name}.csproj";
-        inherit nugetDeps;
+        nugetDeps = nugetDeps;
     };
 in
 {
