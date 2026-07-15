@@ -24,11 +24,11 @@ in
 
         serviceConfig = {
             ExecStart = "${server}/bin/nix-daemon-proxy-server";
-            PrivateTmp = true;
             Restart = "on-failure";
             RestartSec = "5s";
-            WorkingDirectory = "/var/lib/nix-daemon-proxy-server";
-            StateDirectory = "nix-daemon-proxy-server";
+            PrivateTmp = true;
+            TemporaryDirectory = "nix-daemon-proxy-server";
+            WorkingDirectory = "/tmp/nix-daemon-proxy-server";
         };
     };
 }

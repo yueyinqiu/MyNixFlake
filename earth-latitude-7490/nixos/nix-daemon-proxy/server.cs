@@ -10,14 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 var socket = "/run/nix-daemon-proxy.sock";
 var overrideConf = new FileInfo("/run/systemd/system/nix-daemon.service.d/override.conf");
 
-Console.WriteLine($"CreateBuilder.");
 var builder = WebApplication.CreateBuilder();
-Console.WriteLine($"ConfigureKestrel.");
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenUnixSocket(socket);
 });
-Console.WriteLine($"Build.");
 var app = builder.Build();
 
 app.MapPost("/", async ([FromQuery] string proxy = "") =>
