@@ -4,6 +4,7 @@
         ./beyond-tunnel
         ./nix-daemon-proxy
         nixvirt.nixosModules.default
+        ../../lib/dotnet-build.nix
     ];
 
     boot.loader.systemd-boot.enable = true;
