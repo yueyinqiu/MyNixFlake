@@ -2,56 +2,23 @@
 let
     singleFile = {
         name,
-        files,
-        dllName,
+        version,
+        src,
         sdk ? pkgs.dotnetCorePackages.sdk_10_0,
     }:
     let
-        src = pkgs.runCommand "${name}-src" {} ''
-            ${lib.concatMapStringsSep "\n" (f: ''
-                mkdir -p "$out/${builtins.dirOf f.path}"
-                cp "${f.src}" "$out/${f.path}"
-            '') files}
-        '';
         main = (builtins.head files).path;
+        project = pkgs.runCommand "${name}-project" {} ''
+            "${sdk}/bin/dotnet" project convert "${src}" --output "$out" --interactive False
+            mv "$out/${builtins.baseNameOf main}.csproj" "$out/${name}.csproj"
+        '';
     in
-    pkgs.stdenv.mkDerivation {
-        name = name;
-        src = src;
-        dontUnpack = true;
-
-        buildPhase = ''
-            runHook preBuild
-
-            mkdir -p ./home
-            export DOTNET_CLI_HOME="$TMPDIR/home"
-            mkdir -p ./temp
-            export TEMP="$TMPDIR/temp"
-            export TMP="$TMPDIR/temp"
-            export XDG_DATA_HOME="$TMPDIR/home"
-
-            "${sdk}/bin/dotnet" project convert "$src/${main}" --output ./project --interactive False
-            "${sdk}/bin/dotnet" publish ./project -c Release -p:PublishAot=false -o ./output
-
-            runHook postBuild
-        '';
-
-        installPhase = ''
-            runHook preInstall
-
-            mkdir -p "$out/bin"
-            cp -r ./output/* "$out/"
-
-            cat > "$out/bin/${name}" << 'EOF'
-            exec "${sdk}/bin/dotnet" "$out/${dllName}" "$@"
-            EOF
-            chmod +x "$out/bin/${name}"
-
-            runHook postInstall
-        '';
-
-        configurePhase = "true";
-        fixupPhase = "true";
+    pkgs.buildDotnetModule {
+        pname = name;
+        version = version;
+        src = project;
+        dotnet-sdk = sdk;
+        projectFile = "${name}.csproj" ;
     };
 in
 {

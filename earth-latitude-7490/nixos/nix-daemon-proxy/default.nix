@@ -2,10 +2,8 @@
 let
     server = dotnetBuild.singleFile {
         name = "nix-daemon-proxy-server";
-        files = [
-            { path = "server.cs"; src = ./server.cs; }
-        ];
-        dllName = "server.dll";
+        version = "0.0.1";
+        src = ./server.cs;
     };
 in
 {
