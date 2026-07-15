@@ -108,23 +108,20 @@
     }
   ];
 
-  my.r.virsh = ''
-    virsh "$@"
-  '';
-  my.r.virsh-start = ''
+  my.r.libvirt-start = ''
     virsh start "$@"
   '';
-  my.r.virsh-shutdown = ''
+  my.r.libvirt-shutdown = ''
     virsh shutdown "$@"
   '';
-  my.r.virsh-destroy = ''
+  my.r.libvirt-destroy = ''
     virsh destroy "$@"
   '';
-  my.r.virt-viewer-attach = ''
+  my.r.libvirt-attach = ''
     virt-viewer --attach "$@"
   '';
 
-  my.r.virt-create-storage = ''
+  my.r.libvirt-create-storage = ''
     # $1: storage.raw
     # $2: 80G
     qemu-img create -f raw -o preallocation=full,nocow=on "$1" "$2"

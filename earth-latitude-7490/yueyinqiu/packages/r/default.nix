@@ -27,23 +27,6 @@
     cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/''${1}.sh"
   '';
 
-  config.my.r.cd-p = ''
-    cd ~/MyProjects
-    exec "$SHELL"
-  '';
-  config.my.r.cd-m = ''
-    cd ~/MyMiscellaneousFiles
-    exec "$SHELL"
-  '';
-  config.my.r.cd-t = ''
-    cd ~/MyTemporaryFiles
-    exec "$SHELL"
-  '';
-  config.my.r.cd-os = ''
-    cd ~/MyProjects/Nix/MyNixFlake
-    exec "$SHELL"
-  '';
-
   config.my.r.try = ''
     nix shell "nixpkgs#''${1}"
   '';

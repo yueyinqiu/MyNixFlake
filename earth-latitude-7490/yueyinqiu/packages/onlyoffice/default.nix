@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  my.r.office = ''
+  my.r.onlyoffice = ''
     "${pkgs.onlyoffice-desktopeditors}/bin/onlyoffice-desktopeditors"
   '';
 

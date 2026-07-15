@@ -8,8 +8,4 @@
   my.r.vscode = ''
     code "$@"
   '';
-  my.r.notes = ''
-    cd ~/MyMiscellaneousFiles/Notes
-    exec "$SHELL"
-  '';
 }
