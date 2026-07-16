@@ -27,7 +27,7 @@
         "signon.rememberSignons" = false;
         "signon.autofillForms" = false;
 
-        "browser.translations.neverTranslateLanguages" = "zh-Hans";
+        "browser.translations.neverTranslateLanguages" = "zh-Hans,zh-Hant";
       };
 
       extensions.packages = with nur.repos.rycee.firefox-addons; [
