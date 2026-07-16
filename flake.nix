@@ -44,7 +44,7 @@
               flatpaks = flatpaks;
               nixvirt = NixVirt;
               nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
-              nur = nur;
+              nur = import nur { pkgs = nixpkgs.legacyPackages."x86_64-linux"; };
             };
           }
         ];
