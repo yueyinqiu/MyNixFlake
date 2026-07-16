@@ -12,6 +12,11 @@
 
     NixVirt.url = "github:AshleyYakeley/NixVirt/v0.6.0";
     NixVirt.inputs.nixpkgs.follows = "nixpkgs";
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       home-manager,
       flatpaks,
       NixVirt,
+      nur,
       ...
     }:
     {
@@ -38,6 +44,7 @@
               flatpaks = flatpaks;
               nixvirt = NixVirt;
               nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
+              nur = nur;
             };
           }
         ];
