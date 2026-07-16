@@ -27,5 +27,6 @@
       };
     };
     fcitx5.ignoreUserConfig = true;
+    fcitx5.waylandFrontend = true;
   };
 }
