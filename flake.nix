@@ -50,9 +50,9 @@
         ];
       };
 
-      homeConfigurations.yueyinqiu-on-bendancom = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.yueyinqiu-on-xamorix = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./yueyinqiu-on-bendancom ];
+        modules = [ ./yueyinqiu-on-xamorix ];
       };
 
       devShells."x86_64-linux".default = import ./shell.nix {
