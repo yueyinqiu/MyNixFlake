@@ -56,38 +56,38 @@
           };
         };
       };
-    };
 
-    extensions.packages = with nur.repos.rycee.firefox-addons; [
-      bitwarden
-    ];
-
-    bookmarks = {
-      force = true;
-      settings = [
-        {
-          name = "wikipedia";
-          url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
-        }
-        {
-          name = "kernel.org";
-          url = "https://www.kernel.org";
-        }
-        {
-          name = "Nix sites";
-          toolbar = true;
-          bookmarks = [
-            {
-              name = "homepage";
-              url = "https://nixos.org/";
-            }
-            {
-              name = "wiki";
-              url = "https://wiki.nixos.org/";
-            }
-          ];
-        }
+      extensions.packages = with nur.repos.rycee.firefox-addons; [
+        bitwarden
       ];
+
+      bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "wikipedia";
+            url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+          }
+          {
+            name = "kernel.org";
+            url = "https://www.kernel.org";
+          }
+          {
+            name = "Nix sites";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "homepage";
+                url = "https://nixos.org/";
+              }
+              {
+                name = "wiki";
+                url = "https://wiki.nixos.org/";
+              }
+            ];
+          }
+        ];
+      };
     };
   };
 }
