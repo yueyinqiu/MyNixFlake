@@ -9,8 +9,8 @@
       };
 
       settings = {
-        "browser.startup.homepage" = "about:blank";
-        "browser.startup.page" = 0;
+        "browser.startup.homepage" = "https://outlook.live.com/mail/";
+        "browser.startup.page" = 1;
 
         "network.proxy.type" = 1;
         "network.proxy.socks" = "127.0.0.1";
