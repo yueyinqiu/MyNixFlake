@@ -17,6 +17,8 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    inputs.vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs =
@@ -27,6 +29,7 @@
       flatpaks,
       NixVirt,
       nur,
+      vscode-server,
       ...
     }:
     {
@@ -52,7 +55,10 @@
 
       homeConfigurations.yueyinqiu-on-xamorix = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./yueyinqiu-on-xamorix ];
+        modules = [
+          ./yueyinqiu-on-xamorix
+          vscode-server.homeModules.default
+        ];
       };
 
       devShells."x86_64-linux".default = import ./shell.nix {
