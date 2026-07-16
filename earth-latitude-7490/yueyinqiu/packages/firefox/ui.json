@@ -30,7 +30,6 @@
         ],
         "vertical-tabs": [],
         "PersonalToolbar": [
-            "import-button",
             "personal-bookmarks"
         ]
     },
@@ -49,5 +48,5 @@
         "unified-extensions-area"
     ],
     "currentVersion": 24,
-    "newElementCount": 3
+    "newElementCount": 0
 }
