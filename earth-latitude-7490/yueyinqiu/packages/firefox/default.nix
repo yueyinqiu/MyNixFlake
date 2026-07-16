@@ -3,7 +3,7 @@ programs.firefox = {
   enable = true;
 
   profiles.default = {
-    search.default = "Bing";
+    search.default = "bing";
     search.force = true;
 
     settings = {
