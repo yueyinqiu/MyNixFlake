@@ -15,6 +15,8 @@
         "network.proxy.type" = 1;
         "network.proxy.socks" = "127.0.0.1";
         "network.proxy.socks_port" = 7890;
+
+        "browser.toolbars.bookmarks.visibility" = true;
       };
 
       extensions.packages = with nur.repos.rycee.firefox-addons; [
@@ -24,13 +26,33 @@
       bookmarks = {
         force = true;
         settings = [
+
           {
-            name = "Bookmarks Toolbar";
+            name = "wikipedia";
+            tags = [ "wiki" ];
+            keyword = "wiki";
+            url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+          }
+          {
+            name = "kernel.org";
+            url = "https://www.kernel.org";
+          }
+          "separator"
+          {
+            name = "Nix sites";
             toolbar = true;
             bookmarks = [
               {
-                name = "GitHub";
-                url = "https://github.com";
+                name = "homepage";
+                url = "https://nixos.org/";
+              }
+              {
+                name = "wiki";
+                tags = [
+                  "wiki"
+                  "nix"
+                ];
+                url = "https://wiki.nixos.org/";
               }
             ];
           }
