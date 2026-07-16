@@ -23,6 +23,9 @@
         "browser.aboutConfig.showWarning" = false;
         
         "browser.uiCustomization.state" = builtins.readFile ./ui.json;
+        
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
       };
 
       extensions.packages = with nur.repos.rycee.firefox-addons; [
