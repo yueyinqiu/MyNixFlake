@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.firefox = {
     enable = true;
 
@@ -16,6 +16,10 @@
         "network.proxy.socks" = "127.0.0.1";
         "network.proxy.socks_port" = 7890;
       };
+
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+        bitwarden
+      ];
 
       bookmarks = {
         force = true;
