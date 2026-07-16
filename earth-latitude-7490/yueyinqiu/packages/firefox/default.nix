@@ -20,41 +20,9 @@
 
         "browser.toolbars.bookmarks.visibility" = "always";
         "browser.download.autohideButton" = false;
-        "browser.uiCustomization.state" = builtins.toJSON {
-          currentVersion = 24;
-
-          placements = {
-            widget-overflow-fixed-list = [ ];
-            unified-extensions-area = [ ];
-            toolbar-menubar = [ "menubar-items" ];
-            TabsToolbar = [
-              "firefox-view-button"
-              "tabbrowser-tabs"
-              "new-tab-button"
-              "alltabs-button"
-            ];
-            vertical-tabs = [ ];
-            PersonalToolbar = [
-              "import-button"
-              "personal-bookmarks"
-            ];
-
-            nav-bar = [
-              "back-button"
-              "forward-button"
-              "stop-reload-button"
-              "customizableui-special-spring1"
-              "vertical-spacer"
-              "urlbar-container"
-              "customizableui-special-spring2"
-              "downloads-button"
-              "history-panelmenu"
-              "fxa-toolbar-menu-button"
-              "reset-pbm-toolbar-button"
-              "unified-extensions-button"
-            ];
-          };
-        };
+        "browser.aboutConfig.showWarning" = false;
+        
+        "browser.uiCustomization.state" = builtins.readFile ./ui.json;
       };
 
       extensions.packages = with nur.repos.rycee.firefox-addons; [
