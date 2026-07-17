@@ -1,78 +1,25 @@
 {
-  config,
-  lib,
-  modulesPath,
-  ...
-}:
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-{
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "usb_storage"
-    "sd_mod"
-    "rtsx_pci_sdmmc"
-  ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-
-  # 这里是出现了闪屏，按 AI 推荐加的
-  boot.kernelParams = [
-    "i915.enable_psr=0"
-    "i915.enable_fbc=0"
-  ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/f793457d-a209-4db6-85ba-fe56d8e70857";
-    fsType = "btrfs";
-    options = [
-      "subvol=root"
-      "compress=zstd"
-    ];
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/ba278840-0d9c-4aa5-bd55-add064d010fc";
+      fsType = "ext4";
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/f793457d-a209-4db6-85ba-fe56d8e70857";
-    fsType = "btrfs";
-    options = [
-      "subvol=home"
-      "compress=zstd"
-    ];
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/4C4D-549A";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/f793457d-a209-4db6-85ba-fe56d8e70857";
-    fsType = "btrfs";
-    options = [
-      "subvol=nix"
-      "compress=zstd"
-      "noatime"
-    ];
-  };
-
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/f793457d-a209-4db6-85ba-fe56d8e70857";
-    fsType = "btrfs";
-    options = [
-      "subvol=swap"
-      "noatime"
-      "nodatacow"
-    ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D06C-4CF0";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-    ];
-  };
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
