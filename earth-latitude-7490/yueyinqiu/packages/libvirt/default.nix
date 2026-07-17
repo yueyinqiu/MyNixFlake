@@ -27,15 +27,16 @@
       definition =
         let
           base = nixvirt.lib.domain.templates.windows {
-            name = "win11";
+            name = "w11";
             uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
             memory = {
               count = 4;
               unit = "GiB";
             };
-            storage_vol = "${config.home.homeDirectory}/VirtualMachines/win11/storage.raw";
-            install_vol = "${config.home.homeDirectory}/VirtualMachines/win11/install.iso";
-            nvram_path = "${config.home.homeDirectory}/VirtualMachines/win11/nvram.nvram";
+            # storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.raw";
+            storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.qcow2";
+            install_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/install.iso";
+            nvram_path = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/nvram.nvram";
             virtio_net = true;
             virtio_drive = true;
             install_virtio = true;
@@ -49,52 +50,15 @@
                 i: disk:
                 if i == 0 then
                   disk
-                  // {
-                    driver = disk.driver // {
-                      type = "raw";
-                      discard = "ignore";
-                    };
-                  }
+                # // {
+                #   driver = disk.driver // {
+                #     type = "raw";
+                #     discard = "ignore";
+                #   };
+                # }
                 else
                   disk
               ) base.devices.disk;
-              controller = (base.devices.controller or [ ]) ++ [
-                {
-                  type = "scsi";
-                  index = 0;
-                  model = "virtio-scsi";
-                }
-              ];
-            };
-          }
-        );
-    }
-    {
-      definition =
-        let
-          base = nixvirt.lib.domain.templates.windows {
-            name = "win10";
-            uuid = "90d049a8-dca2-472e-8212-3019254df766";
-            memory = {
-              count = 4;
-              unit = "GiB";
-            };
-            storage_vol = "${config.home.homeDirectory}/VirtualMachines/win10/storage.qcow2";
-            install_vol = "${config.home.homeDirectory}/VirtualMachines/win10/install.iso";
-            nvram_path = "${config.home.homeDirectory}/VirtualMachines/win10/nvram.nvram";
-            virtio_net = true;
-            virtio_drive = true;
-            install_virtio = true;
-          };
-        in
-        nixvirt.lib.domain.writeXML (
-          base
-          // {
-            devices = base.devices // {
-              watchdog = {
-                model = "itco";
-                action = "none";
-              };
               controller = (base.devices.controller or [ ]) ++ [
                 {
                   type = "scsi";
@@ -121,9 +85,15 @@
     virt-viewer --attach "$@"
   '';
 
+  # my.r.libvirt-create-storage = ''
+  #   # $1: storage.raw
+  #   # $2: 80G
+  #   qemu-img create -f raw -o preallocation=full,nocow=on "$1" "$2"
+  # '';
+
   my.r.libvirt-create-storage = ''
     # $1: storage.raw
     # $2: 80G
-    qemu-img create -f raw -o preallocation=full,nocow=on "$1" "$2"
+    qemu-img create -f qcow2 "$1" "$2"
   '';
 }
