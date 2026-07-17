@@ -1,5 +1,9 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [
+    mindustry-wayland
+  ];
+
   my.r.mindustry = ''
-    "${pkgs.mindustry-wayland}/bin/mindustry"
+    mindustry
   '';
 }

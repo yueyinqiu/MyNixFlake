@@ -1,8 +1,12 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [
+    podman-compose
+  ];
+
   my.r.podman = ''
     podman "$@"
   '';
   my.r.podman-compose = ''
-    "${pkgs.podman-compose}/bin/podman-compose" "$@"
+    podman-compose "$@"
   '';
 }

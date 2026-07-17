@@ -1,5 +1,8 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [
+    mpv
+  ];
   my.r.mpv = ''
-    "${pkgs.mpv}/bin/mpv" "$@"
+    mpv "$@"
   '';
 }

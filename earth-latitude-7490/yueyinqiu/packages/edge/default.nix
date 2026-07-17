@@ -1,8 +1,9 @@
 { pkgs, ... }: {
-  my.r.e = ''
-    "${pkgs.microsoft-edge}/bin/microsoft-edge" --proxy-server=localhost:7890
-  '';
+  home.packages = with pkgs; [
+    microsoft-edge
+  ];
+
   my.r.edge = ''
-    "${pkgs.microsoft-edge}/bin/microsoft-edge" --proxy-server=localhost:7890
+    microsoft-edge --proxy-server=localhost:7890
   '';
 }
