@@ -1,0 +1,5 @@
+set command [join $argv " "]
+spawn bash
+send -- $command
+send -- "\r"
+interact
