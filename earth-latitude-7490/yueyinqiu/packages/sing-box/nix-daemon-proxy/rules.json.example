@@ -4,7 +4,8 @@
             {
                 "domain_suffix": [
                     "github.com",
-                    "cache.nixos.org",
+                    "githubusercontent.com",
+                    "gitlab.com",
                     "web.archive.org"
                 ],
                 "outbound": "proxy"
@@ -16,7 +17,12 @@
                     "mirrors.cernet.edu.cn",
                     "mirrors.ustc.edu.cn",
                     "mirrors.cqupt.edu.cn",
-                    "mirror.sjtu.edu.cn"
+                    "mirror.sjtu.edu.cn",
+                    "nixos.org",
+                    "nuget.org",
+                    "packages.microsoft.com",
+                    "addons.mozilla.org",
+                    "corona.studio"
                 ],
                 "outbound": "direct"
             }
