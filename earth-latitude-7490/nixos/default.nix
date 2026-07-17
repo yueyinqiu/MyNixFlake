@@ -37,8 +37,7 @@
 
   swapDevices = [
     {
-      device = "/swap/swapfile";
-      size = 8192;
+      device = "/swapfile";
     }
   ];
   virtualisation = {
