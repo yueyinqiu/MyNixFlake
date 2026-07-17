@@ -1,1 +1,2 @@
 all_proxy=socks5h://127.0.0.1:23569 home-manager switch --flake ".#$(whoami)-on-$(hostname)"
+# all_proxy=socks5h://127.0.0.1:23569 nix run home-manager -- switch --flake ".#$(whoami)-on-$(hostname)"
