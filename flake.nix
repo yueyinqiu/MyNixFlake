@@ -52,16 +52,20 @@
         };
         modules = [
           ./earth-latitude-7490/nixos
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.yueyinqiu = import ./earth-latitude-7490/yueyinqiu;
-            home-manager.extraSpecialArgs = {
-              flatpaks = flatpaks;
-              nixvirt = NixVirt;
-              nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
-              nur = nur.legacyPackages."x86_64-linux";
-            };
-          }
+        ];
+      };
+
+      homeConfigurations.yueyinqiu-on-earth-latitude-7490 = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {
+          flatpaks = flatpaks;
+          nixvirt = NixVirt;
+          nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
+          nur = nur.legacyPackages."x86_64-linux";
+        };
+        modules = [
+          ./earth-latitude-7490/yueyinqiu
+          vscode-server.homeModules.default
         ];
       };
 
