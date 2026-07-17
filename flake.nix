@@ -65,15 +65,16 @@
         };
         modules = [
           ./earth-latitude-7490/yueyinqiu
-          vscode-server.homeModules.default
         ];
       };
 
       homeConfigurations.yueyinqiu-on-xamorix = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {
+          vscode-server = vscode-server;
+        };
         modules = [
           ./yueyinqiu-on-xamorix
-          vscode-server.homeModules.default
         ];
       };
     };
