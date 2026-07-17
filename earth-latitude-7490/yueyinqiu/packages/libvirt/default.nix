@@ -92,8 +92,8 @@
   # '';
 
   my.r.libvirt-create-storage = ''
-    # $1: storage.raw
-    # $2: 80G
+    # $1: storage.qcow2
+    # $2: 128G
     qemu-img create -f qcow2 "$1" "$2"
   '';
 }
