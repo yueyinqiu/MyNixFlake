@@ -2,23 +2,35 @@
   description = "yueyinqiu's flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+    nixpkgs-master = {
+      url = "github:NixOS/nixpkgs/master";
+    };
 
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
+    flatpaks = {
+      url = "github:in-a-dil-emma/declarative-flatpak/latest";
+    };
 
-    NixVirt.url = "github:AshleyYakeley/NixVirt/v0.6.0";
-    NixVirt.inputs.nixpkgs.follows = "nixpkgs";
+    NixVirt = {
+      url = "github:AshleyYakeley/NixVirt/v0.6.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+    }
   };
 
   outputs =
