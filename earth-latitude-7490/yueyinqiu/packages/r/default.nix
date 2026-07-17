@@ -26,8 +26,4 @@
   config.my.r.help = ''
     cat "''${XDG_CONFIG_HOME:-''$HOME/.config}/r/''${1}.sh"
   '';
-
-  config.my.r.try = ''
-    nix shell "nixpkgs#''${1}"
-  '';
 }
