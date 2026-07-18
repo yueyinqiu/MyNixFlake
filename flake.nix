@@ -31,6 +31,11 @@
     vscode-server = {
       url = "github:nix-community/nixos-vscode-server";
     };
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -42,6 +47,7 @@
       NixVirt,
       nur,
       vscode-server,
+      winapps,
       ...
     }:
     {
@@ -62,6 +68,7 @@
           nixvirt = NixVirt;
           nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
           nur = nur.legacyPackages."x86_64-linux";
+          winapps = winapps.packages."x86_64-linux";
         };
         modules = [
           ./earth-latitude-7490/yueyinqiu
