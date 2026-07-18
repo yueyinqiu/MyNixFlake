@@ -35,6 +35,9 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  powerManagement.cpuFreqGovernor = "performance";
+  services.thermald.enable = true;
+
   swapDevices = [
     {
       device = "/swapfile";
