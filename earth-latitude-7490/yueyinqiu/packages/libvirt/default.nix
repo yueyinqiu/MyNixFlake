@@ -33,8 +33,8 @@
               count = 4;
               unit = "GiB";
             };
-            # storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.raw";
-            storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.qcow2";
+            storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.raw";
+            # storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.qcow2";
             install_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/install.iso";
             nvram_path = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/nvram.nvram";
             virtio_net = true;
@@ -50,12 +50,12 @@
                 i: disk:
                 if i == 0 then
                   disk
-                # // {
-                #   driver = disk.driver // {
-                #     type = "raw";
-                #     discard = "ignore";
-                #   };
-                # }
+                  // {
+                    driver = disk.driver // {
+                      type = "raw";
+                      discard = "ignore";
+                    };
+                  }
                 else
                   disk
               ) base.devices.disk;
@@ -91,9 +91,15 @@
   #   qemu-img create -f raw -o preallocation=full,nocow=on "$1" "$2"
   # '';
 
+  # my.r.libvirt-create-storage = ''
+  #   # $1: storage.qcow2
+  #   # $2: 128G
+  #   qemu-img create -f qcow2 "$1" "$2"
+  # '';
+
   my.r.libvirt-create-storage = ''
-    # $1: storage.qcow2
-    # $2: 128G
-    qemu-img create -f qcow2 "$1" "$2"
+    # $1: storage.raw
+    # $2: 80G
+    qemu-img create -f raw -o preallocation=full "$1" "$2"
   '';
 }
