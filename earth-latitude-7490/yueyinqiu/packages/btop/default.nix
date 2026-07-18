@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    activate-linux
+    btop
   ];
+  my.r."btop" = ''
+    btop
+  '';
 }
