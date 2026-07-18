@@ -195,14 +195,14 @@ binds {
     Mod+Ctrl+Shift+R hotkey-overlay-title=null { switch-preset-window-height; }
     Mod+Ctrl+R hotkey-overlay-title=null { reset-window-height; }
 
-    Mod+F hotkey-overlay-title=null { maximize-column; }
+    Mod+F hotkey-overlay-title=null { maximize-window-to-edges; }
     Mod+Shift+F hotkey-overlay-title=null { fullscreen-window; }
 
     // While maximize-column leaves gaps and borders around the window,
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
     // e.g. by double-clicking on the titlebar.
-    Mod+M hotkey-overlay-title=null { maximize-window-to-edges; }
+    Mod+M hotkey-overlay-title=null { maximize-column; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
