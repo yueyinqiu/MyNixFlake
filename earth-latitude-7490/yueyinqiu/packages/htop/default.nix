@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    btop
+    htop
   ];
-  my.r.btop = ''
-    btop
+  my.r.htop = ''
+    htop
   '';
 }
