@@ -30,7 +30,7 @@
             name = "w11";
             uuid = "fbcd0e7c-c37b-404f-b7ec-16e609927087";
             memory = {
-              count = 4;
+              count = 3;
               unit = "GiB";
             };
             storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.raw";
@@ -45,6 +45,13 @@
         nixvirt.lib.domain.writeXML (
           base
           // {
+            cpu = base.cpu // {
+              topology = {
+                sockets = 1;
+                cores = 2;
+                threads = 1;
+              };
+            };
             devices = base.devices // {
               disk = lib.lists.imap0 (
                 i: disk:
