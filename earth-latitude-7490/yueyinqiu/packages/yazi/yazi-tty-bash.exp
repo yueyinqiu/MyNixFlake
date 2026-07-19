@@ -1,4 +1,5 @@
 set path [lindex $argv 0]
 spawn r yazi-tty $path
+sleep 1
 send "\x04"
 interact
