@@ -86,7 +86,7 @@ keymap = [
 	# { on = "s",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	# { on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
 	# { on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
-	{ on = "j",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
+	# { on = "j",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 	# { on = "Z",         run = "plugin zoxide",               desc = "Jump to a directory via zoxide" },
 
 	# Linemode
@@ -136,11 +136,14 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
 
 	# Goto
-	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
+	# { on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
 	# { on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go ~/.config" },
 	# { on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go ~/Downloads" },
 	# { on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
-	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
+	# { on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
+	{ on = [ "j", "h" ],       run = "cd ~",             desc = "Go home" },
+	{ on = [ "j", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
+	{ on = [ "j", "s" ],       run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 
 	# Tabs
 	{ on = "w", run = 'shell "niri msg action spawn -- r yazi-tty \"$PWD\""' },
