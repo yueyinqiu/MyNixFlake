@@ -1,6 +1,7 @@
 { ... }: {
   programs.firefox.enable = true;
 
-  my.r.f = "firefox";
   my.r.firefox = "firefox";
+  my.r.f = "r firefox-niri-spawn";
+  my.r.firefox-niri-spawn = "niri msg action spawn -- firefox";
 }
