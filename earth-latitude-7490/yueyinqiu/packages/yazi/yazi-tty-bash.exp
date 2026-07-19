@@ -1,4 +1,2 @@
 spawn yazi
-sleep 3
-send "\x04"
-interact
+interact -output "\x04"
