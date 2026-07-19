@@ -1,7 +1,7 @@
 { lib, ... }: {
   programs.yazi.enable = true;
   programs.yazi.settings = lib.importTOML ./yazi.toml;
-  programs.yazi.keymap = lib.importTOML ./keymap.toml;
+  # programs.yazi.keymap = lib.importTOML ./keymap.toml;
   my.r.yazi = ''
     yazi "$@"
   '';
