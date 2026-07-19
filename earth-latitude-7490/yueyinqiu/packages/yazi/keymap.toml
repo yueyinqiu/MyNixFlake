@@ -4,7 +4,7 @@
 
 keymap = [
 	{ on = "t", run = 'shell "$SHELL" --block' },
-	{ on = "w", run = 'shell "niri msg action spawn -- r ghostty --command=\"yazi\"' },
+	{ on = "w", run = 'shell "niri msg action spawn -- r ghostty --command=\"yazi\""' },
 
 
 
