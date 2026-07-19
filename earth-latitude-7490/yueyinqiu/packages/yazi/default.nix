@@ -8,4 +8,7 @@
   my.r.yazi-tty = ''
     ghostty --command=yazi --working-directory="$1"
   '';
+  my.r.yazi-tty-bash = ''
+    expect "${./yazi-tty-bash.exp}" -- "$1"
+  '';
 }
