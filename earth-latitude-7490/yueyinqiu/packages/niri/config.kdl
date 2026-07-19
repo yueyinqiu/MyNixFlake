@@ -340,6 +340,7 @@ animations {
 }
 
 window-rule {
+    match app-id="com.mitchellh.ghostty"
     open-maximized-to-edges true
 }
 
