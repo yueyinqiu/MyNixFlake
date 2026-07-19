@@ -1,3 +1,4 @@
 spawn yazi
+sleep 1
 send "\x04"
 interact
