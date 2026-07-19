@@ -22,8 +22,11 @@
     {
       # if there is no disk displayed during installation, click Load Driver, select viostor/w11/amd64 in virtio-win
       # for network: netkvm
-      # all: virtio-win-guest-tools.exe
+      # after installation: virtio-win-guest-tools.exe
+
       # To activate: irm https://get.activated.win | iex
+
+      # To share files: use syncthing 
       definition =
         let
           base = nixvirt.lib.domain.templates.windows {
