@@ -3,6 +3,12 @@
 [mgr]
 
 keymap = [
+	{ on = "t", run = 'shell "$SHELL" --block' },
+	{ on = "w", run = 'shell "niri msg action spawn -- r ghostty --command=\"yazi\"' },
+
+
+
+
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
 	{ on = "q",     run = "quit",               desc = "Quit the process" },
@@ -120,9 +126,6 @@ keymap = [
 	{ on = [ ",", "s" ], run = [ "sort size --reverse=no", "linemode size" ],    desc = "Sort by size" },
 	{ on = [ ",", "S" ], run = [ "sort size --reverse=yes", "linemode size" ],   desc = "Sort by size (reverse)" },
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
-
-	# Terminal
-	{ on = "w", run = 'shell "bash" --block' },
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
