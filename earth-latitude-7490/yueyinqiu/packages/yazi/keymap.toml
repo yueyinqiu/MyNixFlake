@@ -3,7 +3,7 @@
 [mgr]
 
 keymap = [
-	{ on = "<C-d>", run = 'shell "clear; $SHELL" --block' },
+	{ on = "<C-d>", run = 'shell "\"$SHELL\"" --block' },
 
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
 	# { on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selection, or cancel search" },
