@@ -122,7 +122,7 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
 
 	# Terminal
-	{ on = "w", run = 'shell "bash"' },
+	{ on = "w", run = 'shell "bash" --block' },
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
