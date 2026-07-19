@@ -1,7 +1,7 @@
 binds {
     Mod+Shift+Alt+Ctrl+H hotkey-overlay-title="Help" { show-hotkey-overlay; }
-
-    Mod+W hotkey-overlay-title="Terminal" { spawn-sh "r ghostty"; }
+    
+    Mod+W hotkey-overlay-title="Terminal" { spawn-sh "ghostty --command=yazi --working-directory=~"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
