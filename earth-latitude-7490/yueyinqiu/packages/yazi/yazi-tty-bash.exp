@@ -1,2 +1,4 @@
 spawn yazi
-interact -output "\x04"
+expect "Top"
+send "\x04"
+interact
