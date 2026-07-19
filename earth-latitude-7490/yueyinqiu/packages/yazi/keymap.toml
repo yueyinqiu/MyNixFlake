@@ -121,6 +121,9 @@ keymap = [
 	{ on = [ ",", "S" ], run = [ "sort size --reverse=yes", "linemode size" ],   desc = "Sort by size (reverse)" },
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
 
+	# Terminal
+	{ on = "T", run = 'shell "niri msg action spawn -- r ghostty --working-directory=$PWD"', desc = "Open Ghostty in current directory" },
+
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go ~/.config" },
