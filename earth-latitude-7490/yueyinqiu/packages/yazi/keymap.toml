@@ -122,7 +122,7 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
 
 	# Terminal
-	{ on = "T", run = 'shell "niri msg action spawn -- r ghostty --working-directory=$PWD"', desc = "Open Ghostty in current directory" },
+	{ on = "T", run = 'shell "niri msg action spawn -- r ghostty --working-directory=\"$PWD\""', desc = "Open Ghostty in current directory" },
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
