@@ -5,4 +5,7 @@
   my.r.yazi = ''
     yazi "$@"
   '';
+  my.r.yazi-tty = ''
+    ghostty --command=yazi --working-directory="$1"
+  '';
 }
