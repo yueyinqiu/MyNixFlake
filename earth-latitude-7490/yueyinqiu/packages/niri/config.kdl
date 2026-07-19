@@ -340,7 +340,7 @@ animations {
 }
 
 window-rule {
-    open-maximized true
+    open-maximized-to-edges true
 }
 
 // Add lines like this to spawn processes at startup.
