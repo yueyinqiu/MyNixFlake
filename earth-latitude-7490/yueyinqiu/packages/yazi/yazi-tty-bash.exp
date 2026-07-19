@@ -1,7 +1,0 @@
-spawn yazi
-interact {
-    -timeout 1 {
-        send "\x04"
-        return
-    }
-}
