@@ -300,31 +300,22 @@ animations {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
-window-rule {
+/-window-rule {
     match app-id=r#"^com\.follow\.clash$"#
     default-column-width { proportion 0.33333; }
 }
 
-window-rule {
+/-window-rule {
     match app-id=r#"^QQ$"#
     default-column-width { proportion 0.5; }
 }
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
+/-window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+/-window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
@@ -346,6 +337,10 @@ window-rule {
 /-window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+window-rule {
+    open-fullscreen true
 }
 
 // Add lines like this to spawn processes at startup.
