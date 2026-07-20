@@ -15,6 +15,7 @@
   ];
 
   # pcie_aspm=off is suggested by AI to fix the following issue:
+  # $ sudo dmesg | grep -i "ath10k\|aer"
   # [    0.345636] acpi PNP0A08:00: _OSC: OS now controls [PCIeHotplug PME AER PCIeCapability LTR]
   # [    0.508288] pcieport 0000:00:1c.0: AER: enabled with IRQ 120
   # [    0.508930] pcieport 0000:00:1c.2: AER: enabled with IRQ 121
