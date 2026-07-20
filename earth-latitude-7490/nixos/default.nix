@@ -16,9 +16,6 @@
 
   services.logind.settings.Login = {
     HandleLidSwitch = "ignore";
-    HandleSuspendKey="ignore";
-    HandleHibernateKey="ignore";
-    IdleAction="ignore";
   };
   services.upower.ignoreLid = true;
   
