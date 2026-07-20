@@ -14,6 +14,14 @@
     "pcie_aspm=off" 
   ];
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleSuspendKey="ignore";
+    HandleHibernateKey="ignore";
+    IdleAction="ignore";
+  };
+  services.upower.ignoreLid = true;
+  
   # pcie_aspm=off is suggested by AI to fix the following issue:
   # $ sudo dmesg | grep -i "ath10k\|aer"
   # [    0.345636] acpi PNP0A08:00: _OSC: OS now controls [PCIeHotplug PME AER PCIeCapability LTR]
