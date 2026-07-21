@@ -4,6 +4,6 @@
   ];
 
   my.r.feishu = ''
-    feishu
+    bytedance-feishu
   '';
 }
