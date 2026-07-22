@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ./mainland-proxy
+    ./mainland
+    ./tongji
     ./nix-daemon-proxy
-    ./tongji-proxy
   ];
 
   config.home.packages = with pkgs; [
