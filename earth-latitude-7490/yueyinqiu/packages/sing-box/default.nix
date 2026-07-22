@@ -5,8 +5,8 @@
     ./nix-daemon-proxy
     ./tongji-proxy
   ];
-  
-  home.packages = with pkgs; [
+
+  config.home.packages = with pkgs; [
     sing-box
   ];
 
