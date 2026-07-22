@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  config.import = [
+  imports = [
     ./mainland-proxy
     ./nix-daemon-proxy
     ./tongji-proxy
