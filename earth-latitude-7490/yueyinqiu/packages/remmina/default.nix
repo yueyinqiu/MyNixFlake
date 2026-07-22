@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  services.remmina.enable = true;
+  home.packages = with pkgs; [
+    remmina
+  ];
 
   my.r.remmina = ''
     remmina
