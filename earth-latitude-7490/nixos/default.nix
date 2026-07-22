@@ -270,4 +270,6 @@
   services.udisks2.enable = true;
   services.flatpak.enable = true;
   system.stateVersion = "26.05"; # never change this, even it's updated
+  
+  programs.niri.enable = true;
 }
