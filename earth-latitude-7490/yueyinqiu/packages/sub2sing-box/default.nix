@@ -9,7 +9,7 @@ let
       owner = "bestnite";
       repo = "sub2sing-box";
       rev = "v${version}";
-      hash = "sha256-5A0cK+M2NylM/T/9jIeY1vN6i2RkS3K8O2K0wO2K0wO=";
+      hash = "sha256-A5FRrWjIs2YHP+JVXdM4f1nWh3x4zxt7pGI4XZunw+w=";
     };
 
     vendorHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
