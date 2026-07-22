@@ -46,7 +46,6 @@
       flatpaks,
       NixVirt,
       nur,
-      niri,
       vscode-server,
       winapps,
       ...
@@ -67,7 +66,6 @@
         extraSpecialArgs = {
           flatpaks = flatpaks;
           nixvirt = NixVirt;
-          niri = niri;
           nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
           nur = nur.legacyPackages."x86_64-linux";
           winapps = winapps.packages."x86_64-linux";
