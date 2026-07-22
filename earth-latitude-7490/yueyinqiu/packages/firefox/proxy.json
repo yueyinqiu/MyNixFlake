@@ -41,6 +41,15 @@
                 "domain": [
                     "gemini.google.com"
                 ]
+            },
+            {
+                "outbound": "tongji",
+                "domain_suffix": [
+                    "pjlab.org.cn"
+                ],
+                "ip_cidr": [
+                    "10.1.20.52/32"
+                ]
             }
         ],
         "final": "direct"
