@@ -6,6 +6,6 @@
   my.r.firefox-niri-spawn = "niri msg action spawn -- firefox";
 
   my.sing-box.instances.firefox = [
-    
-  ]
+    ./proxy.json
+  ];
 }
