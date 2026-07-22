@@ -16,6 +16,8 @@
             "method": "aes-256-gcm",
             "password": "your-password"
         },
+
+
         {
             "type": "urltest",
             "tag": "auto",
@@ -26,6 +28,7 @@
             "url": "https://www.gstatic.com/generate_204",
             "interval": "1m"
         },
+
         
         {
             "type": "selector",
@@ -36,14 +39,6 @@
                 "server-2"
             ],
             "default": "auto"
-        },
-        {
-            "type": "direct",
-            "tag": "direct"
-        },
-        {
-            "type": "block",
-            "tag": "block"
         }
     ]
 }

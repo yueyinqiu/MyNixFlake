@@ -1,0 +1,12 @@
+{
+    "outbounds": [
+        {
+            "type": "ssh",
+            "tag": "proxy",
+            "server": "100.64.0.11",
+            "server_port": 22,
+            "user": "yueyi",
+            "private_key_path": "/home/yueyinqiu/.ssh/id_ed25519"
+        }
+    ]
+}
