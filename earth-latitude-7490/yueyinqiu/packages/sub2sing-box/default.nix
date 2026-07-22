@@ -1,30 +1,37 @@
 { pkgs, ... }:
 
 let
-  sub2sing-box = pkgs.buildGoModule rec {
-    pname = "sub2sing-box";
-    version = "0.0.11";
+  mihomo2singbox = pkgs.python3.pkgs.buildPythonApplication {
+    pname = "mihomo2singbox";
+    version = "0.1.0";
+
+    format = "pyproject";
 
     src = pkgs.fetchFromGitHub {
-      owner = "bestnite";
-      repo = "sub2sing-box";
-      rev = "v${version}";
-      hash = "sha256-A5FRrWjIs2YHP+JVXdM4f1nWh3x4zxt7pGI4XZunw+w=";
+      owner = "n-WN";
+      repo = "mihomo2singbox";
+      rev = "main";
+      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
     };
 
-    vendorHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-    proxyVendor = true;
-    env.GOPROXY = "https://goproxy.cn,direct";
+    nativeBuildInputs = with pkgs.python3.pkgs; [
+      hatchling
+    ];
+
+    propagatedBuildInputs = with pkgs.python3.pkgs; [
+      pyyaml
+    ];
+
     meta = with pkgs.lib; {
-      description = "将节点和订阅转换为 sing-box 配置的工具";
-      homepage = "https://github.com/bestnite/sub2sing-box";
+      description = "Mihomo (ClashMeta) 配置转换为 Sing-box 配置的转换工具";
+      homepage = "https://github.com/n-WN/mihomo2singbox";
       license = licenses.mit;
-      mainProgram = "sub2sing-box";
+      mainProgram = "mihomo2singbox";
     };
   };
 
 in {
   home.packages = [
-    sub2sing-box
+    mihomo2singbox
   ];
 }
