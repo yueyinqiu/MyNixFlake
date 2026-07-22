@@ -38,8 +38,8 @@
         "rules": [
             {
                 "outbound": "mainland",
-                "domain": [
-                    "gemini.google.com"
+                "domain_suffix": [
+                    "google.com"
                 ]
             },
             {
