@@ -19,7 +19,7 @@
 
       window-rules = [
         {
-          match.app-id = "com.mitchellh.ghostty";
+          matches = [{ app-id = "com.mitchellh.ghostty"; }];
           open-maximized-to-edges = true;
         }
       ];
