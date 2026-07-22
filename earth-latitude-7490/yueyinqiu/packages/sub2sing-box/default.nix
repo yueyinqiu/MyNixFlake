@@ -11,7 +11,7 @@ let
       owner = "n-WN";
       repo = "mihomo2singbox";
       rev = "main";
-      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      hash = "sha256-nVsvTuz4zmrQDwsEExv+XNzKI79MdwtcJQAZ6eciUxw=";
     };
 
     nativeBuildInputs = with pkgs.python3.pkgs; [
