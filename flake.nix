@@ -32,6 +32,11 @@
       url = "github:nix-community/nixos-vscode-server";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     winapps = {
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +51,7 @@
       flatpaks,
       NixVirt,
       nur,
+      niri,
       vscode-server,
       winapps,
       ...
@@ -66,6 +72,7 @@
         extraSpecialArgs = {
           flatpaks = flatpaks;
           nixvirt = NixVirt;
+          niri = niri;
           nixpkgs-master = nixpkgs-master.legacyPackages."x86_64-linux";
           nur = nur.legacyPackages."x86_64-linux";
           winapps = winapps.packages."x86_64-linux";
