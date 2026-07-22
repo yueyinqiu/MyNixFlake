@@ -13,7 +13,7 @@ let
     };
 
     vendorHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-
+    proxyVendor = false;
     meta = with pkgs.lib; {
       description = "将节点和订阅转换为 sing-box 配置的工具";
       homepage = "https://github.com/bestnite/sub2sing-box";
