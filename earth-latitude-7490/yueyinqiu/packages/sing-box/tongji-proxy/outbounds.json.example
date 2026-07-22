@@ -1,3 +1,5 @@
+// should provide an outbound named `proxy`
+
 {
     "outbounds": [
         {

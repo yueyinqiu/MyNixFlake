@@ -1,0 +1,26 @@
+// should provide an outbound named `proxy`
+
+{
+    "outbounds": [
+        {
+            "type": "urltest",
+            "tag": "auto",
+            "outbounds": [
+                "server-1",
+                "server-2"
+            ],
+            "url": "https://www.gstatic.com/generate_204",
+            "interval": "1m"
+        },
+        {
+            "type": "selector",
+            "tag": "proxy",
+            "outbounds": [
+                "auto",
+                "server-1",
+                "server-2"
+            ],
+            "default": "auto"
+        }
+    ]
+}
