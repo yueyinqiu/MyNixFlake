@@ -8,7 +8,7 @@
                     "gitlab.com",
                     "web.archive.org"
                 ],
-                "outbound": "proxy"
+                "outbound": "mainland"
             },
             {
                 "domain_suffix": [
@@ -20,9 +20,13 @@
                     "mirror.sjtu.edu.cn",
                     "nixos.org",
                     "nuget.org",
-                    "packages.microsoft.com",
+                    "microsoft.com",
                     "addons.mozilla.org",
-                    "corona.studio"
+                    "corona.studio",
+                    "feishucdn.com",
+                    "gitlab.freedesktop.org",
+                    "crates.io",
+                    "visualstudio.com"
                 ],
                 "outbound": "direct"
             }

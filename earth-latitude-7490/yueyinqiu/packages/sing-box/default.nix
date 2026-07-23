@@ -98,13 +98,13 @@
     my.r = lib.mapAttrs' (instName: cfg:
       lib.nameValuePair "sing-box-${instName}" ''
         echo "sing-box instance: ${instName}"
-        echo "  proxy:"
-        echo "    export all_proxy=socks5h://127.0.0.1:${toString cfg.port}"
-        echo "  manage:"
-        echo "    https://metacubex.github.io/metacubexd/#/setup?http=true&hostname=127.0.0.1&port=${toString cfg.manager}"
-        echo "    systemctl --user status sing-box-${instName}"
-        echo "    systemctl --user restart sing-box-${instName}"
-        echo "    journalctl --user -u sing-box-${instName}"
+        echo "  export all_proxy=socks5h://127.0.0.1:${toString cfg.port}"
+        echo ""
+        echo "  https://metacubex.github.io/metacubexd/#/setup?http=true&hostname=127.0.0.1&port=${toString cfg.manager}"
+        echo ""
+        echo "  systemctl --user status sing-box-${instName}"
+        echo "  systemctl --user restart sing-box-${instName}"
+        echo "  journalctl --user -u sing-box-${instName}"
       ''
     ) config.my.sing-box.instances;
   };
