@@ -45,6 +45,28 @@
                 listen_port = cfg.port;
               }
             ];
+            outbounds = [
+              {
+                type = "socks";
+                tag = "mainland";
+                listen = "127.0.0.1";
+                listen_port = 29662;
+              }
+              {
+                type = "socks";
+                tag = "tongji";
+                listen = "127.0.0.1";
+                listen_port = 54372;
+              }
+              {
+                type = "direct";
+                tag = "direct";
+              }
+              {
+                type = "block";
+                tag = "block";
+              }
+            ];
             experimental = {
               clash_api = {
                 external_controller = "127.0.0.1:${toString cfg.manager}";
@@ -76,14 +98,13 @@
     my.r = lib.mapAttrs' (instName: cfg:
       lib.nameValuePair "sing-box-${instName}" ''
         echo "sing-box instance: ${instName}"
-        echo "  mixed port:     ${toString cfg.port}"
-        echo "  clash api port: ${toString cfg.manager}"
-        echo ""
-        echo "manage:"
-        echo "  systemctl --user start sing-box-${instName}"
-        echo "  systemctl --user stop sing-box-${instName}"
-        echo "  systemctl --user status sing-box-${instName}"
-        echo "  journalctl --user -u sing-box-${instName}"
+        echo "  proxy:"
+        echo "    export all_proxy=socks5h://127.0.0.1:${toString cfg.port}"
+        echo "  manage:"
+        echo "    https://metacubex.github.io/metacubexd/#/setup?http=true&hostname=127.0.0.1&port=${toString cfg.manager}"
+        echo "    systemctl --user status sing-box-${instName}"
+        echo "    systemctl --user restart sing-box-${instName}"
+        echo "    journalctl --user -u sing-box-${instName}"
       ''
     ) config.my.sing-box.instances;
   };

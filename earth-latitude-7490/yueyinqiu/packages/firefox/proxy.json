@@ -1,26 +1,4 @@
 {
-    "outbounds": [
-        {
-            "type": "socks",
-            "tag": "mainland",
-            "server": "127.0.0.1",
-            "server_port": 29662
-        },
-        {
-            "type": "socks",
-            "tag": "tongji",
-            "server": "127.0.0.1",
-            "server_port": 54372
-        },
-        {
-            "tag": "direct",
-            "type": "direct"
-        },
-        {
-            "tag": "block",
-            "type": "block"
-        }
-    ],
     "route": {
         "rules": [
             {
