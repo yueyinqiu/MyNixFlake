@@ -7,7 +7,6 @@
 
   my.sing-box.instances.for-firefox = {
     files = [
-      ./dns.json
       ./rules.json
     ];
     port = 14469;
