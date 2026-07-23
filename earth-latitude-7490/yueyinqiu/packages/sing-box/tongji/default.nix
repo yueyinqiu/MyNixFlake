@@ -1,7 +1,11 @@
 { ... }:
 {
-  my.sing-box.instances.tongji = [
-    ./config.json
-    ./outbounds.json.example
-  ];
+  my.sing-box.instances.tongji = {
+    files = [
+      ./route.json
+      ./outbounds.json.example
+    ];
+    port = 54372;
+    manager = 56112;
+  };
 }
