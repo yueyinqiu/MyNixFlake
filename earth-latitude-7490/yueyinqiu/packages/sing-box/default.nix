@@ -49,14 +49,14 @@
               {
                 type = "socks";
                 tag = "mainland";
-                listen = "127.0.0.1";
-                listen_port = 29662;
+                server = "127.0.0.1";
+                server_port = 29662;
               }
               {
                 type = "socks";
                 tag = "tongji";
-                listen = "127.0.0.1";
-                listen_port = 54372;
+                server = "127.0.0.1";
+                server_port = 54372;
               }
               {
                 type = "direct";
