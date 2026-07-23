@@ -1,6 +1,6 @@
 { ... }:
 {
-  my.sing-box.instances.nix-daemon = {
+  my.sing-box.instances.for-nix-daemon = {
     files = [
       ./rules.json
     ];
@@ -8,7 +8,7 @@
     manager = 62751;
   };
 
-  systemd.user.services.nix-daemon-proxy = {
+  systemd.user.services.proxy-for-nix-daemon = {
     Unit = {
       Description = "Set nix-daemon proxy";
       After = [ "sing-box-nix-daemon.service" ];
