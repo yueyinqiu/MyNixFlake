@@ -1,17 +1,4 @@
 {
-    "inbounds": [
-        {
-            "tag": "mixed-in",
-            "type": "mixed",
-            "listen": "127.0.0.1",
-            "listen_port": 14469
-        }
-    ],
-    "experimental": {
-        "clash_api": {
-            "external_controller": "127.0.0.1:53507"
-        }
-    },
     "outbounds": [
         {
             "type": "socks",

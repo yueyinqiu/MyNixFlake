@@ -5,7 +5,11 @@
   my.r.f = "r firefox-niri-spawn";
   my.r.firefox-niri-spawn = "niri msg action spawn -- firefox";
 
-  my.sing-box.instances.firefox = [
-    ./proxy.json
-  ];
+  my.sing-box.instances.firefox = {
+    files = [
+      ./proxy.json
+    ];
+    port = 14469;
+    manager = 53507;
+  };
 }
