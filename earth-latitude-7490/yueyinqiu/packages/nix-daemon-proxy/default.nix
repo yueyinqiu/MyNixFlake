@@ -19,7 +19,7 @@
     };
     Service = {
       Type = "oneshot";
-      ExecStart = "nix-daemon-proxy socks5h://127.0.0.1:23569";
+      ExecStart = "/run/current-system/sw/bin/nix-daemon-proxy socks5h://127.0.0.1:23569";
       Restart = "on-failure";
       RestartSec = "5s";
       StartLimitIntervalSec = 300;
