@@ -3,7 +3,6 @@
   imports = [
     ./mainland
     ./tongji
-    ./nix-daemon-proxy
   ];
 
   config.home.packages = with pkgs; [
