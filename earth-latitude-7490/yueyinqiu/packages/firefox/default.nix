@@ -7,7 +7,8 @@
 
   my.sing-box.instances.for-firefox = {
     files = [
-      ./proxy.json
+      ./dns.json
+      ./rules.json
     ];
     port = 14469;
     manager = 53507;
