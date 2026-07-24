@@ -25,6 +25,7 @@
       vscode-server,
       winapps,
       nix-wpsoffice-cn,
+      nvf,
       ...
     }:
     {
@@ -47,6 +48,7 @@
           nur = nur.legacyPackages."x86_64-linux";
           winapps = winapps.packages."x86_64-linux";
           nix-wpsoffice-cn = nix-wpsoffice-cn.packages."x86_64-linux";
+          nvf = nvf;
         };
         modules = [
           ./earth-latitude-7490/yueyinqiu
