@@ -26,7 +26,8 @@
                     "feishucdn.com",
                     "gitlab.freedesktop.org",
                     "crates.io",
-                    "visualstudio.com"
+                    "visualstudio.com",
+                    "wpscdn.cn"
                 ],
                 "outbound": "direct"
             }
