@@ -1,10 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, nix-wpsoffice-cn, ... }: {
   home.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
     corefonts
+    nix-wpsoffice-cn.chinese-fonts
   ];
 
   fonts.fontconfig = {
