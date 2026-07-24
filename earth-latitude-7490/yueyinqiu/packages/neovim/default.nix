@@ -11,6 +11,11 @@
       vim.lsp = {
         enable = true;
       };
+      vim.filetree = {
+        neo-tree = {
+          enable = true;
+        };
+      };
     };
   };
 }
