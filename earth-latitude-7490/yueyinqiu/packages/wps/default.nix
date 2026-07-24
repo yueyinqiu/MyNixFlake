@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    wps
+    wps-cn
   ];
 
   # https://github.com/Beriholic/nix-wpsoffice-cn/issues/1#issuecomment-3706931491
