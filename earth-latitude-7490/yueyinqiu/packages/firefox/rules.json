@@ -12,6 +12,12 @@
                 ]
             },
             {
+                "outbound": "mainland",
+                "domain_suffix": [
+                    "huggingface.co"
+                ]
+            },
+            {
                 "ip_is_private": true,
                 "outbound": "direct"
             },
