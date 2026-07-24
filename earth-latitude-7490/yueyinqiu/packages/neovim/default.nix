@@ -11,7 +11,7 @@
       vim.lsp = {
         enable = true;
       };
-      binds = {
+      vim.binds = {
         whichKey = {
           enable = true;
         };
