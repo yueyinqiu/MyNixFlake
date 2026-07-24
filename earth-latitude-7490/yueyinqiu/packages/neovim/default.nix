@@ -11,6 +11,11 @@
       vim.lsp = {
         enable = true;
       };
+      binds = {
+        whichKey = {
+          enable = true;
+        };
+      };
       vim.filetree = {
         neo-tree = {
           enable = true;
