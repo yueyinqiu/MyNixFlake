@@ -27,7 +27,8 @@
                     "gitlab.freedesktop.org",
                     "crates.io",
                     "visualstudio.com",
-                    "wpscdn.cn"
+                    "wpscdn.cn",
+                    "nomachine.com"
                 ],
                 "outbound": "direct"
             }
