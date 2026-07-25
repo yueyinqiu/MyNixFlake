@@ -32,6 +32,10 @@
   '';
 
   my.r.proxy-for-nix-daemon-check-block = ''
-    systemctl --user restart proxy-for-nix-daemon
+    journalctl --user -u sing-box-for-nix-daemon | grep block
+  '';
+
+  my.r.proxy-for-nix-daemon-restart = ''
+    systemctl --user restart sing-box-for-nix-daemon
   '';
 }
