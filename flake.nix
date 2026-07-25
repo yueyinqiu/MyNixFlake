@@ -1,17 +1,51 @@
 {
   description = "yueyinqiu's flake";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    home-manager.url = "github:nix-community/home-manager/master";
-    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
-    NixVirt.url = "github:AshleyYakeley/NixVirt/v0.6.0";
-    nur.url = "github:nix-community/NUR";
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-    winapps.url = "github:winapps-org/winapps";
-    nix-wpsoffice-cn.url = "github:Beriholic/nix-wpsoffice-cn";
-    nvf.url = "github:notashelf/nvf";
+  inputs = {    
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+    nixpkgs-master = {
+      url = "github:NixOS/nixpkgs/master";
+    };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flatpaks = {
+      url = "github:in-a-dil-emma/declarative-flatpak/latest";
+    };
+
+    NixVirt = {
+      url = "github:AshleyYakeley/NixVirt/v0.6.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+    };
+
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    nix-wpsoffice-cn = {
+      url = "github:Beriholic/nix-wpsoffice-cn";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
