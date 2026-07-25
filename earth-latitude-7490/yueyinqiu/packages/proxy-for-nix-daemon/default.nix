@@ -28,6 +28,6 @@
   };
 
   my.r.set-nix-daemon-proxy = ''
-    systemctl --user restart nix-daemon-proxy
+    systemctl --user restart proxy-for-nix-daemon
   '';
 }
