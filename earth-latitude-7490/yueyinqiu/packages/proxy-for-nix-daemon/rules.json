@@ -7,7 +7,8 @@
                     "githubusercontent.com",
                     "gitlab.com",
                     "web.archive.org",
-                    "nomachine.com"
+                    "nomachine.com",
+                    "googlesource.com"
                 ],
                 "outbound": "mainland"
             },
