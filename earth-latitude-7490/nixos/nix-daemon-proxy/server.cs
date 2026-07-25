@@ -24,6 +24,11 @@ app.MapPost("/", async ([FromQuery] string proxy = "") =>
         $"""
         [Service]
         Environment="all_proxy={proxy}"
+        Environment="http_proxy={proxy}"
+        Environment="https_proxy={proxy}"
+        Environment="ALL_PROXY={proxy}"
+        Environment="HTTP_PROXY={proxy}"
+        Environment="HTTPS_PROXY={proxy}"
         """
     );
     await Cli.Wrap("systemctl").WithArguments(["daemon-reload"]).ExecuteBufferedAsync();
