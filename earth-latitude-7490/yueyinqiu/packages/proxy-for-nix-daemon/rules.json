@@ -6,7 +6,8 @@
                     "github.com",
                     "githubusercontent.com",
                     "gitlab.com",
-                    "web.archive.org"
+                    "web.archive.org",
+                    "nomachine.com"
                 ],
                 "outbound": "mainland"
             },
@@ -27,8 +28,7 @@
                     "gitlab.freedesktop.org",
                     "crates.io",
                     "visualstudio.com",
-                    "wpscdn.cn",
-                    "nomachine.com"
+                    "wpscdn.cn"
                 ],
                 "outbound": "direct"
             }
