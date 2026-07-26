@@ -1,7 +1,6 @@
 { pkgs, nixvirt, ... }: {
   imports = [
     ./hardware.nix
-    ./beyond-tunnel
     ./nix-daemon-proxy
     nixvirt.nixosModules.default
     ../../lib/dotnet-build.nix
@@ -265,7 +264,6 @@
     ];
   };
 
-  services.beyond-tunnel.enable = true;
   services.openssh.enable = true;
   services.udisks2.enable = true;
   programs.niri.enable = true;
