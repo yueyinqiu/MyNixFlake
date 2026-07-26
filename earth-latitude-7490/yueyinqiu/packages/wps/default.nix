@@ -4,8 +4,8 @@
   ];
 
   # https://github.com/Beriholic/nix-wpsoffice-cn/issues/1#issuecomment-3706931491
+  # https://bbs.wps.cn/topic/61831
   my.r.wps = ''
-    mkdir -p $HOME/.wps/Documents
-    GTK_IM_MODULE="fcitx" QT_IM_MODULE="fcitx" SDL_IM_MODULE="fcitx" proot -b "$HOME/.wps/Documents:$HOME/Documents" wps "$@"
+    HOME="$HOME/.wps" wps
   '';
 }
