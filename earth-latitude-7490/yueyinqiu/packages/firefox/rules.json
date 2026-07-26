@@ -14,7 +14,8 @@
             {
                 "outbound": "mainland",
                 "domain_suffix": [
-                    "huggingface.co"
+                    "huggingface.co",
+                    "consensus.app"
                 ]
             },
             {
