@@ -3,6 +3,7 @@
   imports = [
     ./mainland
     ./tongji
+    ./ailab
   ];
 
   config.home.packages = with pkgs; [
@@ -56,6 +57,12 @@
                 tag = "tongji";
                 server = "127.0.0.1";
                 server_port = 54372;
+              }
+              {
+                type = "socks";
+                tag = "ailab";
+                server = "127.0.0.1";
+                server_port = 25563;
               }
               {
                 type = "direct";

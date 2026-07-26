@@ -2,13 +2,18 @@
     "route": {
         "rules": [
             {
-                "outbound": "tongji",
+                "outbound": "ailab",
                 "domain_suffix": [
-                    "pjlab.org.cn",
-                    "tongji.edu.cn"
+                    "pjlab.org.cn"
                 ],
                 "ip_cidr": [
                     "10.1.20.52/32"
+                ]
+            },
+            {
+                "outbound": "tongji",
+                "domain_suffix": [
+                    "tongji.edu.cn"
                 ]
             },
             {
