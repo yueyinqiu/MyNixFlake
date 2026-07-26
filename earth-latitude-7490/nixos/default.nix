@@ -209,7 +209,6 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  # powerManagement.cpuFreqGovernor = "performance";
   services.auto-cpufreq.enable = true;
   services.thermald.enable = true;
 
@@ -268,6 +267,7 @@
   services.openssh.enable = true;
   services.udisks2.enable = true;
   programs.niri.enable = true;
+  services.gvfs.enable = true;
 
   services.flatpak.enable = true;
   system.stateVersion = "26.05"; # never change this, even it's updated
