@@ -2,6 +2,7 @@
   imports = [
     ./hardware.nix
     ./nix-daemon-proxy
+    ./easytier
     nixvirt.nixosModules.default
     ../../lib/dotnet-build.nix
   ];
