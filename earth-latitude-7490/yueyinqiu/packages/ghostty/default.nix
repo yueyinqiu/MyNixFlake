@@ -2,8 +2,8 @@
   programs.ghostty.enable = true;
   programs.ghostty.settings = {
     confirm-close-surface = false;
+    shell-integration-features = "ssh-env";
   };
-  shell-integration-features = "ssh-env";
   
   my.navi-cheats = [
     ''
