@@ -20,7 +20,8 @@
                 "outbound": "mainland",
                 "domain_suffix": [
                     "huggingface.co",
-                    "consensus.app"
+                    "consensus.app",
+                    "notion.com"
                 ]
             },
             {
