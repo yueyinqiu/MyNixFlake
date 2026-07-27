@@ -3,29 +3,29 @@
 
   my.navi-cheats = [
     ''
-      % avizo, audio
+      % avizo
 
-      # adjust speaker volume
+      # adjust speaker volume with avizo notification
       volumectl -u "<direction>"
 
       $ direction: printf "up\ndown\n"
     ''
     ''
-      % avizo, audio
+      % avizo
 
-      # toggle speaker
+      # toggle speaker mute state with avizo notification
       volumectl toggle-mute
     ''
     ''
-      % avizo, microphone
+      % avizo
 
-      # toggle microphone
+      # toggle microphone mute state with avizo notification
       volumectl -m toggle-mute
     ''
     ''
-      % avizo, brightness
+      % avizo
 
-      # adjust brightness
+      # adjust screen brightness with avizo notification
       lightctl "<direction>"
       $ direction: printf "up\ndown\n"
     ''
