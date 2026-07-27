@@ -3,7 +3,7 @@
     podman-compose
   ];
 
-  my.podman = [
+  my.navi-cheats = [
     ''
       % podman
 

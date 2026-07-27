@@ -3,7 +3,7 @@
     proot
   ];
 
-  my.proot = [
+  my.navi-cheats = [
     ''
       % proot
 
