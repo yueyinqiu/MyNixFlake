@@ -30,4 +30,12 @@
     };
     fcitx5.waylandFrontend = true;
   };
+  my.navi-cheats = [
+    ''
+      % fcitx5
+
+      # print fcitx5 diagnostic info for troubleshooting
+      fcitx5-diagnose
+    ''
+  ];
 }
