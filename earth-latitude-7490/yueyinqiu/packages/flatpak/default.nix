@@ -9,11 +9,13 @@
       "flathub" = "https://dl.flathub.org/repo/flathub.flatpakrepo";
     };
   };
-}
 
-# { pkgs, ... }: {
-#     services.flatpak.packages = [
-#         "flathub:app/com.tencent.wemeet/x86_64/stable"
-#     ];
-#     my.r.wemeet = "flatpak run com.tencent.wemeet";
-# }
+  my.navi-cheats = [
+    ''
+      % flatpak
+
+      # run flatpak, a framework for distributing desktop applications across various Linux distributions.
+      flatpak <args>
+    ''
+  ];
+}

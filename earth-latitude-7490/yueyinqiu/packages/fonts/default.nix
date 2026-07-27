@@ -20,4 +20,13 @@
       sansSerif = [ "Noto Sans CJK SC" ];
     };
   };
+
+  my.navi-cheats = [
+    ''
+      % fonts
+
+      # list all available installed fonts matching a search keyword
+      fc-list : family | sort -u | grep -i <keyword>
+    ''
+  ];
 }
