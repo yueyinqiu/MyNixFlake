@@ -1,42 +1,33 @@
 { ... }: {
   services.avizo.enable = true;
 
-  my.r.avizo-speaker-up = ''
-    volumectl -u up
-  '';
-  my.r.avizo-speaker-down = ''
-    volumectl -u down
-  '';
-  my.r.avizo-speaker-mute = ''
-    volumectl toggle-mute
-  '';
-  my.r.avizo-microphone-mute = ''
-    volumectl -m toggle-mute
-  '';
-  my.r.avizo-light-up = ''
-    lightctl up
-  '';
-  my.r.avizo-light-down = ''
-    lightctl down
-  '';
+  my.navi-cheats = [
+    ''
+      % avizo, volume, speaker
 
-  my.navi-cheats.avizo = ''
-    % volume avizo
+      # adjust speaker volume
+      volumectl -u "<direction>"
 
-    # adjust speaker volume
-    volumectl -u "<direction>"
-    $ direction: printf "up\ndown\n"
+      $ direction: printf "up\ndown\n"
+    ''
+    ''
+      % avizo, volume, speaker, mute
 
-    # toggle speaker
-    volumectl toggle-mute
+      # toggle speaker
+      volumectl toggle-mute
+    ''
+    ''
+      % avizo, volume, microphone, mute
 
-    # toggle microphone
-    volumectl -m toggle-mute
-    
-    % brightness avizo
-    
-    # adjust brightness
-    lightctl "<direction>"
-    $ direction: printf "up\ndown\n"
-  '';
+      # toggle microphone
+      volumectl -m toggle-mute
+    ''
+    ''
+      % avizo, brightness
+
+      # adjust brightness
+      lightctl "<direction>"
+      $ direction: printf "up\ndown\n"
+    ''
+  ];
 }
