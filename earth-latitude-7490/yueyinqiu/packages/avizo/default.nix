@@ -3,7 +3,7 @@
 
   my.navi-cheats = [
     ''
-      % avizo, volume, speaker
+      % avizo, audio
 
       # adjust speaker volume
       volumectl -u "<direction>"
@@ -11,13 +11,13 @@
       $ direction: printf "up\ndown\n"
     ''
     ''
-      % avizo, volume, speaker, mute
+      % avizo, audio
 
       # toggle speaker
       volumectl toggle-mute
     ''
     ''
-      % avizo, volume, microphone, mute
+      % avizo, microphone
 
       # toggle microphone
       volumectl -m toggle-mute
