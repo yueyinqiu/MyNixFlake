@@ -5,7 +5,4 @@
   my.r.v = ''
     code "$@"
   '';
-  my.r.vscode = ''
-    code "$@"
-  '';
 }

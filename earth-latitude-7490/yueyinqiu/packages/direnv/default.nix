@@ -5,7 +5,7 @@
     enableBashIntegration = true;
   };
 
-  my.r."direnv-use-flake" = ''
+  my.r.direnv-use-flake = ''
     if [ -f .envrc ]; then
         echo ".envrc already exists, skipped"
     else
@@ -13,6 +13,4 @@
         echo ".envrc created"
     fi
   '';
-
-  my.r."direnv-allow" = "direnv allow";
 }

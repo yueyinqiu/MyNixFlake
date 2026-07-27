@@ -7,7 +7,4 @@
     };
     lfs.enable = true;
   };
-  my.r.git = ''
-    git "$@"
-  '';
 }

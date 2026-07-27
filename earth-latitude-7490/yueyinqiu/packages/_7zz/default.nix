@@ -3,13 +3,10 @@
     _7zz
   ];
 
-  my.r."7z" = ''
-    7zz "$@"
-  '';
-  my.r."7z-a" = ''
+  my.r."7zz-a" = ''
     7zz a "$@"
   '';
-  my.r."7z-x" = ''
+  my.r."7zz-x" = ''
     target="$1"
     name="$(basename "$target")"
     name="''${name%.*}"
