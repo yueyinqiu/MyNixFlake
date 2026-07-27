@@ -16,5 +16,14 @@
         };
       }) config.my.navi-cheats
     );
+
+    my.navi-cheats = [
+      ''
+        % navi
+
+        # run navi, an interactive cheatsheet tool for the command-line.
+        navi
+      ''
+    ];
   };
 }

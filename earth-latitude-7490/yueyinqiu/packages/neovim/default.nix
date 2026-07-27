@@ -23,4 +23,13 @@
       };
     };
   };
+
+  my.navi-cheats = [
+    ''
+      % neovim
+
+      # run neovim, a modern, fast and feature-rich editor that is fully compatible with Vim.
+      nvim <args>
+    ''
+  ];
 }
