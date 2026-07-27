@@ -19,4 +19,24 @@
   my.r.avizo-light-down = ''
     lightctl down
   '';
+
+  my.navi-cheats.avizo = ''
+    % volume avizo
+
+    # adjust speaker volume
+    volumectl -u "<direction>"
+    $ direction: printf "up\ndown\n"
+
+    # toggle speaker
+    volumectl toggle-mute
+
+    # toggle microphone
+    volumectl -m toggle-mute
+    
+    % brightness avizo
+    
+    # adjust brightness
+    lightctl "<direction>"
+    $ direction: printf "up\ndown\n"
+  '';
 }
