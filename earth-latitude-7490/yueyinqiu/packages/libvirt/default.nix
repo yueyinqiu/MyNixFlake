@@ -37,7 +37,6 @@
               unit = "GiB";
             };
             storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.raw";
-            # storage_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/storage.qcow2";
             install_vol = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/install.iso";
             nvram_path = "${config.home.homeDirectory}/.local/share/libvirt/images/w11/nvram.nvram";
             virtio_net = true;
@@ -82,34 +81,47 @@
     }
   ];
 
-  my.r.libvirt-start = ''
-    virsh start "$@"
-  '';
-  my.r.libvirt-shutdown = ''
-    virsh shutdown "$@"
-  '';
-  my.r.libvirt-destroy = ''
-    virsh destroy "$@"
-  '';
-  my.r.libvirt-attach = ''
-    virt-viewer --attach "$@"
-  '';
+  my.navi-cheats = [
+    ''
+      % libvirt
 
-  # my.r.libvirt-create-storage = ''
-  #   # $1: storage.raw
-  #   # $2: 80G
-  #   qemu-img create -f raw -o preallocation=full,nocow=on "$1" "$2"
-  # '';
+      # start a virtual machine
+      virsh start "<domain>"
+      
+      $ domain: virsh list --all --name
+    ''
+    ''
+      % libvirt
 
-  # my.r.libvirt-create-storage = ''
-  #   # $1: storage.qcow2
-  #   # $2: 128G
-  #   qemu-img create -f qcow2 "$1" "$2"
-  # '';
+      # gracefully shutdown a virtual machine
+      virsh shutdown "<domain>"
 
-  my.r.libvirt-create-storage = ''
-    # $1: storage.raw
-    # $2: 80G
-    qemu-img create -f raw -o preallocation=full "$1" "$2"
-  '';
+      $ domain: virsh list --all --name
+    ''
+    ''
+      % libvirt
+
+      # force power off a virtual machine
+      virsh destroy "<domain>"
+      
+      $ domain: virsh list --all --name
+    ''
+    ''
+      % libvirt
+
+      # attach GUI viewer to a running domain
+      virt-viewer --attach <domain>
+
+      $ domain: virsh list --all --name
+    ''
+    ''
+      % libvirt
+
+      # create preallocated raw disk image for a virtual machine
+      qemu-img create -f raw -o preallocation=full <file> <size>
+
+      $ file: printf "storage.raw"
+      $ size: printf "80G"
+    ''
+  ];
 }
