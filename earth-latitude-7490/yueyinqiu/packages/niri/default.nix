@@ -7,4 +7,12 @@
   };
 
   my.r.n = "niri-session";
+  my.navi-cheats = [
+    ''
+      % niri
+      
+      # spawn command inside active niri session
+      niri msg action spawn -- <command>
+    ''
+  ];
 }
