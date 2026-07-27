@@ -1,0 +1,18 @@
+{
+    "outbounds": [
+        {
+            "type": "socks",
+            "tag": "proxy",
+            "server": "127.0.0.1",
+            "server_port": 59553
+        },
+        {
+            "type": "urltest",
+            "outbounds": [
+                "proxy"
+            ],
+            "url": "https://signin.d.pjlab.org.cn",
+            "interval": "1m"
+        }
+    ]
+}

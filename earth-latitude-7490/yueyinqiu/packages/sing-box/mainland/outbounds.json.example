@@ -1,8 +1,17 @@
 // Tips:
-// `curl -H "User-Agent: clash-for-windows" --output xxxx https://xxxxxxxxx` to download configuration
-// `mihomo2singbox xxxx.yaml -o xxxx.json` to convert it to sing-box format
+// `curl -H "User-Agent: flclash" --output xxxx https://xxxxxxxxx` to download configuration
 
 {
+    "dns": {
+        "servers": [
+            {
+                "type": "https",
+                "server": "1.1.1.1",
+                "server_port": 443,
+                "path": "/dns-query"
+            }
+        ]
+    },
     "outbounds": [
         {
             "type": "shadowsocks",
