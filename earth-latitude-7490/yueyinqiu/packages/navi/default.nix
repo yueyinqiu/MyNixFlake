@@ -10,7 +10,7 @@
 
     home.file = builtins.listToAttrs (
       lib.imap1 (i: content: {
-        name = ".local/share/navi/cheats/cheat-${toString i}.cheat";
+        name = ".local/share/navi/cheats/cheat-${toString i}/cheat.cheat";
         value = {
           text = content;
         };
