@@ -5,15 +5,6 @@
     enableBashIntegration = true;
   };
 
-  my.r.direnv-use-flake = ''
-    if [ -f .envrc ]; then
-        echo ".envrc already exists, skipped"
-    else
-        echo "use flake" > .envrc
-        echo ".envrc created"
-    fi
-  '';
-
   my.navi-cheats.direnv = ''
     # initialize .envrc with "use flake" for Nix environment
     r direnv-use-flake
