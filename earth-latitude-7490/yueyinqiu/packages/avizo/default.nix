@@ -1,33 +1,19 @@
 { ... }: {
   services.avizo.enable = true;
 
-  my.navi-cheats = [
-    ''
-      % avizo
+  my.navi-cheats.avizo = ''
+    $ direction: printf "up\ndown\n" --- --map my-bash-escape-std
 
-      # adjust speaker volume with avizo notification
-      volumectl -u "<direction>"
+    # adjust speaker volume with avizo notification
+    volumectl -u <direction>
 
-      $ direction: printf "up\ndown\n"
-    ''
-    ''
-      % avizo
+    # toggle speaker mute state with avizo notification
+    volumectl toggle-mute
 
-      # toggle speaker mute state with avizo notification
-      volumectl toggle-mute
-    ''
-    ''
-      % avizo
+    # toggle microphone mute state with avizo notification
+    volumectl -m toggle-mute
 
-      # toggle microphone mute state with avizo notification
-      volumectl -m toggle-mute
-    ''
-    ''
-      % avizo
-
-      # adjust screen brightness with avizo notification
-      lightctl "<direction>"
-      $ direction: printf "up\ndown\n"
-    ''
-  ];
+    # adjust screen brightness with avizo notification
+    lightctl <direction>
+  '';
 }

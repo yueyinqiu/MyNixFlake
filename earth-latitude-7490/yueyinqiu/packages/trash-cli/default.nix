@@ -3,34 +3,20 @@
     trash-cli
   ];
 
-  my.navi-cheats = [
-    ''
-      % trash-cli
+  my.navi-cheats.trash-cli = ''
+    $ file: find . -maxdepth 1 --- --map my-bash-escape-std
+    $ trash: trash-list --- --column 3 --map my-bash-escape-std
 
-      # move file or directory to trash
-      trash-put <file>
+    # move file or directory to trash
+    trash-put <file>
 
-      $ file: find . -maxdepth 1
-    ''
-    ''
-      % trash-cli
+    # list files in trash
+    trash-list
 
-      # list files in trash
-      trash-list
-    ''
-    ''
-      % trash-cli
+    # restore a specific file from trash
+    trash-restore <trash>
 
-      # restore a specific file from trash
-      trash-restore "<file>"
-
-      $ file: trash-list 2>/dev/null --- --column 3
-    ''
-    ''
-      % trash-cli
-
-      # empty all files from trash
-      trash-empty
-    ''
-  ];
+    # empty all files from trash
+    trash-empty
+  '';
 }

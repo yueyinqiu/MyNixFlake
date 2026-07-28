@@ -3,19 +3,13 @@
     opencode
   ];
 
-  my.navi-cheats = [
-    ''
-      % opencode
+  my.navi-cheats.opencode = ''
+    $ session: opencode session list | grep '^ses_' --- --column 1 --map my-bash-escape-std
 
-      # start a new opencode interactive session
-      opencode
-    ''
-    ''
-      % opencode
+    # start a new opencode interactive session
+    opencode
 
-      # resume a specific opencode session
-      opencode -s "<session>"
-      $ session: opencode session list | grep '^ses_' --- --column 1
-    ''
-  ];
+    # resume a specific opencode session
+    opencode -s <session>
+  '';
 }

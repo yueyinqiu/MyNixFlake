@@ -3,13 +3,10 @@
     dotnetCorePackages.sdk_10_0
   ];
 
-  my.navi-cheats = [
-    ''
-      % dotnet
+  my.navi-cheats.dotnet = ''
+    $ script: find . -maxdepth 1 -type f -name "*.cs" --- --map my-bash-escape-std
 
-      # run a dotnet file-based app.
-      dotnet run "<file>"
-      $file: find . -maxdepth 1 -type f -name "*.cs"
-    ''
-  ];
+    # run a dotnet file-based app.
+    dotnet run <script>
+  '';
 }

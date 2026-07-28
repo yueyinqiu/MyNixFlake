@@ -14,24 +14,14 @@
     fi
   '';
 
-  my.navi-cheats = [
-    ''
-      % direnv, nix
+  my.navi-cheats.direnv = ''
+    # initialize .envrc with "use flake" for Nix environment
+    r direnv-use-flake
 
-      # initialize .envrc with "use flake" for Nix environment
-      r direnv-use-flake
-    ''
-    ''
-      % direnv
+    # grant permission to run the current .envrc in this directory
+    direnv allow
 
-      # grant permission to run the current .envrc in this directory
-      direnv allow
-    ''
-    ''
-      % direnv
-
-      # check direnv status and currently loaded environment variables
-      direnv status
-    ''
-  ];
+    # check direnv status and currently loaded environment variables
+    direnv status
+  '';
 }

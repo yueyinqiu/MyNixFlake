@@ -81,47 +81,24 @@
     }
   ];
 
-  my.navi-cheats = [
-    ''
-      % libvirt
+  my.navi-cheats.libvirt = ''
+    $ domain: virsh list --all --name --- --map my-bash-escape-std
+    $ file: printf "storage.raw\nstorage.raw" --- --map my-bash-escape-std
+    $ size: printf "80G\n80G" --- --map my-bash-escape-std
 
-      # start a virtual machine
-      virsh start "<domain>"
-      
-      $ domain: virsh list --all --name
-    ''
-    ''
-      % libvirt
+    # start a virtual machine
+    virsh start <domain>
 
-      # gracefully shutdown a virtual machine
-      virsh shutdown "<domain>"
+    # gracefully shutdown a virtual machine
+    virsh shutdown <domain>
 
-      $ domain: virsh list --all --name
-    ''
-    ''
-      % libvirt
+    # force power off a virtual machine
+    virsh destroy <domain>
+    
+    # attach GUI viewer to a running domain
+    virt-viewer --attach <domain>
 
-      # force power off a virtual machine
-      virsh destroy "<domain>"
-      
-      $ domain: virsh list --all --name
-    ''
-    ''
-      % libvirt
-
-      # attach GUI viewer to a running domain
-      virt-viewer --attach <domain>
-
-      $ domain: virsh list --all --name
-    ''
-    ''
-      % libvirt
-
-      # create preallocated raw disk image for a virtual machine
-      qemu-img create -f raw -o preallocation=full <file> <size>
-
-      $ file: printf "storage.raw"
-      $ size: printf "80G"
-    ''
-  ];
+    # create preallocated raw disk image for a virtual machine
+    qemu-img create -f raw -o preallocation=full <file> <size>
+  '';
 }

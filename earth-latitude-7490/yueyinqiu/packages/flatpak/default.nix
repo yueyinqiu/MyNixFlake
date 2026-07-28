@@ -10,12 +10,8 @@
     };
   };
 
-  my.navi-cheats = [
-    ''
-      % flatpak
-
-      # run flatpak, a framework for distributing desktop applications across various Linux distributions.
-      flatpak <args>
-    ''
-  ];
+  my.navi-cheats.flatpak = ''
+    # run flatpak, a framework for distributing desktop applications across various Linux distributions.
+    flatpak <args>
+  '';
 }

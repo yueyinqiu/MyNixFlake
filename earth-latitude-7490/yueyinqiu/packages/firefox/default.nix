@@ -11,12 +11,8 @@
 
   my.r.f = "niri msg action spawn -- firefox";
 
-  my.navi-cheats = [
-    ''
-      % firefox, niri
-
-      # spawn firefox via niri, detached from current shell
-      niri msg action spawn -- firefox
-    ''
-  ];
+  my.navi-cheats.firefox = ''
+    # spawn firefox via niri, detached from current shell
+    niri msg action spawn -- firefox
+  '';
 }
