@@ -2,7 +2,7 @@
   programs.vscode.enable = true;
   programs.vscode.package = pkgs.vscode.fhs;
 
-  home.shellAlias.v = ''code "$@"'';
+  home.shellAliases.v = ''code "$@"'';
 
   my.navi-cheats.vscode = ''
     $ target: find . -maxdepth 1 --- --map my-bash-escape-std

@@ -6,7 +6,7 @@
     executable = true;
   };
 
-  home.shellAlias.n = "niri-session";
+  home.shellAliases.n = "niri-session";
 
   my.navi-cheats.niri = ''
     # spawn command inside active niri session

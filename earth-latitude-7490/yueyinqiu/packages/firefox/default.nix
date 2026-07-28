@@ -9,7 +9,7 @@
     manager = 53507;
   };
 
-  home.shellAlias.f = "niri msg action spawn -- firefox";
+  home.shellAliases.f = "niri msg action spawn -- firefox";
 
   my.navi-cheats.firefox = ''
     # spawn firefox via niri, detached from current shell
