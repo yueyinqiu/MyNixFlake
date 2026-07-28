@@ -4,7 +4,7 @@
   ];
   my.r.wemeet = "flatpak run com.tencent.wemeet";
 
-  my.navi-cheats.wechat = ''
+  my.navi-cheats.wemeet = ''
     # run wemeet, namely, Tencent video conferencing.
     r wemeet
   '';
