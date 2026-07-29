@@ -1,0 +1,5 @@
+mmmm="$1"
+output="$2"
+
+"$mmmm" \
+    save "$output"
