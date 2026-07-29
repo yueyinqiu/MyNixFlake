@@ -1,0 +1,17 @@
+# "$MMMM" for mihomo-manager-mihomo-mixin
+# "$OUTPUT_PATH" for writing the final output
+# "$TEMP_DIRECTORY" for temporary files (cleaned up after service stops)
+# "$STATE_DIRECTORY" for persistent files (retained across runs)
+# . for other configuration files
+
+origin="$STATE_DIRECTORY/origin.yaml"
+if [ -z "$(find "$origin" -mtime -30)" ]; then
+    curl -H "User-Agent: flclash" \
+        --output "$origin" \
+        https://vx.yeshayun.com/
+fi
+
+"$MMMM" \
+    merge "$origin" \
+    js to-global.js \
+    save "$OUTPUT_PATH"

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.my.proxies;
@@ -7,16 +12,18 @@ let
 in
 {
   options.my.proxies.mihomo = lib.mkOption {
-    type = lib.types.attrsOf (lib.types.submodule {
-      options = {
-        port = lib.mkOption {
-          type = lib.types.port;
+    type = lib.types.attrsOf (
+      lib.types.submodule {
+        options = {
+          port = lib.mkOption {
+            type = lib.types.port;
+          };
+          files = lib.mkOption {
+            type = lib.types.listOf lib.types.path;
+          };
         };
-        files = lib.mkOption {
-          type = lib.types.listOf lib.types.path;
-        };
-      };
-    });
+      }
+    );
     default = { };
   };
 
@@ -26,17 +33,27 @@ in
 
   config = {
     home.packages = [
+      pkgs.mihomo
+      mmmm
       tui
     ];
 
-    xdg.configFile = lib.mergeAttrsList (lib.mapAttrsToList (name: item:
-      builtins.listToAttrs (map (file: {
-        name = "my-proxies/${name}/${baseNameOf file}";
-        value = { source = file; };
-      }) item.files)
-    ) cfg.mihomo);
+    xdg.configFile = lib.mergeAttrsList (
+      lib.mapAttrsToList (
+        name: item:
+        builtins.listToAttrs (
+          map (file: {
+            name = "my-proxies/${name}/${baseNameOf file}";
+            value = {
+              source = file;
+            };
+          }) item.files
+        )
+      ) cfg.mihomo
+    );
 
-    systemd.user.services = lib.mapAttrs' (name: item:
+    systemd.user.services = lib.mapAttrs' (
+      name: item:
       let
         port = pkgs.writeText "my-proxies-${name}-port.yaml" ''
           mixed-port: ${toString item.port}
@@ -44,15 +61,27 @@ in
 
         runner = pkgs.writeShellScript "my-proxies-run-${name}" ''
           set -e
-          CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
+
+          cd "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
+          mkdir "/tmp/config-sh"
+          MMMM="${mmmm}/bin/mmmm" \
+            OUTPUT_PATH="/tmp/merged.sh" \
+            TEMP_DIRECTORY="/tmp/config-sh" \
+            STATE_DIRECTORY="$STATE_DIRECTORY/config-sh" \
+            bash config.sh
+
+          "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save config.yaml
+
           SOCKET="$XDG_RUNTIME_DIR/my-proxies-${name}.sock"
 
-          cat > mihomo-tui.yaml << EOF
+          mkdir "$STATE_DIRECTORY/tui"
+          cd "$STATE_DIRECTORY/tui"
+          cat > config.yaml << EOF
           mihomo-api: unix:$SOCKET
           EOF
 
-          . "$CONFIG_DIR/config.sh" "${mmmm}/bin/mmmm" /tmp/merged.yaml
-          "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save config.yaml
+          mkdir "$STATE_DIRECTORY/core"
+          cd "$STATE_DIRECTORY/core"
           exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
         '';
       in
@@ -64,12 +93,11 @@ in
         };
         Install.WantedBy = [ "default.target" ];
         Service = {
-          ExecStart = ''${runner}'';
+          ExecStart = "${runner}";
           Restart = "on-failure";
           RestartSec = "5s";
           PrivateTmp = true;
           StateDirectory = "my-proxies/state/${name}";
-          WorkingDirectory = "%S/my-proxies/state/${name}";
         };
       }
     ) cfg.mihomo;
@@ -77,8 +105,8 @@ in
     my.navi-cheats.my-proxies = ''
       $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
 
-      # open mihomo TUI dashboard, connecting to the selected my-proxies instance
-      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/my-proxies/state/<name>/mihomo-tui.yaml"
+      # open mihomo-tui dashboard, connecting to the selected my-proxies instance
+      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/my-proxies/state/<name>/tui/config.yaml"
     '';
   };
 }
