@@ -1,6 +1,6 @@
 { ... }:
 {
-  my.proxies.yeshayun = {
+  my.proxies.mihomo.yeshayun = {
     files = [
       ./config.sh.example
     ];
