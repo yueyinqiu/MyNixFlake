@@ -28,7 +28,7 @@ in
   };
 
   imports = [
-    ./yeshayun
+    ./ye-sha-yun
   ];
 
   config = {
