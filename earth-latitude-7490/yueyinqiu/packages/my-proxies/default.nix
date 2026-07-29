@@ -71,7 +71,8 @@ in
             STATE_DIRECTORY="$STATE_DIRECTORY/config-sh" \
             bash config.sh
 
-          "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save config.yaml
+          mkdir -p "$STATE_DIRECTORY/core"
+          "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save "$STATE_DIRECTORY/core/config.yaml"
 
           SOCKET="$XDG_RUNTIME_DIR/my-proxies-${name}.sock"
 
@@ -81,7 +82,6 @@ in
           mihomo-api: unix:$SOCKET
           EOF
 
-          mkdir -p "$STATE_DIRECTORY/core"
           cd "$STATE_DIRECTORY/core"
           exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
         '';
