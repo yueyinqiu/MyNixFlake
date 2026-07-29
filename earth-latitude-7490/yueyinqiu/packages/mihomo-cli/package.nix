@@ -18,7 +18,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-JOa5otMJE1GqpGnsIvY/O4ps0N3N1wpepESigY0+Dic=";
-
+  RUSTFLAGS = "--cfg tokio_unstable";
+  
   passthru.updateScript = nix-update-script { };
 
   meta = {
