@@ -63,8 +63,8 @@ in
           set -e
 
           cd "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
-          mkdir "/tmp/config-sh"
-          mkdir "$STATE_DIRECTORY/config-sh"
+          mkdir -p "/tmp/config-sh"
+          mkdir -p "$STATE_DIRECTORY/config-sh"
           MMMM="${mmmm}/bin/mmmm" \
             OUTPUT_PATH="/tmp/merged.yaml" \
             TEMP_DIRECTORY="/tmp/config-sh" \
@@ -75,13 +75,13 @@ in
 
           SOCKET="$XDG_RUNTIME_DIR/my-proxies-${name}.sock"
 
-          mkdir "$STATE_DIRECTORY/tui"
+          mkdir -p "$STATE_DIRECTORY/tui"
           cd "$STATE_DIRECTORY/tui"
           cat > config.yaml << EOF
           mihomo-api: unix:$SOCKET
           EOF
 
-          mkdir "$STATE_DIRECTORY/core"
+          mkdir -p "$STATE_DIRECTORY/core"
           cd "$STATE_DIRECTORY/core"
           exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
         '';
