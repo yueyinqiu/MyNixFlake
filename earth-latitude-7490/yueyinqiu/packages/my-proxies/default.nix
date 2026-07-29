@@ -2,8 +2,8 @@
 
 let
   cfg = config.my.proxies;
-
-  mihomoMixin = pkgs.callPackage ./mihomo-manager-mihomo-mixin { };
+  mmmm = pkgs.callPackage ./mihomo-manager-mihomo-mixin { };
+  tui = pkgs.callPackage ./mihomo-tui { };
 in
 {
   options.my.proxies.mihomo = lib.mkOption {
@@ -21,25 +21,29 @@ in
   };
 
   config = {
-    xdg.configFile = lib.foldl' lib.recursiveUpdate { } (lib.mapAttrsToList (name: inst:
+    home.packages = [
+      tui
+    ];
+
+    xdg.configFile = lib.mergeAttrsList (lib.mapAttrsToList (name: item:
       builtins.listToAttrs (map (file: {
         name = "mihomo/${name}/${baseNameOf file}";
         value = { source = file; };
-      }) inst.files)
+      }) item.files)
     ) cfg.mihomo);
 
-    systemd.user.services = lib.mapAttrs' (name: inst:
+    systemd.user.services = lib.mapAttrs' (name: item:
       let
-        portYaml = pkgs.writeText "mihomo-${name}-port.yaml" ''
-          mixed-port: ${toString inst.port}
+        port = pkgs.writeText "mihomo-${name}-port.yaml" ''
+          mixed-port: ${toString item.port}
         '';
 
         runner = pkgs.writeShellScript "mihomo-run-${name}" ''
           set -e
           CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/${name}"
 
-          . "$CONFIG_DIR/config.sh" "${mihomoMixin}/bin/mmmm" /tmp/merged.yaml
-          "${mihomoMixin}/bin/mmmm" merge /tmp/merged.yaml merge "${portYaml}" save config.yaml
+          . "$CONFIG_DIR/config.sh" "${mmmm}/bin/mmmm" /tmp/merged.yaml
+          "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save config.yaml
           exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "''${XDG_RUNTIME_DIR}/mihomo-${name}.sock"
         '';
       in
@@ -62,9 +66,9 @@ in
     ) cfg.mihomo;
 
     my.navi-cheats.mihomo = ''
-      $ name: find "''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/" -maxdepth 1 -type d --- --map my-bash-escape-std
+      $ name: find "''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/" -maxdepth 1 -type d
 
-      # Open TUI dashboard
+      # open mihomo TUI dashboard, connecting to the selected my-proxies instance
       mihomo-tui -c <(echo "mihomo-api: unix:''${XDG_RUNTIME_DIR}/mihomo-<name>.sock")
     '';
   };
