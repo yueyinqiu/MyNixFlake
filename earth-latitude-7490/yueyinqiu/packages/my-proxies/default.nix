@@ -64,8 +64,9 @@ in
 
           cd "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
           mkdir "/tmp/config-sh"
+          mkdir "$STATE_DIRECTORY/config-sh"
           MMMM="${mmmm}/bin/mmmm" \
-            OUTPUT_PATH="/tmp/merged.sh" \
+            OUTPUT_PATH="/tmp/merged.yaml" \
             TEMP_DIRECTORY="/tmp/config-sh" \
             STATE_DIRECTORY="$STATE_DIRECTORY/config-sh" \
             bash config.sh
