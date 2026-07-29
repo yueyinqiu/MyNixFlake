@@ -70,7 +70,7 @@ in
     ) cfg.mihomo;
 
     my.navi-cheats.mihomo = ''
-      $ name: find "''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/" -maxdepth 1 -type d
+      $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/"
 
       # open mihomo TUI dashboard, connecting to the selected my-proxies instance
       mihomo-tui -c <(echo "mihomo-api: unix:''${XDG_RUNTIME_DIR}/mihomo-<name>.sock")
