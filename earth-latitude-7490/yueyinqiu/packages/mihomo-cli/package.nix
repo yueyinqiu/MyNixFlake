@@ -20,8 +20,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-JOa5otMJE1GqpGnsIvY/O4ps0N3N1wpepESigY0+Dic=";
   RUSTFLAGS = "--cfg tokio_unstable";
 
-  VERGEN_GIT_DESCRIBE = "v${finalAttrs.version}";
-  VERGEN_BUILD_DATE = "";
+  preConfigure = ''
+    export VERGEN_GIT_DESCRIBE="v${finalAttrs.version}"
+    export VERGEN_BUILD_DATE="Unknown (built with nix)"
+  '';
 
   passthru.updateScript = nix-update-script { };
 
