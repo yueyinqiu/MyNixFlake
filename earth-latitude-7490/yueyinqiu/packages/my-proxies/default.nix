@@ -45,10 +45,15 @@ in
         runner = pkgs.writeShellScript "my-proxies-run-${name}" ''
           set -e
           CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
+          SOCKET="$XDG_RUNTIME_DIR/my-proxies-${name}.sock"
+
+          cat > mihomo-tui.yaml << EOF
+          mihomo-api: unix:$SOCKET
+          EOF
 
           . "$CONFIG_DIR/config.sh" "${mmmm}/bin/mmmm" /tmp/merged.yaml
           "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save config.yaml
-          exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "''${XDG_RUNTIME_DIR}/my-proxies-${name}.sock"
+          exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
         '';
       in
       lib.nameValuePair "my-proxies-${name}" {
@@ -73,7 +78,7 @@ in
       $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
 
       # open mihomo TUI dashboard, connecting to the selected my-proxies instance
-      mihomo-tui -c <(echo "mihomo-api: unix:''${XDG_RUNTIME_DIR}/my-proxies-<name>.sock")
+      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/my-proxies/state/<name>/mihomo-tui.yaml"
     '';
   };
 }
