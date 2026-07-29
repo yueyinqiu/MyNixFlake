@@ -20,6 +20,10 @@ in
     default = { };
   };
 
+  imports = [
+    ./yeshayun
+  ];
+
   config = {
     home.packages = [
       tui
