@@ -31,29 +31,29 @@ in
 
     xdg.configFile = lib.mergeAttrsList (lib.mapAttrsToList (name: item:
       builtins.listToAttrs (map (file: {
-        name = "mihomo/${name}/${baseNameOf file}";
+        name = "my-proxies/${name}/${baseNameOf file}";
         value = { source = file; };
       }) item.files)
     ) cfg.mihomo);
 
     systemd.user.services = lib.mapAttrs' (name: item:
       let
-        port = pkgs.writeText "mihomo-${name}-port.yaml" ''
+        port = pkgs.writeText "my-proxies-${name}-port.yaml" ''
           mixed-port: ${toString item.port}
         '';
 
-        runner = pkgs.writeShellScript "mihomo-run-${name}" ''
+        runner = pkgs.writeShellScript "my-proxies-run-${name}" ''
           set -e
-          CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/${name}"
+          CONFIG_DIR="''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
 
           . "$CONFIG_DIR/config.sh" "${mmmm}/bin/mmmm" /tmp/merged.yaml
           "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save config.yaml
-          exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "''${XDG_RUNTIME_DIR}/mihomo-${name}.sock"
+          exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "''${XDG_RUNTIME_DIR}/my-proxies-${name}.sock"
         '';
       in
-      lib.nameValuePair "mihomo-${name}" {
+      lib.nameValuePair "my-proxies-${name}" {
         Unit = {
-          Description = "mihomo Service (${name})";
+          Description = "my-proxies Service ${name}";
           After = [ "network-online.target" ];
           Wants = [ "network-online.target" ];
         };
@@ -63,17 +63,17 @@ in
           Restart = "on-failure";
           RestartSec = "5s";
           PrivateTmp = true;
-          StateDirectory = "mihomo/${name}";
-          WorkingDirectory = "%S/mihomo/${name}";
+          StateDirectory = "my-proxies/state/${name}";
+          WorkingDirectory = "%S/my-proxies/state/${name}";
         };
       }
     ) cfg.mihomo;
 
-    my.navi-cheats.mihomo = ''
-      $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/mihomo/"
+    my.navi-cheats.my-proxies = ''
+      $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
 
       # open mihomo TUI dashboard, connecting to the selected my-proxies instance
-      mihomo-tui -c <(echo "mihomo-api: unix:''${XDG_RUNTIME_DIR}/mihomo-<name>.sock")
+      mihomo-tui -c <(echo "mihomo-api: unix:''${XDG_RUNTIME_DIR}/my-proxies-<name>.sock")
     '';
   };
 }
