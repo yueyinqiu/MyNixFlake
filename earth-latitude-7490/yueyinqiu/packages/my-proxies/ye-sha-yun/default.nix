@@ -1,6 +1,6 @@
 { ... }:
 {
-  my.proxies.mihomo.ye-sha-yun = {
+  my.proxies.ye-sha-yun = {
     files = [
       ./config.sh.example
       ./to-global.js

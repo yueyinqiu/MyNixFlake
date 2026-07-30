@@ -6,12 +6,11 @@
 }:
 
 let
-  cfg = config.my.proxies;
   mmmm = pkgs.callPackage ./mihomo-manager-mihomo-mixin { };
   tui = pkgs.callPackage ./mihomo-tui { };
 in
 {
-  options.my.proxies.mihomo = lib.mkOption {
+  options.my.proxies = lib.mkOption {
     type = lib.types.attrsOf (
       lib.types.submodule {
         options = {
@@ -49,7 +48,7 @@ in
             };
           }) item.files
         )
-      ) cfg.mihomo
+      ) config.my.proxies
     );
 
     systemd.user.services = lib.mapAttrs' (
@@ -101,7 +100,7 @@ in
           StateDirectory = "my-proxies/state/${name}";
         };
       }
-    ) cfg.mihomo;
+    ) config.my.proxies;
 
     my.navi-cheats.my-proxies = ''
       $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
