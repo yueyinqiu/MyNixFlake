@@ -47,6 +47,21 @@ in
               source = file;
             };
           }) item.files
+          ++ [
+            {
+              name = "my-proxies/${name}/my-proxies.yaml";
+              value = {
+                text = builtins.toJSON {
+                  proxies = lib.mapAttrsToList (name: item: {
+                    name = "my-proxies-${name}";
+                    type = "socks5";
+                    server = "127.0.0.1";
+                    port = item.port;
+                  }) config.my.proxies;
+                };
+              };
+            }
+          ]
         )
       ) config.my.proxies
     );
