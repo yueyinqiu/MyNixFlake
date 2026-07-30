@@ -44,14 +44,14 @@ in
         name: item:
         builtins.listToAttrs (
           map (file: {
-            name = "my-proxies/${name}/${baseNameOf file}";
+            name = "proxies/${name}/${baseNameOf file}";
             value = {
               source = file;
             };
           }) item.files
           ++ [
             {
-              name = "my-proxies/${name}/my-proxies.yaml";
+              name = "proxies/${name}/my-proxies.yaml";
               value = {
                 text = builtins.toJSON {
                   proxies = lib.mapAttrsToList (name: item: {
@@ -71,14 +71,14 @@ in
     systemd.user.services = lib.mapAttrs' (
       name: item:
       let
-        port = pkgs.writeText "my-proxies-${name}-port.yaml" ''
+        port = pkgs.writeText "proxies-${name}-port.yaml" ''
           mixed-port: ${toString item.port}
         '';
 
-        runner = pkgs.writeShellScript "my-proxies-run-${name}" ''
+        runner = pkgs.writeShellScript "proxies-${name}-run" ''
           set -e
 
-          cd "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/${name}"
+          cd "''${XDG_CONFIG_HOME:-$HOME/.config}/proxies/${name}"
           mkdir -p "/tmp/config-sh"
           mkdir -p "$STATE_DIRECTORY/config-sh"
           MMMM="${mmmm}/bin/mmmm" \
@@ -90,7 +90,7 @@ in
           mkdir -p "$STATE_DIRECTORY/core"
           "${mmmm}/bin/mmmm" merge /tmp/merged.yaml merge "${port}" save "$STATE_DIRECTORY/core/config.yaml"
 
-          SOCKET="$XDG_RUNTIME_DIR/my-proxies-${name}.sock"
+          SOCKET="$XDG_RUNTIME_DIR/proxies-${name}.sock"
 
           mkdir -p "$STATE_DIRECTORY/tui"
           cd "$STATE_DIRECTORY/tui"
@@ -102,9 +102,9 @@ in
           SAFE_PATHS="$STATE_DIRECTORY" exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
         '';
       in
-      lib.nameValuePair "my-proxies-${name}" {
+      lib.nameValuePair "proxies-${name}" {
         Unit = {
-          Description = "my-proxies Service ${name}";
+          Description = "proxies Service ${name}";
           After = [ "network-online.target" ];
           Wants = [ "network-online.target" ];
         };
@@ -114,16 +114,16 @@ in
           Restart = "on-failure";
           RestartSec = "5s";
           PrivateTmp = true;
-          StateDirectory = "my-proxies/state/${name}";
+          StateDirectory = "proxies/state/${name}";
         };
       }
     ) config.my.proxies;
 
-    my.navi-cheats.my-proxies = ''
-      $ proxy: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
+    my.navi-cheats.proxies = ''
+      $ proxy: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/proxies/"
 
-      # open mihomo-tui dashboard, connecting to the selected my-proxies instance
-      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/my-proxies/state/<proxy>/tui/config.yaml"
+      # open mihomo-tui dashboard, connecting to the selected proxy instance
+      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/proxies/state/<proxy>/tui/config.yaml"
     '';
   };
 }
