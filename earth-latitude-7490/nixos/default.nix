@@ -115,7 +115,7 @@
     akvcam
   ];
   boot.kernelModules = [ "akvcam" ];
-  environment.etc."akvcam/config.ini".text = ''
+environment.etc."akvcam/config.ini".text = ''
     [General]
     default_frame = ""
 
@@ -125,27 +125,27 @@
     cameras/1/type = output
     cameras/1/mode = mmap, userptr, rw
     cameras/1/description = Virtual Camera (Output)
-    cameras/1/formats = 1
+    cameras/1/formats = 1, 2
     cameras/1/videonr = 10
 
     cameras/2/type = capture
     cameras/2/mode = mmap, rw
     cameras/2/description = Virtual Camera
-    cameras/2/formats = 2
+    cameras/2/formats = 1, 2
     cameras/2/videonr = 11
 
     [Formats]
     formats/size = 2
 
-    formats/1/format = RGB24
+    formats/1/format = YUY2
     formats/1/width = 1280
     formats/1/height = 720
-    formats/1/fps = 30
+    formats/1/fps = 30/1
 
     formats/2/format = YUY2
-    formats/2/width = 1280
-    formats/2/height = 720
-    formats/2/fps = 30
+    formats/2/width = 640
+    formats/2/height = 480
+    formats/2/fps = 30/1
 
     [Connections]
     connections/size = 1
