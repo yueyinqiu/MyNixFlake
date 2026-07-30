@@ -120,10 +120,10 @@ in
     ) config.my.proxies;
 
     my.navi-cheats.my-proxies = ''
-      $ name: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
+      $ proxy: ls "''${XDG_CONFIG_HOME:-$HOME/.config}/my-proxies/"
 
       # open mihomo-tui dashboard, connecting to the selected my-proxies instance
-      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/my-proxies/state/<name>/tui/config.yaml"
+      mihomo-tui -c "''${XDG_STATE_HOME:-$HOME/.local/state}/my-proxies/state/<proxy>/tui/config.yaml"
     '';
   };
 }

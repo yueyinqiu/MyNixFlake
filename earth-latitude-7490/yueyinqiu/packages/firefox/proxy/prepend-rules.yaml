@@ -1,0 +1,15 @@
+Rules:
+  Delete: []
+  Prepend:
+    - DOMAIN-SUFFIX,pjlab.org.cn,my-proxies-pjlab
+    - IP-CIDR,10.1.20.52/32,my-proxies-pjlab
+    - DOMAIN-SUFFIX,tongji.edu.cn,my-proxies-tongji
+  Append: []
+Proxies:
+  Delete: []
+  Prepend: []
+  Append: []
+ProxyGroups:
+  Delete: []
+  Prepend: []
+  Append: []

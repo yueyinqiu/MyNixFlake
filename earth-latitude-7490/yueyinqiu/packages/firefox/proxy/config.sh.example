@@ -1,0 +1,20 @@
+# "$MMMM" for mihomo-manager-mihomo-mixin
+# "$OUTPUT_PATH" for writing the final output
+# "$TEMP_DIRECTORY" for temporary files (cleaned up after service stops)
+# "$STATE_DIRECTORY" for persistent files (retained across runs)
+# . for other configuration files
+
+origin="$STATE_DIRECTORY/origin.yaml"
+if [ -z "$(find "$origin" -mtime -90)" ]; then
+    curl -H "User-Agent: flclash" \
+        --output "$origin" \
+        https://vx.yeshayun.com/
+fi
+
+"$MMMM" \
+    merge "$origin" \
+    merge remove-proxies.yaml \
+    merge my-proxies.yaml \
+    js update-proxy-groups.js \
+    edit prepend-rules.yaml \
+    save "$OUTPUT_PATH"
