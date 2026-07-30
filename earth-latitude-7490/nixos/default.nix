@@ -140,12 +140,12 @@ environment.etc."akvcam/config.ini".text = ''
     formats/1/format = YUY2
     formats/1/width = 1280
     formats/1/height = 720
-    formats/1/fps = 30/1
+    formats/1/fps = 1/30
 
     formats/2/format = YUY2
     formats/2/width = 640
     formats/2/height = 480
-    formats/2/fps = 30/1
+    formats/2/fps = 1/30
 
     [Connections]
     connections/size = 1
