@@ -1,4 +1,10 @@
-{ pkgs, nixvirt, config, ... }: {
+{
+  pkgs,
+  nixvirt,
+  config,
+  ...
+}:
+{
   imports = [
     ./hardware.nix
     ./nix-daemon-proxy
@@ -10,15 +16,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelParams = [ 
-    "pcie_aspm=off" 
+  boot.kernelParams = [
+    "pcie_aspm=off"
   ];
 
   services.logind.settings.Login = {
     HandleLidSwitch = "ignore";
   };
   services.upower.ignoreLid = true;
-  
+
   networking.hostName = "earth-latitude-7490";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
@@ -105,28 +111,50 @@
 
   services.flatpak.enable = true;
 
-
   boot.extraModulePackages = with config.boot.kernelPackages; [
     akvcam
   ];
   boot.kernelModules = [ "akvcam" ];
-   environment.etc."akvcam/config.ini".text = ''
+  environment.etc."akvcam/config.ini".text = ''
     [General]
-    cameras/size = 1
+    default_frame = ""
 
-    [Camera 1]
-    Name = Integrated Camera (UVC)
-    Description = Virtual UVC Device for Wemeet
-    Driver = uvcvideo
-    VendorId = 0bda
-    ProductId = 58b0
+    [Cameras]
+    cameras/size = 2
 
-    [Camera 1/Formats/1]
-    Format = YUY2
-    Width = 1280
-    Height = 720
-    Framerate = 30
-  ''; 
+    [Cameras/1]
+    cameras/1/type = output
+    cameras/1/mode = mmap, userptr, rw
+    cameras/1/description = Virtual Camera (Output)
+    cameras/1/formats = 1
+    cameras/1/videonr = 10
+
+    [Cameras/2]
+    cameras/2/type = capture
+    cameras/2/mode = mmap, rw
+    cameras/2/description = Integrated Camera (UVC)
+    cameras/2/formats = 2
+    cameras/2/videonr = 11
+
+    [Formats]
+    formats/size = 2
+
+    # 1. 给 output 推流端用的格式（akvcam 的 output 只支持 RGB24 / BGR24）
+    formats/1/format = RGB24
+    formats/1/width = 1280
+    formats/1/height = 720
+    formats/1/fps = 30
+
+    # 2. 伪装给腾讯会议看（capture 端）的格式，选通用性最好的 YUY2
+    formats/2/format = YUY2
+    formats/2/width = 1280
+    formats/2/height = 720
+    formats/2/fps = 30
+
+    [Connections]
+    connections/size = 1
+    connections/1/connection = 1:2
+  '';
 
   system.stateVersion = "26.05"; # never change this, even it's updated
 }
