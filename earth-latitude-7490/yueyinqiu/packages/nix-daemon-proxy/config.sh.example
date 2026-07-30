@@ -6,5 +6,5 @@
 
 "$MMMM" \
     merge my-proxies.yaml \
-    merge rules.yml \
+    merge rules.yaml \
     save "$OUTPUT_PATH"
