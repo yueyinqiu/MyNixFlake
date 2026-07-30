@@ -112,44 +112,11 @@
   services.flatpak.enable = true;
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
-    akvcam
+    v4l2loopback
   ];
-  boot.kernelModules = [ "akvcam" ];
-environment.etc."akvcam/config.ini".text = ''
-    [General]
-    default_frame = ""
-
-    [Cameras]
-    cameras/size = 2
-
-    cameras/1/type = output
-    cameras/1/mode = mmap, userptr, rw
-    cameras/1/description = Virtual Camera (Output)
-    cameras/1/formats = 1, 2
-    cameras/1/videonr = 10
-
-    cameras/2/type = capture
-    cameras/2/mode = mmap, rw
-    cameras/2/description = Virtual Camera
-    cameras/2/formats = 1, 2
-    cameras/2/videonr = 11
-
-    [Formats]
-    formats/size = 2
-
-    formats/1/format = YUY2
-    formats/1/width = 1280
-    formats/1/height = 720
-    formats/1/fps = 1/30
-
-    formats/2/format = YUY2
-    formats/2/width = 640
-    formats/2/height = 480
-    formats/2/fps = 1/30
-
-    [Connections]
-    connections/size = 1
-    connections/1/connection = 1:2
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
   '';
 
   system.stateVersion = "26.05"; # never change this, even it's updated
