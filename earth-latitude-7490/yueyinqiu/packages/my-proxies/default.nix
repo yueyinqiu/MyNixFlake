@@ -99,7 +99,7 @@ in
           EOF
 
           cd "$STATE_DIRECTORY/core"
-          exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
+          SAFE_PATHS="$STATE_DIRECTORY" exec "${pkgs.mihomo}/bin/mihomo" -d . -ext-ctl-unix "$SOCKET"
         '';
       in
       lib.nameValuePair "my-proxies-${name}" {
