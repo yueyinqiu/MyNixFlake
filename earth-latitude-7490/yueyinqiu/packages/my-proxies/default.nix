@@ -28,6 +28,8 @@ in
 
   imports = [
     ./ye-sha-yun
+    ./pjlab
+    ./tongji
   ];
 
   config = {
