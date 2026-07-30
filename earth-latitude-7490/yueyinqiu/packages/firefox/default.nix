@@ -1,14 +1,6 @@
 { ... }: {
   programs.firefox.enable = true;
 
-  my.sing-box.instances.for-firefox = {
-    files = [
-      ./rules.json
-    ];
-    port = 14469;
-    manager = 53507;
-  };
-
   my.proxies.for-firefox = {
     files = [
       ./proxy/config.sh.example
