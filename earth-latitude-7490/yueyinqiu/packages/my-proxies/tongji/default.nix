@@ -1,6 +1,6 @@
 { ... }:
 {
-  my.proxies.ye-sha-yun = {
+  my.proxies.tongji = {
     files = [
       ./config.sh.example
       ./config.yaml
