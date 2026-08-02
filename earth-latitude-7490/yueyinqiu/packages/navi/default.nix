@@ -7,6 +7,11 @@
   config = {
     programs.navi.enable = true;
     programs.navi.enableBashIntegration = true;
+    programs.navi.settings = {
+      finder = {
+        overrides_var = "--no-select-1";
+      };
+    };
 
     home.file = lib.mapAttrs' (name: content: {
       name = ".local/share/navi/cheats/${name}.cheat";

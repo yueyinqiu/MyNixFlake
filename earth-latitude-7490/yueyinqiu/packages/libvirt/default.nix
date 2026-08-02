@@ -84,7 +84,7 @@
   my.navi-cheats.libvirt = ''
     $ domain: virsh list --all --name --- --map my-bash-escape-std
     $ file: printf "storage.raw\nstorage.raw" --- --map my-bash-escape-std
-    $ size: printf "80G\n80G" --- --map my-bash-escape-std
+    $ size: printf "80G" --- --map my-bash-escape-std
 
     # start a virtual machine
     virsh start <domain>
