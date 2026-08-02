@@ -9,7 +9,7 @@
     programs.navi.enableBashIntegration = true;
     programs.navi.settings = {
       finder = {
-        overrides_var = "--no-select-1 --bind alt-enter:replace-query";
+        overrides_var = "--no-select-1 --bind alt-enter:replace-query,enter:print-query";
       };
     };
 
