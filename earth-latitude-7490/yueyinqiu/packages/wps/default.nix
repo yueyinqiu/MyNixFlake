@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   # https://github.com/Beriholic/nix-wpsoffice-cn/issues/1#issuecomment-3706931491
   # https://bbs.wps.cn/topic/61831
   # Don't Login! It will create a fucking Documents directory!
@@ -13,7 +13,7 @@
           --set GTK_IM_MODULE "fcitx" \
           --set QT_IM_MODULE "fcitx" \
           --set SDL_IM_MODULE "fcitx" \
-          --set HOME "$HOME/.wps"
+          --set HOME "${config.home.homeDirectory}/.wps"
       '';
     })
   ];
