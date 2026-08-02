@@ -3,7 +3,7 @@
     nb
   ];
   my.navi-cheats.nb = ''
-      $ note: nb list --filenames --no-id --- my-bash-escape-std
+      $ note: nb list --filenames --no-id --- --map my-bash-escape-std
 
       # edit a note in the currect nb notebook
       nb edit <note>
