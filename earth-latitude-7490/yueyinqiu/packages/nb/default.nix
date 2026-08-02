@@ -11,9 +11,6 @@
       # disable nb auto sync
       nb set auto_sync 0
       
-      # disable nb auto sync
-      nb set auto_sync 0
-      
       # set nb sync url
       nb remote set <url>
 
