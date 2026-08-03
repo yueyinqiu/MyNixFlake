@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  environment.etc."easytier/easytier-pro" = {
+  environment.etc."easytier/easytier-pro/configuration.env.example" = {
     source = ./configuration.env.example;
   };
   environment.systemPackages = [
