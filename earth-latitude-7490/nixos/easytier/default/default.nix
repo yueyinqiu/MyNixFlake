@@ -4,13 +4,13 @@
   };
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "easytier-cli-default" ''
-      easytier-cli --rpc-portal 31572 "$@"
+      easytier-cli --rpc-portal 127.0.0.1:61204 "$@"
     '')
   ];
   services.easytier.instances.default = {
     configFile = "/etc/easytier/default/configuration.toml";
     extraArgs = [
-      "--rpc-portal=31572"
+      "--rpc-portal=127.0.0.1:61204"
     ];
   };
 }
