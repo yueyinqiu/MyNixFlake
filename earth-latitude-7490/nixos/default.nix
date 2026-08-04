@@ -48,6 +48,13 @@
   ];
   nix.settings.trusted-users = [ "yueyinqiu" ];
 
+  nix.settings.extra-substituters = [
+    "https://yueyinqiu.cachix.org"
+  ];
+  nix.settings.extra-trusted-public-keys = [
+    "yueyinqiu.cachix.org-1:iooLFYpS7e6KAU4+QM5Zoj6Tq76jRGo+kjeAbu8JxAc="
+  ];
+
   boot.supportedFilesystems = [ "ntfs" ];
 
   services.auto-cpufreq.enable = true;
