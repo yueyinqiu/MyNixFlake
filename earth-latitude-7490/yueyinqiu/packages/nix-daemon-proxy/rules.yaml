@@ -6,6 +6,7 @@ rules:
   - DOMAIN-SUFFIX,nomachine.com,my-proxies-ye-sha-yun
   - DOMAIN-SUFFIX,googlesource.com,my-proxies-ye-sha-yun
 
+  - DOMAIN-SUFFIX,cachix.org,DIRECT
   - DOMAIN-SUFFIX,mirror.nju.edu.cn,DIRECT
   - DOMAIN-SUFFIX,mirrors.tuna.tsinghua.edu.cn,DIRECT
   - DOMAIN-SUFFIX,mirrors.cernet.edu.cn,DIRECT
