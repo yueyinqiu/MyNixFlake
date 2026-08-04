@@ -46,6 +46,11 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    yueyinqiu-nur-packages = {
+      url = "github:yueyinqiu/MyNurPackages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -60,6 +65,7 @@
       winapps,
       nix-wpsoffice-cn,
       nvf,
+      yueyinqiu-nur-packages,
       ...
     }:
     {
@@ -83,6 +89,7 @@
           winapps = winapps.packages."x86_64-linux";
           nix-wpsoffice-cn = nix-wpsoffice-cn.packages."x86_64-linux";
           nvf = nvf;
+          yueyinqiu-nur-packages = yueyinqiu-nur-packages.legacyPackages."x86_64-linux";
         };
         modules = [
           ./earth-latitude-7490/yueyinqiu
