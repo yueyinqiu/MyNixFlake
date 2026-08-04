@@ -315,7 +315,8 @@
         "nur": "nur",
         "nvf": "nvf",
         "vscode-server": "vscode-server",
-        "winapps": "winapps"
+        "winapps": "winapps",
+        "yueyinqiu-nur-packages": "yueyinqiu-nur-packages"
       }
     },
     "systems": {
@@ -386,6 +387,26 @@
       "original": {
         "owner": "winapps-org",
         "repo": "winapps",
+        "type": "github"
+      }
+    },
+    "yueyinqiu-nur-packages": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785829059,
+        "narHash": "sha256-G4KUmOwZsw22q/FzV+vPByrPZpraU6Lkb6t1qXnAUPo=",
+        "owner": "yueyinqiu",
+        "repo": "MyNurPackages",
+        "rev": "b46480db163ef613780fecef3ebdc7ef03221d34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yueyinqiu",
+        "repo": "MyNurPackages",
         "type": "github"
       }
     }
