@@ -1,5 +1,4 @@
-sudo nixos-rebuild switch --flake .#earth-latitude-7490
-
-https://search.nixos.org/packages
-https://search.nixos.org/options
-https://home-manager-options.extranix.com/
+This repository is deprecated and has been split into three separate repositories:
+- https://github.com/yueyinqiu/HomeYueyinqiuOnEarthLatitude7490
+- https://github.com/yueyinqiu/NixosEarthLatitude7490
+- https://github.com/yueyinqiu/HomeYueyinqiuOnXamorix
